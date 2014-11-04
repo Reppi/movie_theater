@@ -1,0 +1,46 @@
+.movie-schedule-detail .article-detail {
+  margin: 0 16px;
+}
+.movie-schedule-detail article h3 {
+  width: 100%;
+  border-bottom: 4px solid #538bc1;
+  font-size: 20px;
+  line-height: 1.5em;
+  padding: 16px 0 12px;
+  margin: 0 0 16px;
+  letter-spacing: 0.1em;
+}
+
+.movie-schedule-detail .thm-img {
+  width: 365px;
+  margin: 0 20px 0 0;
+  float: left;
+}
+.movie-schedule-detail .detail-list {
+  width: 280px;
+  float: right;
+  line-height: 1.5em;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+.movie-schedule-detail .col2-wrp {
+  margin: 0 0 16px 0;
+}
+.article-detail ul {
+  margin: 8px 0 8px 16px;
+}
+.article-detail ul li {
+  list-style-type: disc;
+
+}
+.article-detail .detail-txt{
+  line-height: 1.5em;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  margin: 0 0 32px;
+}
+.article-detail .date,
+.article-detail .genre {
+  text-align: right;
+  margin: 0 0 8px;
+}
