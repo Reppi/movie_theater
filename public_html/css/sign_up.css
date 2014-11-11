@@ -1,0 +1,67 @@
+.sign-up .article-detail {
+  margin: 0 16px;
+}
+.sign-up article h3 {
+  width: 100%;
+  border-bottom: 4px solid #538bc1;
+  font-size: 20px;
+  line-height: 1.5em;
+  padding: 16px 0 12px;
+  margin: 0 0 16px;
+  letter-spacing: 0.1em;
+}
+
+.sign-up article .glid-list {
+  height: 68px;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #ccc;
+}
+.sign-up article .glid-list {
+  line-height: 68px;
+}
+.sign-up article .glid-list span {
+  float: right;
+  width: 364px;
+  height: 68px;
+}
+.text-box {
+  height: 52px;
+  line-height: 52px;
+  margin: 8px 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+.text-box-col-1 {
+  width: 100%;
+}
+.text-box-col-2 {
+  width: 47%;
+}
+.text-box-col-2-last {
+  float: right;
+}
+.radio-col-2 {
+  margin: 0 4px 0 16px;
+}
+.sign-up input[type="submit"] {
+  display: block;
+  margin: 16px auto;
+  width: 300px;
+  height: 52px;
+  line-height: 52px;
+  outline:0;
+  background-color: #ff7285;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border: 0;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: .5em;
+  text-align: center;
+  cursor: pointer;
+}
