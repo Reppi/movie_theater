@@ -1,3 +1,4 @@
+<?php ?>
 <!-- HTML5で開発します -->
 <!DOCTYPE html>
 
