@@ -1,6 +1,7 @@
 <!-- HTML5で開発します -->
 <!DOCTYPE html>
 <!-- test -->
+<!--「海賊王に俺はなる！」-->
 <html>
 
   <head>
