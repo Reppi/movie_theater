@@ -72,6 +72,7 @@
 				<div id="contentszone">
 					<h2 class="clearfix">映画一覧</h2>
 					<div id="contentszonecover">
+						<a href="movie_planlist_detail.php">
 						<div class="movielist_box">
 							<div class="movielist_content">
 								<div class="movielist_thumbnail"></div>
@@ -80,8 +81,11 @@
 									<p class="movielist_text">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ</p>
 								</div>
 							</div>
+							</a>
 						</div>
+
 						<div class="movielist_box">
+							<a href="movie_planlist_detail.php">
 							<div class="movielist_content">
 								<div class="movielist_thumbnail"></div>
 								<div class="movielist_details">
@@ -89,8 +93,11 @@
 									<p class="movielist_text">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ</p>
 								</div>
 							</div>
+							</a>
 						</div>
+
 						<div class="movielist_box">
+							<a href="movie_planlist_detail.php">
 							<div class="movielist_content">
 								<div class="movielist_thumbnail"></div>
 								<div class="movielist_details">
@@ -98,8 +105,11 @@
 									<p class="movielist_text">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ</p>
 								</div>
 							</div>
+							</a>
 						</div>
+
 						<div class="movielist_box">
+							<a href="movie_planlist_detail.php">
 							<div class="movielist_content">
 								<div class="movielist_thumbnail"></div>
 								<div class="movielist_details">
@@ -107,6 +117,7 @@
 									<p class="movielist_text">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ</p>
 								</div>
 							</div>
+							</a>
 						</div>
 						<!--映画一覧のボタン-->
 						<p id="next">過去の作品</p>

@@ -1,0 +1,44 @@
+/*施設紹介ページ　CSS*/
+.right_img{margin-left:18px;}
+#contentscover p{
+	line-height:20px;	
+	letter-spacing:1px;
+}
+
+#contentszone{
+	background-color: #f2f2f2;
+}
+#contentscover{
+	background-color: #fff;
+	margin-left:0px;
+	padding:16px;
+}
+
+#wrapper h2{
+	margin-bottom:0px;
+}
+
+.mg4{
+	margin-top:15px;
+}
+
+.detail{line-height:25px;}
+
+.ta{margin-top:5px;}
+.ta th{
+	width:160px;
+	background-color:#e0e0e0;
+	padding:5px;
+	border:solid 1px #fff;
+	font-size:15px;
+	font-weight:300;
+	text-align:left;
+}
+.ta td{
+	font-size:12px;
+	padding:5px;
+	border: solid 1px #fff;
+	background-color: #f7f7f7;
+}
+
+.detail_none{border:none;}
