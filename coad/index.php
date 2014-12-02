@@ -22,47 +22,7 @@
 
 	<body>
 
-		<!-- ↓グローバルメニュー↓ -->
-		<header id="header">
-
-			<!-- ↓トップリンクナビがあるとこ↓ -->
-			<nav id="toplinkbar">
-
-				<a href="#"><img class="logo" src="images/logo.jpg"></a>
-				<a href="#"><img class="member_botton" src="images/member_botton.png"></a>
-
-				<div id="toplinkbar_inner">
-					<ul>
-						<a href="#"><li id="toplinkbar_menu1">サイトマップ</li></a>
-						<a href="common_question.php"><li id="toplinkbar_menu2">よくあるご質問</li></a>
-						<a href="contact.php"><li>お問い合わせ</li></a>
-					</ul>
-				</div>
-
-			</nav>
-			<!-- ↑トップリンクナビがあるとこ↑ -->
-
-			<!-- ↓グローバルメニューがあるとこ↓ -->
-			<nav id="global">
-
-				<div id="global_inner">
-
-					<ul>
-						<a href="schedule.php"><li id="global_menu1">映画スケジュール</li></a>
-						<a href="movie_planlist.php"><li id="global_menu2">上映予定作品</li></a>
-						<a href="event_planlist.php"><li id="global_menu3">イベント情報</li></a>
-						<a href="institution.php"><li id="global_menu4">館内情報</li></a>
-						<a href="ranking.php"><li id="global_menu5">上映ランキング</li></a>
-						<a href="access.php"><li>アクセス</li></a>
-					</ul>
-
-				</div>
-
-			</nav>
-			<!-- ↑グローバルメニューがあるとこ↑ -->
-
-		</header>
-		<!-- ↑グローバルメニュー↑ -->
+		<?php include("header.php"); ?>
 
 		<div id="wrapper" class="clearfix">
 
@@ -108,42 +68,7 @@
 
 		</div>
 
-		<!-- ↓フッターおくとこ↓ -->
-		<footer id="footer" class="clearfix">
-
-			<div id="fotter_inner">
-
-				<div class="fotter_block">
-					banner置くってさ
-				</div>
-
-				<div class="fotter_block">
-
-					<ul>
-						<li><a href="schedule.php">映画スケジュール</a></li>
-						<li><a href="movie_planlist.php">上映予定作品</a></li>
-						<li><a href="event_planlist.php">イベント情報</a></li>
-						<li><a href="institution.php">館内情報</a></li>
-						<li><a href="movie_list.php">上映スケジュール</a></li>
-						<li><a href="access.php">アクセス</a></li>
-					</ul>
-
-				</div>
-
-				<div id="last_block" class="fotter_block">
-
-					<ul>
-						<li><a href="movie_list.php">作品情報</a></li>
-						<li><a href="common_question.php">よくあるご質問</a></li>
-						<li><a href="contact.php">お問い合わせ</a></li>
-					</ul>
-
-				</div>
-
-			</div>
-
-		</footer>
-		<!-- ↑フッターおくとこ -->
+	<?php include("footer.php"); ?>
 
 	</body>
 
