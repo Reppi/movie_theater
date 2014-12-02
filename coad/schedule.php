@@ -33,14 +33,14 @@
 			<!-- ↓トップリンクナビがあるとこ↓ -->
 			<nav id="toplinkbar">
 
-				<a href="index.php"><img class="logo" src="images/logo.jpg"></a>
+				<a href="#"><img class="logo" src="images/logo.jpg"></a>
 				<a href="#"><img class="member_botton" src="images/member_botton.png"></a>
 
 				<div id="toplinkbar_inner">
 					<ul>
 						<a href="#"><li id="toplinkbar_menu1">サイトマップ</li></a>
 						<a href="#"><li id="toplinkbar_menu2">よくあるご質問</li></a>
-						<a href="contact.php"><li>お問い合わせ</li></a>
+						<a href="#"><li>お問い合わせ</li></a>
 					</ul>
 				</div>
 
@@ -53,11 +53,11 @@
 				<div id="global_inner">
 
 					<ul>
-						<a href="schedule.php"><li id="global_menu1">映画スケジュール</li></a>
-						<a href="movie_planlist_detail.php"><li id="global_menu2">上映予定作品</li></a>
-						<a href="event_detail.php"><li id="global_menu3">イベント情報</li></a>
+						<a href="#"><li id="global_menu1">映画スケジュール</li></a>
+						<a href="#"><li id="global_menu2">上映予定作品</li></a>
+						<a href="#"><li id="global_menu3">イベント情報</li></a>
 						<a href="#"><li id="global_menu4">館内情報</li></a>
-						<a href="ranking.php"><li id="global_menu5">上映ランキング</li></a>
+						<a href="#"><li id="global_menu5">上映ランキング</li></a>
 						<a href="#"><li>アクセス</li></a>
 					</ul>
 

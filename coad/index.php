@@ -34,8 +34,8 @@
 				<div id="toplinkbar_inner">
 					<ul>
 						<a href="#"><li id="toplinkbar_menu1">サイトマップ</li></a>
-						<a href="#"><li id="toplinkbar_menu2">よくあるご質問</li></a>
-						<a href="#"><li>お問い合わせ</li></a>
+						<a href="common_question.php"><li id="toplinkbar_menu2">よくあるご質問</li></a>
+						<a href="contact.php"><li>お問い合わせ</li></a>
 					</ul>
 				</div>
 
@@ -48,12 +48,12 @@
 				<div id="global_inner">
 
 					<ul>
-						<a href="#"><li id="global_menu1">映画スケジュール</li></a>
-						<a href="#"><li id="global_menu2">上映予定作品</li></a>
-						<a href="#"><li id="global_menu3">イベント情報</li></a>
-						<a href="#"><li id="global_menu4">館内情報</li></a>
-						<a href="#"><li id="global_menu5">上映ランキング</li></a>
-						<a href="#"><li>アクセス</li></a>
+						<a href="schedule.php"><li id="global_menu1">映画スケジュール</li></a>
+						<a href="movie_planlist.php"><li id="global_menu2">上映予定作品</li></a>
+						<a href="event_planlist.php"><li id="global_menu3">イベント情報</li></a>
+						<a href="institution.php"><li id="global_menu4">館内情報</li></a>
+						<a href="ranking.php"><li id="global_menu5">上映ランキング</li></a>
+						<a href="access.php"><li>アクセス</li></a>
 					</ul>
 
 				</div>
@@ -73,17 +73,17 @@
 
 				<div class="contents">
 					<div class="samune circle"><div class="inner_circle"></div></div>
-					<h4 id="cinema_information">館内情報</h3>
+					<h4 id="cinema_information">館内情報</h4>
 					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
 				</div>
 				<div class="contents">
 					<div class="samune circle"><div class="inner_circle"></div></div>
-					<h4 id="put_movie">上映中映画</h3>
+					<h4 id="put_movie"><a href="movie_list.php">上映中映画</a></h4>
 					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
 				</div>
 				<div class="contents">
 					<div class="samune circle"><div class="inner_circle"></div></div>
-					<h4 id="movie_ranking">作品ランキング</h3>
+					<h4 id="movie_ranking"><a href="ranking.php">作品ランキング</a></h4>
 					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
 				</div>
 
@@ -120,12 +120,12 @@
 				<div class="fotter_block">
 
 					<ul>
-						<li>映画スケジュール</li>
-						<li>上映予定作品</li>
-						<li>イベント情報</li>
-						<li>館内情報</li>
-						<li>上映スケジュール</li>
-						<li>アクセス</li>
+						<li><a href="schedule.php">映画スケジュール</a></li>
+						<li><a href="movie_planlist.php">上映予定作品</a></li>
+						<li><a href="event_planlist.php">イベント情報</a></li>
+						<li><a href="institution.php">館内情報</a></li>
+						<li><a href="movie_list.php">上映スケジュール</a></li>
+						<li><a href="access.php">アクセス</a></li>
 					</ul>
 
 				</div>
@@ -133,10 +133,9 @@
 				<div id="last_block" class="fotter_block">
 
 					<ul>
-						<li>新着情報</li>
-						<li>作品情報</li>
-						<li>よくあるご質問</li>
-						<li>お問い合わせ</li>
+						<li><a href="movie_list.php">作品情報</a></li>
+						<li><a href="common_question.php">よくあるご質問</a></li>
+						<li><a href="contact.php">お問い合わせ</a></li>
 					</ul>
 
 				</div>

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/ranking.css">
     <!-- ↑ここにはそのページ用のcss↑ -->
 
-    <title>映画館テンプレ</title>
+    <title>ランキング | HALシネマ</title>
 
   </head>
 
@@ -78,6 +78,8 @@
                 <li>月間</li>
               </ul>
             </div>
+
+            <a href="movie_planlist_detail.php">
             <div class="rank-list-wrp">
               <div class="rank-list clearfix">
                 <div class="rank-no rank1">1</div>
@@ -86,6 +88,9 @@
                   <h4>るろうに剣心　伝説の最期編</h4>
                 </div>
               </div>
+              </a>
+
+              <a href="movie_planlist_detail.php">
               <div class="rank-list clearfix">
                 <div class="rank-no rank2">2</div>
                 <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
@@ -93,6 +98,9 @@
                   <h4>るろうに剣心　伝説の最期編</h4>
                 </div>
               </div>
+              </a>
+
+              <a href="movie_planlist_detail.php">
               <div class="rank-list clearfix">
                 <div class="rank-no rank3">3</div>
                 <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
@@ -100,6 +108,9 @@
                   <h4>るろうに剣心　伝説の最期編</h4>
                 </div>
               </div>
+              </a>
+
+              <a href="movie_planlist_detail.php">
               <div class="rank-list clearfix">
                 <div class="rank-no">4</div>
                 <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
@@ -107,6 +118,9 @@
                   <h4>るろうに剣心　伝説の最期編</h4>
                 </div>
               </div>
+              </a>
+
+              <a href="movie_planlist_detail.php">
               <div class="rank-list clearfix">
                 <div class="rank-no">5</div>
                 <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
@@ -114,6 +128,9 @@
                   <h4>るろうに剣心　伝説の最期編</h4>
                 </div>
               </div>
+              </a>
+
+              <a href="movie_planlist_detail.php">
               <div class="rank-list clearfix">
                 <div class="rank-no">6</div>
                 <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
@@ -121,6 +138,9 @@
                   <h4>るろうに剣心　伝説の最期編</h4>
                 </div>
               </div>
+              </a>
+
+              <a href="movie_planlist_detail.php">
               <div class="rank-list clearfix">
                 <div class="rank-no">7</div>
                 <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
@@ -128,6 +148,9 @@
                   <h4>るろうに剣心　伝説の最期編</h4>
                 </div>
               </div>
+              </a>
+
+              <a href="movie_planlist_detail.php">
               <div class="rank-list clearfix">
                 <div class="rank-no">8</div>
                 <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
@@ -135,6 +158,9 @@
                   <h4>るろうに剣心　伝説の最期編</h4>
                 </div>
               </div>
+              </a>
+
+              <a href="movie_planlist_detail.php">
               <div class="rank-list clearfix">
                 <div class="rank-no">9</div>
                 <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
@@ -142,6 +168,9 @@
                   <h4>るろうに剣心　伝説の最期編</h4>
                 </div>
               </div>
+              </a>
+
+              <a href="movie_planlist_detail.php">
               <div class="rank-list clearfix">
                 <div class="rank-no">10</div>
                 <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
@@ -149,6 +178,8 @@
                   <h4>るろうに剣心　伝説の最期編</h4>
                 </div>
               </div>
+              </a>
+
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/movie_planlist_detail.css">
     <!-- ↑ここにはそのページ用のcss↑ -->
 
-    <title>公開予定映画一覧</title>
+    <title>近日公開予定映画詳細 | HALシネマ</title>
 
   </head>
 

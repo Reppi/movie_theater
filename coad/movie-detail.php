@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/movie_detail.css">
     <!-- ↑ここにはそのページ用のcss↑ -->
 
-    <title>映画館テンプレ</title>
+    <title>映画詳細 | HALシネマ</title>
 
   </head>
 

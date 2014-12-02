@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/contact.css">
     <!-- ↑ここにはそのページ用のcss↑ -->
 
-    <title>映画館テンプレ</title>
+    <title>お問い合わせ | HALシネマ</title>
 
   </head>
 

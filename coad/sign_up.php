@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/sign_up.css">
     <!-- ↑ここにはそのページ用のcss↑ -->
 
-    <title>映画館テンプレ</title>
+    <title>会員登録ページ | HALシネマ</title>
 
   </head>
 
@@ -71,7 +71,7 @@
       <article>
 
         <div id="contentszone">
-          <h2 class="clearfix">イベント詳細</h2>
+          <h2 class="clearfix">会員登録</h2>
           <div class="article-detail">
             <h3>お客様情報入力</h3>
             <form action="" method="post">

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/event_detail.css">
     <!-- ↑ここにはそのページ用のcss↑ -->
 
-    <title>イベント詳細</title>
+    <title>イベント詳細 | HALシネマ</title>
 
   </head>
 
