@@ -1,0 +1,96 @@
+@charset"uft-8";
+
+.button{
+    float:left;
+    width:224px;
+    text-align:center;
+    background-color:#aaaaaa;
+    line-height:56px;
+    color:#fff;
+    font-size:20px;
+    border-radius: 5px;        /* CSS3草案 */  
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 5px;   /* Firefox用 */  
+}
+
+#right{
+    margin-left:96px;
+}
+
+.select_width{
+    float:left;
+    margin:16px 24px 0 24px;
+}
+
+.float_left{
+    float:left;
+}
+
+/* 次へボタン */
+.next{
+    width:224px;
+    line-height:48px;
+    margin-top:40px;
+    margin-bottom:32px;
+    margin-left:444px;
+    border-radius: 5px;        /* CSS3草案 */  
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 5px;   /* Firefox用 */  
+    background-color:#ff7285;
+    color:#fff;
+    font-size:20px;
+    text-align:center;
+}
+
+#lastnext{
+    width:224px;
+    line-height:48px;
+    margin-top:40px;
+    margin-bottom:32px;
+    margin-left:464px;
+    border-radius: 5px;        /* CSS3草案 */  
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 5px;   /* Firefox用 */  
+    background-color:#ff7285;
+    color:#fff;
+    font-size:20px;
+    text-align:center;
+}
+
+/* 予約関連 */
+#select{
+    width:668px;
+    margin-top:32px;
+}
+
+.select_content{
+    width:668px;
+    margin-bottom:8px;
+    line-height:56px;
+    font-size:20px;
+    color:#989898;
+}
+
+.select_name{
+    width:204px;
+    float:left;
+    margin-left:16px;
+}
+
+/*消しちゃダメ*/
+/*消しちゃダメ*/
+/*消しちゃダメ*/
+.space{
+    width:88px;
+    margin-right:32px;
+    float:left;
+}
+/*消しちゃダメ*/
+/*消しちゃダメ*/
+/*消しちゃダメ*/
+
+.select_border{
+    width:668px;
+    margin-bottom:8px;
+    border-top:solid 1px #cccccc;
+}

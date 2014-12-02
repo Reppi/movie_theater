@@ -1,0 +1,115 @@
+dl
+{
+	font-size:16px;
+	margin-top:14px;
+	margin-left:20px;
+	margin-bottom:37px;
+}
+
+dt,dd
+{
+	margin-bottom:37px;
+}
+
+dt
+{
+	float:left;
+	width:100px;
+}
+
+dd
+{
+	padding-left:100px;
+}
+
+article
+{
+	float:left;
+	width:720px;
+}
+
+#contentszone
+{
+	float:left;
+	width:700px;
+	margin-top:29px;
+}
+
+#mainvisual
+{
+	float:left;
+	width:700px;
+	height:300px;
+	background-color:#777;
+}
+
+.contents
+{
+	float:left;
+	margin-top:84px;
+	margin-right:20px;
+	width:220px;
+	height:234px;
+	background-color:#fff;
+}
+
+.samune
+{
+	position:relative;
+		top:-57px;
+		left:50px;
+	background-color:#fff;
+}
+
+.circle
+{
+	border-radius: 50%;
+	height: 122px;
+	width: 122px;
+}
+
+.inner_circle
+{
+	position:relative;
+		top:10px;
+		left:10px;
+	border-radius: 50%;
+	height:102px;
+	width:102px;
+	background-color:#ccc;
+}
+
+#cinema_information
+{
+	color:#4777a5;
+	font-size:20px;
+	position:relative;
+		top:-41px;
+		left:70px;
+}
+
+#put_movie
+{
+	color:#4777a5;
+	font-size:20px;
+	position:relative;
+		top:-41px;
+		left:60px;
+}
+
+#movie_ranking
+{
+	color:#4777a5;
+	font-size:20px;
+	position:relative;
+		top:-41px;
+		left:40px;
+}
+
+.contents p
+{
+	position:relative;
+		top:-25px;
+		left:16px;
+	padding-right:16px;
+}

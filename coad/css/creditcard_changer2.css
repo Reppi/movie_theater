@@ -1,0 +1,208 @@
+#form_zone
+{
+	float:left;
+	width:700px;
+}
+
+#creditnomber_zone
+{
+	float:left;
+	width:700px;
+	height:25px;
+	margin-bottom:20px;
+	/*background-color:#777;*/
+}
+
+#creditnomber_text
+{
+	float:left;
+	width:180px;
+	height:25px;
+	margin-right:40px;
+	margin-left:100px;
+	/*background-color:#444;*/
+}
+
+#creditnomber_form
+{
+	float:left;
+	width:200px;
+	height:25px;
+	margin-right:100px;
+	margin-left:40px;
+	/*background-color:#444;*/
+}
+
+#creditnomber_form input
+{
+	width:30px;
+	margin-right:5px;
+	margin-left:5px;
+}
+
+#creditname_zone
+{
+	float:left;
+	clear:left;
+	width:700px;
+	height:25px;
+	margin-bottom:20px;
+	/*background-color:#777;*/
+}
+
+#creditname_text
+{
+	float:left;
+	width:180px;
+	height:25px;
+	margin-right:40px;
+	margin-left:100px;
+	/*background-color:#444;*/
+}
+
+#creditname_form
+{
+	float:left;
+	width:200px;
+	height:25px;
+	margin-right:100px;
+	margin-left:40px;
+	/*background-color:#444;*/
+}
+
+#creditname_form input
+{
+	width:200px;
+	margin-right:5px;
+	margin-left:5px;
+}
+
+#credityear_zone
+{
+	float:left;
+	clear:left;
+	width:700px;
+	height:25px;
+	margin-bottom:20px;
+	/*background-color:#777;*/
+}
+
+#credityear_text
+{
+	float:left;
+	width:180px;
+	height:25px;
+	margin-right:40px;
+	margin-left:100px;
+	/*background-color:#444;*/
+}
+
+#credityear_form
+{
+	float:left;
+	width:200px;
+	height:25px;
+	margin-right:100px;
+	margin-left:40px;
+	/*background-color:#444;*/
+}
+
+#credityear_form input
+{
+	width:30px;
+	margin-right:5px;
+	margin-left:5px;
+}
+
+#creditmonth_zone
+{
+	float:left;
+	clear:left;
+	width:700px;
+	height:25px;
+	margin-bottom:20px;
+	/*background-color:#777;*/
+}
+
+#creditmonth_text
+{
+	float:left;
+	width:180px;
+	height:25px;
+	margin-right:40px;
+	margin-left:100px;
+	/*background-color:#444;*/
+}
+
+#creditmonth_form
+{
+	float:left;
+	width:200px;
+	height:25px;
+	margin-right:100px;
+	margin-left:40px;
+	/*background-color:#444;*/
+}
+
+#creditmonth_form input
+{
+	width:20px;
+	margin-right:5px;
+	margin-left:5px;
+}
+
+#creditsecurity_zone
+{
+	float:left;
+	clear:left;
+	width:700px;
+	height:25px;
+	margin-bottom:20px;
+	/*background-color:#777;*/
+}
+
+#creditsecurity_text
+{
+	float:left;
+	width:180px;
+	height:25px;
+	margin-right:40px;
+	margin-left:100px;
+	/*background-color:#444;*/
+}
+
+#creditsecurity_form
+{
+	float:left;
+	width:200px;
+	height:25px;
+	margin-right:100px;
+	margin-left:40px;
+	/*background-color:#444;*/
+}
+
+#creditsecurity_form input
+{
+	width:30px;
+	margin-right:5px;
+	margin-left:5px;
+}
+
+#completebutton_zone
+{
+	float:left;
+	clear:left;
+	width:700px;
+	height:25px;
+	margin-bottom:20px;
+	/*background-color:#777;*/
+}
+
+#completebutton_form
+{
+	float:left;
+	width:200px;
+	height:25px;
+	margin-left:100px;
+	/*background-color:#444;*/
+}

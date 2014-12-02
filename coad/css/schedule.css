@@ -1,0 +1,100 @@
+@charset "UTF-8"; 
+
+#contentszone
+{
+	float:left;
+	width:950px;
+	background-color:#f2f2f2;
+}
+
+#schedule{
+	height:115px;
+	width:950px;
+	margin-top:-16px;
+	padding-top:10px;
+	background-color:#999999;
+	display: -webkit-flexbox;
+    display: -moz-flexbox;
+    display: -ms-flexbox;
+    display: -o-flexbox;
+    display: flexbox;
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:space-around;
+}
+
+.week{
+	font-family:'ヒラギノ角ゴ ProN','sans-serif';
+	color:white;
+	background-color:#3d3d3d;
+	height:100px;
+	width:125px;
+	text-align:center;
+	font-size:24px;
+	border-radius: 10px;        /* CSS3草案 */  
+    -webkit-border-radius:10px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius:10px;   /* Firefox用 */ 
+}
+
+#schedule p{
+	line-height:50px;
+	margin:10px 10px;
+	border-bottom:4px dotted #fff;
+}
+
+
+#today{
+	width:950px;
+	height:50px;
+	margin-top:30px;
+	font-size:30px;
+	background-color:#538bc1;
+}
+
+#today p{
+	color:#fff;
+	line-height:50px;
+	padding-left:10px;
+	font-weight:lighter;
+}
+
+.title{
+	width:950px;
+	height:50px;
+	margin-top:30px;
+	font-size:20px;
+	background-color:#538bc1;
+}
+
+.title p{
+	color:#fff;
+	line-height:50px;
+	padding-left:10px;
+	font-weight:lighter;
+}
+
+.time{
+	width:950px;
+	height:75px;
+}
+
+.time ul{
+	width:950px;
+	height:75px;	
+	background-color :#fff;
+}
+
+.time ul li{
+	float:left;
+	width:116.75px;
+	height:75px;
+	border:1px solid #bfbfbf;
+	text-align:center;
+
+}
+
+.screen{
+	line-height:70px;
+}
+
+

@@ -1,0 +1,171 @@
+@charset"uft-8";
+
+/* ◇CSSリセット◇ */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, abbr, address, cite, code, del, dfn, em, img,
+ins, kbd, q, samp,small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+	margin : 0;
+	padding : 0;
+}
+
+
+/* 会員・非会員ボタン */
+#button button{
+    margin-left : 150px;
+    margin-bottom : 20px;
+}
+
+#member_read{
+    font-size:16px;
+    width:668px;
+    margin:auto;
+    margin-top:16px;
+    margin-bottom:16px;
+    line-height:24px
+}
+
+#member_button{
+    margin:auto;
+    width:544px;
+}
+
+.button{
+    float:left;
+    width:224px;
+    text-align:center;
+    background-color:#aaaaaa;
+    line-height:56px;
+    color:#fff;
+    font-size:20px;
+    border-radius: 5px;        /* CSS3草案 */  
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 5px;   /* Firefox用 */  
+}
+
+#right{
+    margin-left:96px;
+}
+
+/* 選択中の座席 */
+#sheet_ticket h3{
+    margin-top:64px;
+}
+
+.select_width{
+    float:left;
+    margin:16px 24px 0 24px;
+}
+
+.select_sheet_box{
+    width:42px;
+    height:48px;
+    background-color:#aaaaaa;
+    border-radius: 5px;        /* CSS3草案 */  
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 5px;   /* Firefox用 */  
+}
+
+.select_sheet_num{
+    color:#000;
+    font-size:22px;
+    text-align:center;
+    margin-top:8px;
+}
+
+/* チケット購入画面 */
+#ticket_select h3{
+    margin-top:64px;
+}
+
+
+
+/* 残りチケット数 */
+#ticket_rest{
+    width:664px;
+    margin:auto;
+    padding-top:15px;
+}
+
+.float_left{
+    float:left;
+}
+
+#rest{
+    margin-left:40px;
+}
+
+#rest_num{
+    margin-left:64px;
+    margin-right:96px;
+}
+
+/* 合計出力 */
+
+#sum{
+    margin-left:24px;
+}
+
+#money{
+    margin-left:128px;
+}
+
+#ticket_rest p{
+    font-size:20px;
+    color:#989898;
+}
+
+#food{
+    margin-left:360px;
+}
+
+/* 次へボタン */
+#next{
+    width:224px;
+    line-height:48px;
+    margin-top:40px;
+    margin-bottom:32px;
+    margin-left:448px;
+    border-radius: 5px;        /* CSS3草案 */  
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 5px;   /* Firefox用 */  
+    background-color:#ff7285;
+    color:#fff;
+    font-size:20px;
+    text-align:center;
+}
+
+/* 予約関連 */
+#select{
+    width:700px;
+    margin:32px 0 0 0;
+}
+
+.select_content{
+    width:700px;
+    margin-bottom:8px;
+    line-height:56px;
+    font-size:20px;
+    color:#989898;
+}
+
+.select_name{
+    width:160px;
+    float:left;
+}
+
+.price{
+    width:88px;
+    margin-left:190px;
+    margin-right:32px;
+    float:left;
+}
+
+.select_border{
+    width:668px;
+    margin-bottom:8px;
+    border-top:solid 1px #cccccc;
+}
+
