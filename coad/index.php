@@ -48,7 +48,7 @@
 				<div id="global_inner">
 
 					<ul>
-						<a href="schedule.php"><li id="global_menu1">映画スケジュール</li></a>
+						<a href="schedule.php"><li id="global_menu1">上映スケジュール</li></a>
 						<a href="movie_planlist.php"><li id="global_menu2">上映予定作品</li></a>
 						<a href="event_planlist.php"><li id="global_menu3">イベント情報</li></a>
 						<a href="institution.php"><li id="global_menu4">館内情報</li></a>
