@@ -7,7 +7,7 @@
 			<nav id="toplinkbar">
 
 				<a href="#"><img class="logo" src="images/logo.jpg"></a>
-				<a href="#"><img class="member_botton" src="images/member_botton.png"></a>
+				<a href="sign_up.php"><img class="member_botton" src="images/member_botton.png"></a>
 
 				<div id="toplinkbar_inner">
 					<ul>
