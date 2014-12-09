@@ -8,6 +8,7 @@
 
 				<a href="#"><img class="logo" src="images/logo.jpg"></a>
 				<a href="sign_up.php"><img class="member_botton" src="images/member_botton.png"></a>
+				<a href="sign_up.php"><img class="member_botton" src="images/login.png"></a>
 
 				<div id="toplinkbar_inner">
 					<ul>
