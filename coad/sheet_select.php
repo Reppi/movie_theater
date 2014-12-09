@@ -22,16 +22,36 @@
 		<title>座席選択 | HALシネマ</title>
 <script src="./js/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-	function selectSheet($rowVal, $colVal){
+	function selectSheet(rowVal, colVal ,obj){
 
-		var $addTxt = '<div class="select_width"> <p class="select_sheet_box"></p> <p class="select_sheet_num">'+$rowVal+'-'+$colVal+'</p> </div>';
-		$("#select_sheet").append($addTxt);
+		var addTxt 	= '<div class="select_width"> <p class="select_sheet_box"></p> <p class="select_sheet_num">'+rowVal+'-'+colVal+'</p> </div>';
+		var val 			= rowVal+String(colVal);
+		var addInput = '';
+
+		$("#select_sheet").append(addTxt);
+
+		// TODO: 選択されたら .selectedSheetを追加する。
+		obj.addClass("selectedSheet");
+
+		// TODO: もし、選択(selectedSheet)されていたら取り消せる。
+
+		var addInputHiddenVal = $("#add_input_hidden").html();
+		if(addInputHiddenVal == ""){
+			addInput = '<input id="add_input_hidden_this" type="hidden" name="selectSheet" value="'+val+'">';
+			$("#add_input_hidden").html(addInput);
+		} else {
+			var addHiddenVal = ("#add_input_hidden_this").val();
+			val += (","+addHiddenVal);
+			addInput = '<input id="add_input_hidden_this" type="hidden" name="selectSheet" value="'+val+'">';
+			$("#add_input_hidden").html(addInput);
+		}
+		
+
 	}
 </script>
 	</head>
 
 	<body>
-
 	<?php include("header.php"); ?>
 
 		<div id="wrapper" class="clearfix">
@@ -56,79 +76,79 @@
 
 					<div id="sheet_num_left"><!-- シートの数字部分 -->
 						<div><!-- 数字の各列 -->
-							<p onclick="selectSheet('a',8)" class="num">8</p>
-							<p onclick="selectSheet('a',7)" class="num">7</p>
-							<p onclick="selectSheet('a',6)" class="num">6</p>
-							<p onclick="selectSheet('a',5)" class="num">5</p>
-							<p onclick="selectSheet('a',4)" class="num">4</p>
+							<p onclick="selectSheet('a',8,this)" class="num">8</p>
+							<p onclick="selectSheet('a',7,this)" class="num">7</p>
+							<p onclick="selectSheet('a',6,this)" class="num">6</p>
+							<p onclick="selectSheet('a',5,this)" class="num">5</p>
+							<p onclick="selectSheet('a',4,this)" class="num">4</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p onclick="selectSheet('b',8)" class="num">8</p>
-							<p onclick="selectSheet('b',7)" class="num">7</p>
-							<p onclick="selectSheet('b',6)" class="num">6</p>
-							<p onclick="selectSheet('b',5)" class="num reservation">5</p><!-- php用のbackground -->
-							<p onclick="selectSheet('b',4)" class="num recommended">4</p>
+							<p onclick="selectSheet('b',8,this)" class="num">8</p>
+							<p onclick="selectSheet('b',7,this)" class="num">7</p>
+							<p onclick="selectSheet('b',6,this)" class="num">6</p>
+							<p onclick="selectSheet('b',5,this)" class="num reservation">5</p><!-- php用のbackground -->
+							<p onclick="selectSheet('b',4,this)" class="num recommended">4</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p onclick="selectSheet('c',8)" class="num">8</p>
-							<p onclick="selectSheet('c',7)" class="num">7</p>
-							<p onclick="selectSheet('c',6)" class="num">6</p>
-							<p onclick="selectSheet('c',5)" class="num">5</p>
-							<p onclick="selectSheet('c',4)" class="num">4</p>
+							<p onclick="selectSheet('c',8,this)" class="num">8</p>
+							<p onclick="selectSheet('c',7,this)" class="num">7</p>
+							<p onclick="selectSheet('c',6,this)" class="num">6</p>
+							<p onclick="selectSheet('c',5,this)" class="num">5</p>
+							<p onclick="selectSheet('c',4,this)" class="num">4</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p onclick="selectSheet('d',8)" class="num">8</p>
-							<p onclick="selectSheet('d',7)" class="num">7</p>
-							<p onclick="selectSheet('d',6)" class="num">6</p>
-							<p onclick="selectSheet('d',5)" class="num">5</p>
-							<p onclick="selectSheet('d',4)" class="num">4</p>
+							<p onclick="selectSheet('d',8,this)" class="num">8</p>
+							<p onclick="selectSheet('d',7,this)" class="num">7</p>
+							<p onclick="selectSheet('d',6,this)" class="num">6</p>
+							<p onclick="selectSheet('d',5,this)" class="num">5</p>
+							<p onclick="selectSheet('d',4,this)" class="num">4</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p onclick="selectSheet('e',8)" class="num">8</p>
-							<p onclick="selectSheet('e',7)" class="num">7</p>
-							<p onclick="selectSheet('e',6)" class="num">6</p>
-							<p onclick="selectSheet('e',5)" class="num">5</p>
-							<p onclick="selectSheet('e',4)" class="num">4</p>
+							<p onclick="selectSheet('e',8,this)" class="num">8</p>
+							<p onclick="selectSheet('e',7,this)" class="num">7</p>
+							<p onclick="selectSheet('e',6,this)" class="num">6</p>
+							<p onclick="selectSheet('e',5,this)" class="num">5</p>
+							<p onclick="selectSheet('e',4,this)" class="num">4</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p onclick="selectSheet('f',8)" class="num">8</p>
-							<p onclick="selectSheet('f',7)" class="num">7</p>
-							<p onclick="selectSheet('f',6)" class="num">6</p>
-							<p onclick="selectSheet('f',5)" class="num">5</p>
-							<p onclick="selectSheet('f',4)" class="num">4</p>
+							<p onclick="selectSheet('f',8,this)" class="num">8</p>
+							<p onclick="selectSheet('f',7,this)" class="num">7</p>
+							<p onclick="selectSheet('f',6,this)" class="num">6</p>
+							<p onclick="selectSheet('f',5,this)" class="num">5</p>
+							<p onclick="selectSheet('f',4,this)" class="num">4</p>
 						</div>
 					</div><!-- /sheet_num_left -->
 
 					<div id="sheet_num_right"><!-- シートの数字部分 -->
 						<div><!-- 数字の各列 -->
-							<p onclick="selectSheet('a',3)" class="num">3</p>
-							<p onclick="selectSheet('a',2)" class="num">2</p>
-							<p onclick="selectSheet('a',1)" class="num">1</p>
+							<p onclick="selectSheet('a',3,this)" class="num">3</p>
+							<p onclick="selectSheet('a',2,this)" class="num">2</p>
+							<p onclick="selectSheet('a',1,this)" class="num">1</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p onclick="selectSheet('b',3)" class="num">3</p>
-							<p onclick="selectSheet('b',2)" class="num">2</p>
-							<p onclick="selectSheet('b',1)" class="num">1</p>
+							<p onclick="selectSheet('b',3,this)" class="num">3</p>
+							<p onclick="selectSheet('b',2,this)" class="num">2</p>
+							<p onclick="selectSheet('b',1,this)" class="num">1</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p onclick="selectSheet('c',3)" class="num">3</p>
-							<p onclick="selectSheet('c',2)" class="num">2</p>
-							<p onclick="selectSheet('c',1)" class="num">1</p>
+							<p onclick="selectSheet('c',3,this)" class="num">3</p>
+							<p onclick="selectSheet('c',2,this)" class="num">2</p>
+							<p onclick="selectSheet('c',1,this)" class="num">1</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p onclick="selectSheet('d',3)" class="num">3</p>
-							<p onclick="selectSheet('d',2)" class="num">2</p>
-							<p onclick="selectSheet('d',1)" class="num">1</p>
+							<p onclick="selectSheet('d',3,this)" class="num">3</p>
+							<p onclick="selectSheet('d',2,this)" class="num">2</p>
+							<p onclick="selectSheet('d',1,this)" class="num">1</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p onclick="selectSheet('e',3)" class="num">3</p>
-							<p onclick="selectSheet('e',2)" class="num">2</p>
-							<p onclick="selectSheet('e',1)" class="num">1</p>
+							<p onclick="selectSheet('e',3,this)" class="num">3</p>
+							<p onclick="selectSheet('e',2,this)" class="num">2</p>
+							<p onclick="selectSheet('e',1,this)" class="num">1</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p onclick="selectSheet('f',3)" class="num">3</p>
-							<p onclick="selectSheet('f',2)" class="num">2</p>
-							<p onclick="selectSheet('f',1)" class="num">1</p>
+							<p onclick="selectSheet('f',3,this)" class="num">3</p>
+							<p onclick="selectSheet('f',2,this)" class="num">2</p>
+							<p onclick="selectSheet('f',1,this)" class="num">1</p>
 						</div>
 					</div><!-- /sheet_num_right -->
 					<p class="clear"></p><!-- float解除 -->
@@ -158,8 +178,11 @@
 				</div><!-- /select_sheet -->
 
 				
-
-				<p id="ticket">チケット選択</p>
+				<form action="" method="post">
+					<div id="add_input_hidden"></div>
+					<input class="ticket" type="submit" value="チケット選択">
+				</form>
+				<!-- <p id="ticket">チケット選択</p> -->
 			</div>
 			</div><!-- /content_zoon -->
 
@@ -168,7 +191,7 @@
 			
 				<div id="bannerzone">
 					<div class="search">
-						<form action="#">
+						<form action="#" method="get">
 							<input type="text" size="15">
 							<input type="submit" value="検索">
 						</form>

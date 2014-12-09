@@ -98,6 +98,10 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     background-color:#e1d764;
 }
 
+.num.selectedSheet{
+    background-color: #ccc;
+}
+
 /* おススメ・予約席 */
 .support{
     width:540px;
@@ -176,7 +180,7 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 }
 
 /* チケット選択ボタン */
-#ticket{
+.ticket{
     width:220px;
     line-height:56px;
     background-color:#ff7285;
@@ -189,6 +193,12 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
     -moz-border-radius: 5px;   /* Firefox用 */
     font-size:20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.ticket:hover {
+    opacity: .75;
 }
 
 /* float解除 */
