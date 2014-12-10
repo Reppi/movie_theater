@@ -28,7 +28,7 @@
 			// DB接続設定終わり
 
 			//タイトル・サムネイル画像・作品詳細・俳優・監督情報を取得
-			$sql = "SELECT movie_title as title,thumbnail as thm,movie_detail as det,actor as act,director as dir FROM movie ORDER BY movie_id DESC";
+			$sql = "SELECT movie_title as title,thumbnail as thm,movie_detail as det,actor as act,director as dir,start_day as sday FROM movie ORDER BY movie_id DESC";
 			$result = mysqli_query($connect,$sql);
 		?>
 
@@ -87,18 +87,22 @@
 					<h2 class="clearfix">公開中の映画一覧</h2>
 					<div id="contentszonecover">
 						<?php
+							error_reporting(E_ALL & ~E_NOTICE);
 							//映画情報を入れたdivを映画の総数だけ生成
 							while( $data = mysqli_fetch_array( $result ) )
 							{
-								echo "<div class='movielist_box'>";
-								echo "<div class='movielist_content'>";
-								echo "<div class='movielist_thumbnail'><img src='images/thumbnail/".$data["thm"]."'></div>";
-								echo "<div class='movielist_details'>";
-								echo "<h3 class='movielist_title'><a href='movie-detail.php?title=".$data["title"]."&thm=".$data["thm"]."&det=".$data["det"]."&act=".$data["act"]."&dir=".$data["dir"]."'>".$data["title"]."</a></h3>";
-								echo "<p class='movielist_text'>".$data["det"]."</p>";
-								echo "</div>";
-								echo "</div>";
-								echo "</div>";
+								if( $data["sday"] <= date(Ynj))
+								{
+									echo "<div class='movielist_box'>";
+									echo "<div class='movielist_content'>";
+									echo "<div class='movielist_thumbnail'><img src='images/thumbnail/".$data["thm"]."'></div>";
+									echo "<div class='movielist_details'>";
+									echo "<h3 class='movielist_title'><a href='movie-detail.php?title=".$data["title"]."&thm=".$data["thm"]."&det=".$data["det"]."&act=".$data["act"]."&dir=".$data["dir"]."'>".$data["title"]."</a></h3>";
+									echo "<p class='movielist_text'>".$data["det"]."</p>";
+									echo "</div>";
+									echo "</div>";
+									echo "</div>";
+								}
 							}
 						?>
 
