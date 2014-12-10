@@ -1,8 +1,24 @@
-﻿<!-- HTML5で開発します -->
+﻿<?php
+
+$selectSheet = "";
+if ( !isset($_POST['selectSheet']) ) {
+	header("Location: ./sheet_select.php");
+	exit;
+}
+$selectSheet = $_POST['selectSheet'];
+// echo $selectSheet;
+
+$selectSheetArray = Array();
+
+$selectSheetArray = explode(",",$selectSheet);
+
+
+
+?>
+<!-- HTML5で開発します -->
 <!DOCTYPE html>
 
 <html>
-
 	<head>
 
 		<meta charset="UTF-8">
@@ -28,7 +44,7 @@
 
 			<!-- ↓メインのコンテンツを置くとこ↓ -->
 			<article>
-
+			<form action="" method="post">
 				<div id="contentszone">
 					<h2 class="clearfix">チケット選択</h2>
 					<div id="contentscover">
@@ -45,14 +61,18 @@
 
 			<div id="sheet_ticket">
 				<h3>現在選択中の座席</h3>
+<?php
+foreach ($selectSheetArray as $value) {
+	$rowVal = strtoupper(substr($value,0,1));
+	$colVal = substr($value,1,1);
+?>
 					<div class="select_width">
 						<p class="select_sheet_box"></p>
-						<p class="select_sheet_num">C-3</p>
+						<p class="select_sheet_num"><?php echo $rowVal; ?>-<?php echo $colVal; ?></p>
 					</div>
-					<div class="select_width">
-						<p class="select_sheet_box"></p>
-						<p class="select_sheet_num">C-4</p>
-					</div>
+<?
+} // /foreach
+?>
 					<p class="clearfix"></p>
 			</div><!-- /sheet_ticket -->
 
@@ -67,7 +87,7 @@
 					<p class="select_name">一般</p>
 					<p class="price">1800円</p>
 					<p class="select_sum">
-						<form><input type="number">枚</form>
+						<input type="number">枚
 					</p>
 				</div>
 
@@ -77,7 +97,7 @@
 					<p class="select_name">大学生</p>
 					<p class="price">1500円</p>
 					<p class="select_sum">
-						<form><input type="number">枚</form>
+						<input type="number">枚
 					</p>
 					<pclass="clearfix"></p>
 				</div>
@@ -88,7 +108,7 @@
 					<p class="select_name">高校生</p>
 					<p class="price">1300円</p>
 					<p class="select_sum">
-						<form><input type="number">枚</form>
+						<input type="number">枚
 					</p>
 					<pclass="clearfix"></p>
 				</div>
@@ -99,7 +119,7 @@
 					<p class="select_name">中学生</p>
 					<p class="price">1200円</p>
 					<p class="select_sum">
-						<form><input type="number">枚</form>
+						<input type="number">枚
 					</p>
 					<pclass="clearfix"></p>
 				</div>
@@ -110,7 +130,7 @@
 					<p class="select_name">シニア</p>
 					<p class="price">1000円</p>
 					<p class="select_sum">
-						<form><input type="number">枚</form>
+						<input type="number">枚
 					</p>
 					<pclass="clearfix"></p>
 				</div>
@@ -121,7 +141,7 @@
 					<p class="select_name">カップル</p>
 					<p class="price">1000円</p>
 					<p class="select_sum">
-						<form><input type="number">枚</form>
+						<input type="number">枚
 					</p>
 					<pclass="clearfix"></p>
 				</div>
@@ -138,10 +158,9 @@
 				<p class="float_left" id="money">1000円</p>
 			</div>
 			<p class="clearfix"></p>
+			<input id="next" type="submit" value="次へ">
 
-			<a href="#"><p id="next">次へ</p></a>
-
-
+			</form>
 			</div><!-- /contentscover -->
 			</div><!-- /contentszoon -->
 
