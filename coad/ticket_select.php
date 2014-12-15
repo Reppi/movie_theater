@@ -1,24 +1,15 @@
 ﻿<?php
-
 $selectSheet = "";
-if ( !isset($_POST['selectSheet']) ) {
-	header("Location: ./sheet_select.php");
-	exit;
+$ticketMaxNum = 0;
+if ( isset($_POST['selectSheet']) ) {
+	$selectSheet = $_POST['selectSheet'];
 }
-$selectSheet = $_POST['selectSheet'];
-// echo $selectSheet;
-
 $selectSheetArray = Array();
-
 $selectSheetArray = explode(",",$selectSheet);
-
-
-
+$ticketMaxNum = count($selectSheetArray);
 ?>
-<!-- HTML5で開発します -->
 <!DOCTYPE html>
-
-<html>
+<html lang="ja">
 	<head>
 
 		<meta charset="UTF-8">
@@ -33,7 +24,105 @@ $selectSheetArray = explode(",",$selectSheet);
 		<!-- ↑ここにはそのページ用のcss↑ -->
 
 		<title>チケット選択 | HALシネマ</title>
+		<script type="text/javascript" src="./js/lib/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
 
+		// 一般
+		const TICKET_1 = 0;
+		const TICKET_1_PRICE = 1800;
+		// 大学生
+		const TICKET_2 = 1;
+		const TICKET_2_PRICE = 1500;
+		// 高校生
+		const TICKET_3 = 2;
+		const TICKET_3_PRICE = 1300;
+		// 中学生
+		const TICKET_4 = 3;
+		const TICKET_4_PRICE = 1200;
+		// シニア
+		const TICKET_5 = 4;
+		const TICKET_5_PRICE = 1000;
+		// カップル
+		const TICKET_6 = 5;
+		const TICKET_6_PRICE = 1000;
+
+		$(function(){
+			const TICKET_MAX_NUM = $("#ticketMaxNum").text();
+			$(".selectNumber").change(function(){
+				var counter = 0;
+				var sumCounter = 0;
+				$(".selectNumber").each(function(i){
+					var addNum = Number($(this).val());
+					counter += addNum;
+					if ( addNum > 0 ) {
+						switch(i){
+							case TICKET_1 :
+								sumCounter += Number(addNum * TICKET_1_PRICE);
+								break;
+							case TICKET_2 :
+								sumCounter += Number(addNum * TICKET_2_PRICE);
+								break;
+							case TICKET_3 :
+								sumCounter += Number(addNum * TICKET_3_PRICE);
+								break;
+							case TICKET_4 :
+								sumCounter += Number(addNum * TICKET_4_PRICE);
+								break;
+							case TICKET_5 :
+								sumCounter += Number(addNum * TICKET_5_PRICE);
+								break;
+							case TICKET_6 :
+								sumCounter += Number(addNum * TICKET_6_PRICE);
+								break;
+						}
+					}
+							$("#sumNum").text(sumCounter);
+					console.log("SUM: "+sumCounter);
+				});
+				$("#counterNum").html(counter);
+				if(counter > TICKET_MAX_NUM) {
+					alert("選択された席より多くチケットを選択しています。");
+					$("#changeSubmit").html('<input id="next" class="not_select_submit" type="button" value="次へ">');
+				} else if (counter == 0) {
+					$("#changeSubmit").html('<input id="next" class="not_select_submit" type="button" value="次へ">');
+				} else if (counter == TICKET_MAX_NUM) {
+					$("#changeSubmit").html('<input id="next" type="submit" value="次へ">');
+				}
+			}).change();
+		});
+			function selectMember(getFlagNum) {
+				const NON_MEMVER = 0;
+				const MEMVER = 1;
+				if(getFlagNum == MEMVER){
+					if( $("#btnMember").hasClass("select_member") ){
+						// 選択されている。
+						$("#selectMemberAddInput").html("");
+					} else {
+						// 選択されていない。
+						var selectMemberInputTag = "<input type='hidden' name='select_member' value='"+MEMVER+"'>"
+						$("#selectMemberAddInput").html(selectMemberInputTag);
+					}
+					if( $("#btnNonMember").hasClass("select_member")){
+						$("#btnNonMember").toggleClass("select_member");
+					}
+					$("#btnMember").toggleClass("select_member");
+				} else if(getFlagNum == NON_MEMVER) {
+					if($("#btnNonMember").hasClass("select_member")){
+						// 選択されている。
+						$("#selectMemberAddInput").html("");
+					} else {
+						// 選択されていない。
+						var selectMemberInputTag = "<input type='hidden' name='select_member' value='"+NON_MEMVER+"'>"
+						$("#selectMemberAddInput").html(selectMemberInputTag);
+					}
+					if( $("#btnMember").hasClass("select_member")){
+						$("#btnMember").toggleClass("select_member");
+					}
+					$("#btnNonMember").toggleClass("select_member");
+				}
+				
+			}
+		</script>
 	</head>
 
 	<body>
@@ -44,7 +133,7 @@ $selectSheetArray = explode(",",$selectSheet);
 
 			<!-- ↓メインのコンテンツを置くとこ↓ -->
 			<article>
-			<form action="" method="post">
+			<form action="./food_select.php" method="post">
 				<div id="contentszone">
 					<h2 class="clearfix">チケット選択</h2>
 					<div id="contentscover">
@@ -53,9 +142,10 @@ $selectSheetArray = explode(",",$selectSheet);
 			<div id="button">
 				<p id="member_read">会員登録を既にお済みの方は【会員】のボタン。まだのお客様は、【非会員】のボタンを押してください。</p>
 				<div id="member_button">
-					<a href="#"><p class="button">会員</p></a>
-					<a href="#"><p class="button" id="right">非会員</p></a>
+					<p id="btnMember" class="button" onclick="selectMember(1)">会員</p>
+					<p id="btnNonMember" class="button right" onclick="selectMember(0)">非会員</p>
 					<p class="clearfix"></p>
+				<div id="selectMemberAddInput"></div>
 				</div>
 			</div>
 
@@ -87,7 +177,7 @@ foreach ($selectSheetArray as $value) {
 					<p class="select_name">一般</p>
 					<p class="price">1800円</p>
 					<p class="select_sum">
-						<input type="number">枚
+						<input class="selectNumber" type="number">枚
 					</p>
 				</div>
 
@@ -97,7 +187,7 @@ foreach ($selectSheetArray as $value) {
 					<p class="select_name">大学生</p>
 					<p class="price">1500円</p>
 					<p class="select_sum">
-						<input type="number">枚
+						<input class="selectNumber" type="number">枚
 					</p>
 					<pclass="clearfix"></p>
 				</div>
@@ -108,7 +198,7 @@ foreach ($selectSheetArray as $value) {
 					<p class="select_name">高校生</p>
 					<p class="price">1300円</p>
 					<p class="select_sum">
-						<input type="number">枚
+						<input class="selectNumber" type="number">枚
 					</p>
 					<pclass="clearfix"></p>
 				</div>
@@ -119,7 +209,7 @@ foreach ($selectSheetArray as $value) {
 					<p class="select_name">中学生</p>
 					<p class="price">1200円</p>
 					<p class="select_sum">
-						<input type="number">枚
+						<input class="selectNumber" type="number">枚
 					</p>
 					<pclass="clearfix"></p>
 				</div>
@@ -130,7 +220,7 @@ foreach ($selectSheetArray as $value) {
 					<p class="select_name">シニア</p>
 					<p class="price">1000円</p>
 					<p class="select_sum">
-						<input type="number">枚
+						<input class="selectNumber" type="number">枚
 					</p>
 					<pclass="clearfix"></p>
 				</div>
@@ -141,7 +231,7 @@ foreach ($selectSheetArray as $value) {
 					<p class="select_name">カップル</p>
 					<p class="price">1000円</p>
 					<p class="select_sum">
-						<input type="number">枚
+						<input class="selectNumber" type="number">枚
 					</p>
 					<pclass="clearfix"></p>
 				</div>
@@ -152,13 +242,13 @@ foreach ($selectSheetArray as $value) {
 			
 			<div id="ticket_rest">
 				<p class="float_left" id="rest">残りチケット数</p>
-				<p class="float_left" id="rest_num">2枚</p>
+				<p class="float_left" id="rest_num"><span id="counterNum">0</span> / <span id="ticketMaxNum"><?php echo $ticketMaxNum; ?></span>枚</p>
 				<p class="float_left">|</p>
 				<p class="float_left" id="sum">合計</p>
-				<p class="float_left" id="money">1000円</p>
+				<p class="float_left" id="money"><span id="sumNum">0</span>円</p>
 			</div>
 			<p class="clearfix"></p>
-			<input id="next" type="submit" value="次へ">
+			<div id="changeSubmit"><input id="next" class="not_select_submit" type="button" value="次へ"></div>
 
 			</form>
 			</div><!-- /contentscover -->
