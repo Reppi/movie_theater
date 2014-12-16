@@ -14,6 +14,7 @@
 		<title>座席選択 | HALシネマ</title>
 		<script src="./js/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
+
 		  function selectSheet(rowVal, colVal ,thisBtn){
 
 		    var addTxt  = '<div class="select_width"> <p class="select_sheet_box"></p> <p class="select_sheet_num">'+rowVal+'-'+colVal+'</p> </div>';

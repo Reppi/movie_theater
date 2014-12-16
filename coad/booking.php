@@ -1,6 +1,4 @@
-﻿<!-- HTML5で開発します -->
-<!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html>
 
 	<head>

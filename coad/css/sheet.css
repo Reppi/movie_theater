@@ -155,7 +155,7 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 }
 
 #select_sheet{
-    width:670px;
+    /*width:670px;*/
     min-height:112px;
     padding: 16px 16px 32px 16px;
     background-color:#555555;
