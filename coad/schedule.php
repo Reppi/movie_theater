@@ -14,8 +14,8 @@
 	$youbi = array("日","月","火","水","木","金","土");
 
 
-	if(isset($_GET["id"])){
-		$dayplus = $_GET["id"];
+	if(isset($_POST["id"])){
+		$dayplus = $_POST["id"];
 		$targetd = $targetd + $dayplus;
 		$targetw = $targetw + $dayplus;
 
@@ -111,6 +111,7 @@
 						?>
 					</div>
 
+					<div id="slider">
 
 					<div id="today"><p><?php echo $targetm."月".$targetd."日(".$youbi[$targetw].")"; ?></p></div>
 					
@@ -129,8 +130,8 @@
 							<li></li>
 							<li></li>
 						</ul>
-					</div>
-
+					</div><!-- time -->
+					
 					<?php
 
 						while($row=mysql_fetch_array($rows)){
@@ -146,8 +147,8 @@
 
 
 					?>
-
-
+					</div><!-- slider -->
+		
 				</div>
 			</article>
 			<!-- ↑メインのコンテンツを置くとこ↑ -->
@@ -155,7 +156,9 @@
 		</div>
 
 	<?php include("footer.php"); ?>
-
+<form action="schedule.php" method="POST" id="mask">
+<input type="hidden" name="id" id="inmask">
+</form>
 	</body>
 
 </html>
