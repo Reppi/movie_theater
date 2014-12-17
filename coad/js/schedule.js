@@ -10,6 +10,13 @@ $(function(){
 			$('#mask').submit();
 		});
 
+	});
+
+	$(".time ul li").click(function(){
+		$("#go_ticket").submit();
+	});
+
 });
+
 
 
