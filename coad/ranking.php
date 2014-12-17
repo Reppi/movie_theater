@@ -29,7 +29,7 @@
 			mysqli_set_charset($connect,"utf8");
 			// DB接続設定終わり
 
-			$nowdate = date(Ynj);
+			//$nowdate = date(Ynj);
 
 			//チケット予約情報を取得
 			if( $rankingType == 0 )
