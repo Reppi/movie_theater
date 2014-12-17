@@ -156,8 +156,8 @@
 									echo "screen".$c;
 								}else{
 									echo "<p>10:00~11:00</p>";
-									$hi = array("ticket_time"=>"10:00~11:00","movie_id"=>"1");
-									echo "<input type='hidden' name='$hi' id='ticket_time2'>";
+									echo "<input type='hidden' name='movie_id' value='1'>";
+									echo "<input type='hidden' name='ticket_time' value='10:00~11:00'>";
 									
 								}
 
