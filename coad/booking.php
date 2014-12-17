@@ -174,8 +174,6 @@ foreach( $selectSheetArray as $value ) {
 	}
 }
 ?>
-
-<!-- 								M-16 -->
 							</div>
 							<p class="clearfix"></p>
 						</div>
