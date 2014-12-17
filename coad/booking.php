@@ -1,4 +1,104 @@
-﻿<!DOCTYPE html>
+﻿<?php
+require_once("functions.php");
+$selectSheet = "";
+$selectSheetArray = array();
+$selectMember = "";
+$foodStr = "";
+$foodGetArray = Array();
+$foodGetDataArray = Array();
+$selectFood = "";
+$selectFoodGetArray = Array();
+$foodSum = 0;
+$ticketSum = 0;
+
+$dbh = connectDb();
+$ticketGetArray = getTicketData($dbh);
+$foodGetDataArray = getFoodData($dbh);
+
+foreach($ticketGetArray as $key=>$value){
+	// echo $key."<br>";
+	// echo $value['ticket_price']."<br>";
+	// echo $value['ticket_name']."<br>";
+}
+
+
+if(isset($_POST['select_sheet'])){
+	$selectSheet = $_POST['select_sheet'];
+}
+// echo $selectSheet."   ";
+$selectSheetArray = explode(",",$selectSheet);
+
+if(isset($_POST['select_member'])){
+	$selectMember = $_POST['select_member'];
+}
+// echo $selectMember;
+if($selectMember == 1){
+	// 会員なので情報を受け渡す。
+	// header("Location: ");
+}
+
+// foodをゲットする
+for($i = 0; $i <= 5; $i++){
+	$foodStr = "food_".($i+1);
+	if(isset($_POST[$foodStr]) &&
+	 $_POST[$foodStr] !== "" &&
+	 $_POST[$foodStr] != 0) {
+	$foodGetArray[$foodStr] = $_POST[$foodStr];
+	}
+}
+
+// Foodのfood_idと各個数
+foreach($foodGetArray as $key => $value){
+	$keyName = str_replace("food_","",$key);
+	$selectFoodGetArray[$keyName] = $value;
+}
+
+
+
+if(isset($_POST['select_food'])){
+	$selectFood = $_POST['select_food'];
+}
+// echo $selectFood;
+
+$ticketArray = array();
+for($i = 0; $i <= 5; $i++){
+	$targetStr = "ticket".($i+1);
+	if(isset($_POST[$targetStr]) &&
+		$_POST[$targetStr] !== "" &&
+		$_POST[$targetStr] != 0) {
+		$ticketArray[$targetStr] = $_POST[$targetStr];
+	}
+}
+
+$ticketSum;
+foreach($ticketArray as $key => $value){
+
+	$target = str_replace("ticket","",$key);
+	$target --;
+	// if ($ticketGetArray['ticket_id'] == $target){
+	// 	$ticketGetArray;
+	// }
+
+	foreach($ticketGetArray as $key2 => $value2){
+		if($target == $value2['ticket_id']){
+			echo $value2['ticket_name'];
+		}
+	}
+
+	if($value === end($ticketArray)){
+		echo ",";
+	}
+}
+
+
+
+
+
+
+
+
+?>
+<!DOCTYPE html>
 <html>
 
 	<head>
@@ -57,17 +157,53 @@
 						<div class="information_content">
 							<div class="content_name">座席</div>
 							<div class="element">
-								M-16
+
+<?php
+foreach( $selectSheetArray as $value ) {
+	$strLen = mb_strlen($value);
+	if ($strLen == 2 ){
+		$strFirst = substr($value,0,1);
+		$strEnd = substr($value,-1,1);
+		$strFirstApper = strtoupper($strFirst);
+
+		echo $strFirstApper."-".$strEnd;
+
+		if($value !== end($selectSheetArray)){
+			echo ", ";
+		}
+	}
+}
+?>
+
+<!-- 								M-16 -->
 							</div>
 							<p class="clearfix"></p>
 						</div>
 
 						<p class="information_border"></p>
-
 						<div class="information_content">
 							<div class="content_name">チケット</div>
 							<div class="element">
-								大学生チケット１枚
+							<?php
+							foreach($ticketArray as $key => $value){
+
+								$target = str_replace("ticket","",$key);
+								$target --;
+								// if ($ticketGetArray['ticket_id'] == $target){
+								// 	$ticketGetArray;
+								// }
+
+								foreach($ticketGetArray as $key2 => $value2){
+									if($target == $value2['ticket_id']){
+										echo $value2['ticket_name'];
+									}
+								}
+								// TODO: 最後の時だけカンマスキップする。
+								if($value === end($ticketArray)){
+									echo ",";
+								}
+							}
+							?>
 							</div>
 							<p class="clearfix"></p>
 						</div>
@@ -77,7 +213,25 @@
 						<div class="information_content">
 							<div class="content_name">フード注文予約</div>
 							<div class="element">
-								ポップコーン、ドリンク(L)
+							<?php
+								// foreach($foodGetDataArray as $key=>$value){
+								// 	echo $value['food_name'];
+								// 	if($value !== end($foodGetDataArray)) {
+								// 		echo " , ";
+								// 	}
+								// }
+								foreach($selectFoodGetArray as $key => $value){
+									$target = ((Int)$key-1);
+									// echo "target: ".$target;
+									echo $foodName = $foodGetDataArray[$target]["food_name"];
+									$foodPrice = ($foodGetDataArray[$target]["food_price"]);
+									$foodCount = ($selectFoodGetArray[$key]);
+									$foodSum += $foodPrice * $foodCount;
+									if($value !== end($selectFoodGetArray)){
+										echo " , ";
+									}
+								}
+							?>
 							</div>
 							<p class="clearfix"></p>
 						</div>
@@ -87,7 +241,11 @@
 						<div class="information_content">
 							<div class="content_name">合計金額</div>
 							<div class="element">
-								3,000円
+<?php
+	echo $ticketSum + $foodSum;
+?>
+
+								円
 							</div>
 							<p class="clearfix"></p>
 						</div>
@@ -96,15 +254,15 @@
 					</div><!-- /information -->
 
 					<h3>お客様情報入力</h3>
-
+				<form action="./reserved _check.php" method="post">
 					<div id="guest">
 						<div class="information_content">
 							<div class="content_name">お名前</div>
 							<div class="element">
-								<form class="text_name">
+								<div class="text_name">
 									<input type="text">
 									<input type="text" class="text">
-								</form>
+								</div>
 								<p class="clearfix"></p>
 							</div>
 						</div><!-- /information_content -->
@@ -114,9 +272,7 @@
 						<div class="information_content">
 							<div class="content_name">電話番号</div>
 							<div class="element">
-								<form>
 									<input type="text" class="text_content">
-								</form>
 							</div>
 						</div><!-- /information_content -->
 
@@ -125,9 +281,7 @@
 						<div class="information_content">
 							<div class="content_name">メールアドレス</div>
 							<div class="element">
-								<form>
 									<input type="text" class="text_content">
-								</form>
 							</div>
 						</div><!-- /information_content -->
 
@@ -136,9 +290,7 @@
 						<div class="information_content">
 							<div class="content_name">住所</div>
 							<div class="element">
-								<form>
 									<input type="text" class="text_content">
-								</form>
 							</div>
 						</div><!-- /information_content -->
 
@@ -152,41 +304,52 @@
 
 						<div class="information_content">
 							<div class="content_name">カード番号</div>
-							<div class="element">
-								<form class="card_name">
-									<input type="password">
-									<input type="password" class="card">
-									<input type="password" class="card">
-									<input type="password" class="card">
-								</form>
+							<div class="element input_col4">
+									<input type="text">
+									<input type="text" class="card">
+									<input type="text" class="card">
+									<input type="text" class="card">
 							</div>
 						</div><!-- /information_content -->
 						<p class="information_border"></p>
 
 						<div class="information_content">
 							<div class="content_name">有効期限</div>
-							<div class="element">
-								<form class="text_name">
+							<div class="element text_name">
 									<input type="text">
 									<input type="text" class="text">
-								</form>
 							</div>
 						</div><!-- /information_content -->
 						<p class="information_border"></p>
 						
 						<div class="information_content">
 							<div class="content_name">お名前</div>
-							<div class="element">
-								<form class="text_name">
+							<div class="element text_name">
 									<input type="text">
 									<input type="text" class="text">
-								</form>
 							</div>
 						</div><!-- /information_content -->
-						
-						<p class="information_border"></p>
-						<a href="#"><p id="next">次へ</p></a>
 
+				<?php
+				foreach($ticketArray as $key => $value){
+				?>
+					<input type="hidden" name="<?php echo $key; ?>" value="<?php echo $value; ?>">
+				<?php
+				}
+				?>
+
+				<?php
+				foreach($foodGetDataArray as $key => $value){
+				?>
+					<input type="hidden" name="<?php echo $key; ?>" value="<?php echo $value; ?>">
+				<?php
+				}
+				?>
+
+
+						<p class="information_border"></p>
+						<p><input id="next" type="submit"></p>
+				</form>
 					</div><!-- /credit -->
 				</div><!-- /contentscover -->
 				</div><!-- /contentszoon -->

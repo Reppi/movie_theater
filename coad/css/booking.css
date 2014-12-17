@@ -49,9 +49,12 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     width:668px;
 }
 
-.text_name input{
+.text_name input {
     float:left;
-    width:158px;
+    width:44.5%;
+}
+.input_col4 input {
+    width: 19%;
 }
 
 .text{
