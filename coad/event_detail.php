@@ -17,7 +17,31 @@
     <!-- ↑ここにはそのページ用のcss↑ -->
 
     <title>イベント詳細 | HALシネマ</title>
+	<?php
+		//映画一覧画面から取ってきた情報代入
+		$title		= $_GET['title'];
+		$thumbail 	= $_GET['thm'];
+		$detail		= $_GET['det'];
+		$day		= $_GET['day'];
+		$event_day	= spliti ("-", $day, 3);
 
+		// DB接続設定
+		$connect = mysqli_connect("localhost","root","");
+		mysqli_select_db($connect,"hal_cinema");
+		mysqli_set_charset($connect,"utf8");
+		// DB接続設定終わり
+
+		//俳優・監督情報を取得
+		$sql = "SELECT movie.actor as act,movie.director as dir FROM event,movie WHERE event.event_id = movie.movie_id";
+		$result = mysqli_query($connect,$sql);
+		$data = mysqli_fetch_array( $result, MYSQLI_ASSOC );
+
+	?>
+SELECT 受注表.受注番号,顧客表.顧客名,
+         商品表.商品名,受注表.受注個数,受注表.納品日
+         FROM 受注表,顧客表,商品表
+         WHERE 受注表.顧客コード = 顧客表.顧客コード
+               AND 受注表.商品コード = 商品表.商品コード ;
   </head>
 
   <body>
@@ -72,24 +96,23 @@
         <div id="contentszone">
           <h2 class="clearfix">イベント詳細</h2>
           <div class="article-detail">
-            <h3>二条にて「舞妓はレディ」舞台挨拶の開催決定！！</h3>
+            <h3><?php echo $title; ?></h3>
             <div class="clearfix col2-wrp">
               <div class="thm-img">
                 <img src="./images/sumple264x234.jpg">
               </div>
               <div class="detail-list">
-                <p class="date">開催日:<time>2014年10月22日</time></p>
+                <p class="date">開催日:<time><?php echo $event_day[0]."年".$event_day[1]."月".$event_day[2]."日"; ?></time></p>
                 <ul>
-                  <li>周防 正行監督</li>
-                  <li>上白石 萌音</li>
+                  <li><?php echo $data["dir"]."監督" ?></li>
+                  <li><?php echo $data["act"] ?></li>
                 </ul>
                 <p>※登壇者の予定は変更になることもございますので、あらかじめご了承ください。</p>
               </div>
             </div>
             <div class="detail-txt">
               <p>
-                10月17日（金）映画「ゴッドタン キス我慢選手権 THE MOVIE2 サイキック・ラブ」の公開を記念して、10月5日（土）TOHOシネマズ 名古屋ベイシティ、梅田にて『世界最速！先行プレミア上映』（舞台挨拶付き有料先行上映）の開催が決定いたしました！<br>
-                ゲストには、劇団ひとりさんと佐久間宣行監督をお迎えし、舞台挨拶を実施致します。<br>
+			<?php echo $detail; ?>
               </p>
             </div>
           </div>
