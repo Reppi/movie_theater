@@ -18,6 +18,18 @@
 
     <title>ランキング | HALシネマ</title>
 
+		<?php
+			// DB接続設定
+			$connect = mysqli_connect("localhost","root","");
+			mysqli_select_db($connect,"hal_cinema");
+			mysqli_set_charset($connect,"utf8");
+			// DB接続設定終わり
+
+			//チケット予約情報を取得
+			$sql = "SELECT count(mo.movie_id) as cnt,tr.reserved_time as rday,mo.movie_title as title,mo.thumbnail as thm FROM ticket_reserved as tr,movie as mo WHERE tr.reserved_movieid = mo.movie_id";
+			$result = mysqli_query($connect,$sql);
+		?>
+
   </head>
 
   <body>
@@ -79,107 +91,34 @@
               </ul>
             </div>
 
-            <a href="movie_planlist_detail.php">
-            <div class="rank-list-wrp">
-              <div class="rank-list clearfix">
-                <div class="rank-no rank1">1</div>
-                <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
-                <div class="rank-title">
-                  <h4>るろうに剣心　伝説の最期編</h4>
-                </div>
-              </div>
-              </a>
+		<?php
+			
+			error_reporting(E_ALL & ~E_NOTICE);
+			$rankcnt = 1;
+			//チケット販売数が多い順にランキング生成
+			while( $data = mysqli_fetch_array( $result ) )
+			{
 
-              <a href="movie_planlist_detail.php">
-              <div class="rank-list clearfix">
-                <div class="rank-no rank2">2</div>
-                <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
-                <div class="rank-title">
-                  <h4>るろうに剣心　伝説の最期編</h4>
-                </div>
-              </div>
-              </a>
+				echo "<a href='movie_planlist_detail.php'>";
+				echo "<div class='rank-list-wrp'>";
+				echo "<div class='rank-list clearfix'>";
 
-              <a href="movie_planlist_detail.php">
-              <div class="rank-list clearfix">
-                <div class="rank-no rank3">3</div>
-                <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
-                <div class="rank-title">
-                  <h4>るろうに剣心　伝説の最期編</h4>
-                </div>
-              </div>
-              </a>
+				if( $rankcnt == 1 ){ echo "<div class='rank-no rank1'>"; }
+				else if( $rankcnt == 2 ){ echo "<div class='rank-no rank2'>"; }
+				else if( $rankcnt == 3 ){ echo "<div class='rank-no rank3'>"; }
+				else{ echo "<div class='rank-list clearfix'>"; }
+				echo $rankcnt."</div>";
+				$rankcnt++;
 
-              <a href="movie_planlist_detail.php">
-              <div class="rank-list clearfix">
-                <div class="rank-no">4</div>
-                <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
-                <div class="rank-title">
-                  <h4>るろうに剣心　伝説の最期編</h4>
-                </div>
-              </div>
-              </a>
+				echo "<div class='rank-thm'><img src='./images/thmS.jpg' alt='サンプルサムネイル'></div>";
+				echo "<div class='rank-title'>";
+				echo $data["title"];
+				echo "</div>";
+				echo "</div>";
+				echo "</a>";
 
-              <a href="movie_planlist_detail.php">
-              <div class="rank-list clearfix">
-                <div class="rank-no">5</div>
-                <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
-                <div class="rank-title">
-                  <h4>るろうに剣心　伝説の最期編</h4>
-                </div>
-              </div>
-              </a>
-
-              <a href="movie_planlist_detail.php">
-              <div class="rank-list clearfix">
-                <div class="rank-no">6</div>
-                <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
-                <div class="rank-title">
-                  <h4>るろうに剣心　伝説の最期編</h4>
-                </div>
-              </div>
-              </a>
-
-              <a href="movie_planlist_detail.php">
-              <div class="rank-list clearfix">
-                <div class="rank-no">7</div>
-                <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
-                <div class="rank-title">
-                  <h4>るろうに剣心　伝説の最期編</h4>
-                </div>
-              </div>
-              </a>
-
-              <a href="movie_planlist_detail.php">
-              <div class="rank-list clearfix">
-                <div class="rank-no">8</div>
-                <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
-                <div class="rank-title">
-                  <h4>るろうに剣心　伝説の最期編</h4>
-                </div>
-              </div>
-              </a>
-
-              <a href="movie_planlist_detail.php">
-              <div class="rank-list clearfix">
-                <div class="rank-no">9</div>
-                <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
-                <div class="rank-title">
-                  <h4>るろうに剣心　伝説の最期編</h4>
-                </div>
-              </div>
-              </a>
-
-              <a href="movie_planlist_detail.php">
-              <div class="rank-list clearfix">
-                <div class="rank-no">10</div>
-                <div class="rank-thm"><img src="./images/thmS.jpg" alt="サンプルサムネイル"></div>
-                <div class="rank-title">
-                  <h4>るろうに剣心　伝説の最期編</h4>
-                </div>
-              </div>
-              </a>
-
+			}
+		?>
             </div>
           </div>
         </div>

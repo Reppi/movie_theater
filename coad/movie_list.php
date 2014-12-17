@@ -93,15 +93,15 @@
 							{
 								if( $data["sday"] <= date(Ynj))
 								{
-									echo "<div class='movielist_box'>";
+									echo "<a href='movie-detail.php?title=".$data["title"]."&thm=".$data["thm"]."&det=".$data["det"]."&act=".$data["act"]."&dir=".$data["dir"]."'><div class='movielist_box'>";
 									echo "<div class='movielist_content'>";
 									echo "<div class='movielist_thumbnail'><img src='images/thumbnail/".$data["thm"]."'></div>";
 									echo "<div class='movielist_details'>";
-									echo "<h3 class='movielist_title'><a href='movie-detail.php?title=".$data["title"]."&thm=".$data["thm"]."&det=".$data["det"]."&act=".$data["act"]."&dir=".$data["dir"]."'>".$data["title"]."</a></h3>";
+									echo "<h3 class='movielist_title'>".$data["title"]."</h3>";
 									echo "<p class='movielist_text'>".$data["det"]."</p>";
 									echo "</div>";
 									echo "</div>";
-									echo "</div>";
+									echo "</div></a>";
 								}
 							}
 						?>

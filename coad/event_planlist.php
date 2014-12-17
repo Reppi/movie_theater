@@ -91,15 +91,15 @@
 							{
 								if( $data["day"] >= date(Ynj) )
 								{
-									echo "<div class='eventlist_box'>";
+									echo "<a href='event_detail.php?title=".$data["title"]."&thm=".$data["thm"]."&det=".$data["det"]."&day=".$data["day"]."'><div class='eventlist_box'>";
 									echo "<div class='eventlist_content'>";
 									echo "<div class='eventlist_thumbnail'><img src='images/eventthm/".$data["thm"]."'></div>";
 									echo "<div class='eventlist_details'>";
-									echo "<h3 class='eventlist_title'><a href='event_detail.php?title=".$data["title"]."&thm=".$data["thm"]."&det=".$data["det"]."&day=".$data["day"]."'>".$data["title"]."</a></h3>";
+									echo "<h3 class='eventlist_title'>".$data["title"]."</h3>";
 									echo "<p class='eventlist_text'>".$data["det"]."</p>";
 									echo "</div>";
 									echo "</div>";
-									echo "</div>";
+									echo "</div></a>";
 								}
 							}
 						?>
