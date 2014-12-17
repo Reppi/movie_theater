@@ -1,4 +1,28 @@
 ﻿<?php
+$movieId = "";
+$ticketStartTime = "";
+$ticketEndTime = "";
+
+if(isset($_POST['movie_id'])){
+  $movieId = $_POST['movie_id'];
+}
+// echo "movieId: ";
+// echo $movieId;
+
+if(isset($_POST['ticket_start_time'])){
+  $ticketStartTime = $_POST['ticket_start_time'];
+}
+// echo "ticketStartTime: ";
+// echo $ticketStartTime;
+
+if(isset($_POST['ticket_end_time'])){
+  $ticketEndTime = $_POST['ticket_end_time'];
+}
+// echo "Time: ";
+// echo $ticketEndTime;
+?>
+
+<?php
 $selectSheet = "";
 $ticketMaxNum = 0;
 if ( isset($_POST['selectSheet']) ) {
@@ -255,6 +279,9 @@ foreach ($selectSheetArray as $value) {
 			</div>
 			<p class="clearfix"></p>
 			<input type="hidden" name="select_sheet" value="<?php echo $selectSheet; ?>">
+      <input type="hidden" name="movie_id" value="<?php echo $movieId ?>">
+      <input type="hidden" name="ticket_start_time" value="<?php echo $ticketStartTime; ?>">
+      <input type="hidden" name="ticket_end_time" value="<?php echo $ticketEndTime; ?>">
 			<div id="changeSubmit"><input id="next" class="not_select_submit" type="button" value="次へ"></div>
 
 			</form>

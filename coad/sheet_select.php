@@ -1,4 +1,28 @@
-﻿<!DOCTYPE html>
+﻿<?php
+$movieId = "";
+$ticketStartTime = "";
+$ticketEndTime = "";
+
+if(isset($_POST['movie_id'])){
+  $movieId = $_POST['movie_id'];
+}
+// echo "movieId: ";
+// echo $movieId;
+
+if(isset($_POST['ticket_start_time'])){
+  $ticketStartTime = $_POST['ticket_start_time'];
+}
+// echo "ticketStartTime: ";
+// echo $ticketStartTime;
+
+if(isset($_POST['ticket_end_time'])){
+  $ticketEndTime = $_POST['ticket_end_time'];
+}
+// echo "Time: ";
+// echo $ticketEndTime;
+?>
+
+<!DOCTYPE html>
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8">
@@ -170,6 +194,9 @@
         
         <form action="./ticket_select.php" method="post">
           <div id="add_input_hidden"></div>
+          <input type="hidden" name="movie_id" value="<?php echo $movieId ?>">
+          <input type="hidden" name="ticket_start_time" value="<?php echo $ticketStartTime; ?>">
+          <input type="hidden" name="ticket_end_time" value="<?php echo $ticketEndTime; ?>">
           <input class="ticket" type="submit" value="チケット選択">
         </form>
         <!-- <p id="ticket">チケット選択</p> -->
