@@ -101,8 +101,19 @@
             <h3>詳細情報</h3>
             <div class="tab-btn clearfix">
               <ul>
-                <li class="tab-active">週間</li>
-                <li>月間</li>
+		<?php
+			if( $rankingType == 0 )
+			{
+		                echo "<li class='tab-active'>週間</li>";
+		                echo "<li>月間</li>";
+			}
+			else if( $rankingType == 1 )
+			{
+		                echo "<li>週間</li>";
+		                echo "<li class='tab-active'>月間</li>";
+			}
+		?>
+
               </ul>
             </div>
 
