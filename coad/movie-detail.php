@@ -19,6 +19,15 @@
 
     <title>映画詳細 | HALシネマ</title>
 
+	<?php
+		//映画一覧画面から取ってきた情報代入
+		$title		= $_GET['title'];
+		$thumbail 	= $_GET['thm'];
+		$detail		= $_GET['det'];
+		$actor		= $_GET['act'];
+		$director	= $_GET['dir'];
+	?>
+
   </head>
 
   <body>
@@ -31,12 +40,15 @@
       <article>
 
         <div id="contentszone">
-          <h2 class="clearfix">るろうに剣心　伝説の最期編</h2>
+          <h2 class="clearfix"><?php echo $title ?></h2>
           <div class="article-detail">
             <div class="clearfix col2-wrp">
               <div class="vi-img">
+		<?php
+			echo "<img src='images/movieimages/".$thumbail."' >"
+		?>
                 <div class="vi-detail-msg">
-                  <p>激動の幕末を刀１本で生き抜いた伝説の人斬り「緋村剣心」。かつては「人斬り抜刀斎（ばっとうさい）」として恐れられていた彼だったが、新時代の訪れとともに、穏やかな生活を送っていた。ある日、内務卿大久保利通から呼び出される。剣心の後継者として「影の人斬り役」を引き継いだ男、「志々雄真実（ししおまこと）」が京都で暗躍しているというのだ。やっと手に入れた平穏な日々だったが、逃れられない運命を背負い、斬れない刀〈逆刃刀（さかばとう）〉を手に、仲間と別れ一人で京都へと向かう。剣心“最期の戦い”が遂に始まる―。</p>
+                  <p><?php echo $detail ?></p>
                 </div>
               </div>
               <div class="detail-list">
@@ -45,11 +57,7 @@
             </div>
             <div class="detail-txt">
               <p>
-                10月17日（金）映画「ゴッドタン キス我慢選手権 THE MOVIE2 サイキック・ラブ」の公開を記念して、 
-                10月5日（土）TOHOシネマズ 名古屋ベイシティ、梅田にて『世界最速！先行プレミア上映』（舞台挨拶付き有料先行上映）の開催が決定 
-                いたしました！ 
-
-                ゲストには、劇団ひとりさんと佐久間宣行監督をお迎えし、舞台挨拶を実施致します。
+			<?php echo $actor."<br>".$director ?>
               </p>
             </div>
           </div>
