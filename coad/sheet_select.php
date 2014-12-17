@@ -1,4 +1,7 @@
-﻿<!-- HTML5で開発します -->
+﻿<?php
+
+?>
+<!-- HTML5で開発します -->
 <!DOCTYPE html>
 
 <html>
@@ -17,52 +20,16 @@
 		<!-- ↑ここにはそのページ用のcss↑ -->
 
 		<title>座席選択 | HALシネマ</title>
-
+<script type="javascript">
+	function selectSheet(){
+		
+	}
+</script>
 	</head>
 
 	<body>
 
-		<!-- ↓グローバルメニュー↓ -->
-		<header id="header">
-
-			<!-- ↓トップリンクナビがあるとこ↓ -->
-			<nav id="toplinkbar">
-
-				<a href="#"><img class="logo" src="images/logo.jpg"></a>
-				<a href="#"><img class="member_botton" src="images/member_botton.png"></a>
-
-				<div id="toplinkbar_inner">
-					<ul>
-						<a href="#"><li id="toplinkbar_menu1">サイトマップ</li></a>
-						<a href="#"><li id="toplinkbar_menu2">よくあるご質問</li></a>
-						<a href="#"><li>お問い合わせ</li></a>
-					</ul>
-				</div>
-
-			</nav>
-			<!-- ↑トップリンクナビがあるとこ↑ -->
-
-			<!-- ↓グローバルメニューがあるとこ↓ -->
-			<nav id="global">
-
-				<div id="global_inner">
-
-					<ul>
-						<a href="#"><li id="global_menu1">映画スケジュール</li></a>
-						<a href="#"><li id="global_menu2">上映予定作品</li></a>
-						<a href="#"><li id="global_menu3">イベント情報</li></a>
-						<a href="#"><li id="global_menu4">館内情報</li></a>
-						<a href="#"><li id="global_menu5">上映ランキング</li></a>
-						<a href="#"><li>アクセス</li></a>
-					</ul>
-
-				</div>
-
-			</nav>
-			<!-- ↑グローバルメニューがあるとこ↑ -->
-
-		</header>
-		<!-- ↑グローバルメニュー↑ -->
+	<?php include("header.php"); ?>
 
 		<div id="wrapper" class="clearfix">
 
@@ -86,79 +53,79 @@
 
 					<div id="sheet_num_left"><!-- シートの数字部分 -->
 						<div><!-- 数字の各列 -->
-							<p class="num">8</p>
-							<p class="num">7</p>
-							<p class="num">6</p>
-							<p class="num">5</p>
-							<p class="num">4</p>
+							<p onclick="selectSheet(a8)" class="num">8</p>
+							<p onclick="selectSheet(a7)" class="num">7</p>
+							<p onclick="selectSheet(a6)" class="num">6</p>
+							<p onclick="selectSheet(a5)" class="num">5</p>
+							<p onclick="selectSheet(a4)" class="num">4</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p class="num">8</p>
-							<p class="num">7</p>
-							<p class="num">6</p>
-							<p class="num reservation">5</p><!-- php用のbackground -->
-							<p class="num recommended">4</p>
+							<p onclick="selectSheet(b8)" class="num">8</p>
+							<p onclick="selectSheet(b7)" class="num">7</p>
+							<p onclick="selectSheet(b6)" class="num">6</p>
+							<p onclick="selectSheet(b5)" class="num reservation">5</p><!-- php用のbackground -->
+							<p onclick="selectSheet(b4)" class="num recommended">4</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p class="num">8</p>
-							<p class="num">7</p>
-							<p class="num">6</p>
-							<p class="num">5</p>
-							<p class="num">4</p>
+							<p onclick="selectSheet(c8)" class="num">8</p>
+							<p onclick="selectSheet(c7)" class="num">7</p>
+							<p onclick="selectSheet(c6)" class="num">6</p>
+							<p onclick="selectSheet(c5)" class="num">5</p>
+							<p onclick="selectSheet(c4)" class="num">4</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p class="num">8</p>
-							<p class="num">7</p>
-							<p class="num">6</p>
-							<p class="num">5</p>
-							<p class="num">4</p>
+							<p onclick="selectSheet(d8)" class="num">8</p>
+							<p onclick="selectSheet(d7)" class="num">7</p>
+							<p onclick="selectSheet(d6)" class="num">6</p>
+							<p onclick="selectSheet(d5)" class="num">5</p>
+							<p onclick="selectSheet(d4)" class="num">4</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p class="num">8</p>
-							<p class="num">7</p>
-							<p class="num">6</p>
-							<p class="num">5</p>
-							<p class="num">4</p>
+							<p onclick="selectSheet(e8)" class="num">8</p>
+							<p onclick="selectSheet(e7)" class="num">7</p>
+							<p onclick="selectSheet(e6)" class="num">6</p>
+							<p onclick="selectSheet(e5)" class="num">5</p>
+							<p onclick="selectSheet(e4)" class="num">4</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p class="num">8</p>
-							<p class="num">7</p>
-							<p class="num">6</p>
-							<p class="num">5</p>
-							<p class="num">4</p>
+							<p onclick="selectSheet(f8)" class="num">8</p>
+							<p onclick="selectSheet(f7)" class="num">7</p>
+							<p onclick="selectSheet(f6)" class="num">6</p>
+							<p onclick="selectSheet(f5)" class="num">5</p>
+							<p onclick="selectSheet(f4)" class="num">4</p>
 						</div>
 					</div><!-- /sheet_num_left -->
 
 					<div id="sheet_num_right"><!-- シートの数字部分 -->
 						<div><!-- 数字の各列 -->
-							<p class="num">3</p>
-							<p class="num">2</p>
-							<p class="num">1</p>
+							<p onclick="selectSheet(a3)" class="num">3</p>
+							<p onclick="selectSheet(a2)" class="num">2</p>
+							<p onclick="selectSheet(a1)" class="num">1</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p class="num">3</p>
-							<p class="num">2</p>
-							<p class="num">1</p>
+							<p onclick="selectSheet(b3)" class="num">3</p>
+							<p onclick="selectSheet(b2)" class="num">2</p>
+							<p onclick="selectSheet(b1)" class="num">1</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p class="num">3</p>
-							<p class="num">2</p>
-							<p class="num">1</p>
+							<p onclick="selectSheet(c3)" class="num">3</p>
+							<p onclick="selectSheet(c2)" class="num">2</p>
+							<p onclick="selectSheet(c1)" class="num">1</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p class="num">3</p>
-							<p class="num">2</p>
-							<p class="num">1</p>
+							<p onclick="selectSheet(d3)" class="num">3</p>
+							<p onclick="selectSheet(d2)" class="num">2</p>
+							<p onclick="selectSheet(d1)" class="num">1</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p class="num">3</p>
-							<p class="num">2</p>
-							<p class="num">1</p>
+							<p onclick="selectSheet(e3)" class="num">3</p>
+							<p onclick="selectSheet(e2)" class="num">2</p>
+							<p onclick="selectSheet(e1)" class="num">1</p>
 						</div>
 						<div><!-- 数字の各列 -->
-							<p class="num">3</p>
-							<p class="num">2</p>
-							<p class="num">1</p>
+							<p onclick="selectSheet(f3)" class="num">3</p>
+							<p onclick="selectSheet(f2)" class="num">2</p>
+							<p onclick="selectSheet(f1)" class="num">1</p>
 						</div>
 					</div><!-- /sheet_num_right -->
 					<p class="clear"></p><!-- float解除 -->
@@ -211,43 +178,7 @@
 
 		</div>
 
-		<!-- ↓フッターおくとこ↓ -->
-		<footer id="footer">
-
-			<div id="fotter_inner">
-
-				<div class="fotter_block">
-					banner置くってさ
-				</div>
-
-				<div class="fotter_block">
-
-					<ul>
-						<li>映画スケジュール</li>
-						<li>上映予定作品</li>
-						<li>イベント情報</li>
-						<li>館内情報</li>
-						<li>上映スケジュール</li>
-						<li>アクセス</li>
-					</ul>
-
-				</div>
-
-				<div id="last_block" class="fotter_block">
-
-					<ul>
-						<li>新着情報</li>
-						<li>作品情報</li>
-						<li>よくあるご質問</li>
-						<li>お問い合わせ</li>
-					</ul>
-
-				</div>
-
-			</div>
-
-		</footer>
-		<!-- ↑フッターおくとこ -->
+	<?php include("footer.php"); ?>
 
 	</body>
 

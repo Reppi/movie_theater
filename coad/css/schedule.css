@@ -34,6 +34,7 @@
 	border-radius: 10px;        /* CSS3草案 */  
     -webkit-border-radius:10px;    /* Safari,Google Chrome用 */  
     -moz-border-radius:10px;   /* Firefox用 */ 
+    cursor:pointer;
 }
 
 #schedule p{
@@ -90,6 +91,7 @@
 	height:75px;
 	border:1px solid #bfbfbf;
 	text-align:center;
+	line-height: 75px;
 
 }
 
@@ -97,4 +99,13 @@
 	line-height:70px;
 }
 
+.blue{
+	color:#5978C6;
+}
+
+.red{
+	color:#FF7285;
+}
+
+#slider{}
 
