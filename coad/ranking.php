@@ -19,15 +19,30 @@
     <title>ランキング | HALシネマ</title>
 
 		<?php
+
+			//週間ランキングなら0 月間なら1
+			$rankingType = 0;
+			
 			// DB接続設定
 			$connect = mysqli_connect("localhost","root","");
 			mysqli_select_db($connect,"hal_cinema");
 			mysqli_set_charset($connect,"utf8");
 			// DB接続設定終わり
 
+			$nowdate = date(Ynj);
+
 			//チケット予約情報を取得
-			$sql = "SELECT mo.movie_id,count(mo.movie_id) as cnt,tr.reserved_time as rday,mo.movie_title as title,mo.thumbnail as thm,mo.movie_detail as det,mo.actor as act,mo.director as dir FROM ticket_reserved as tr,movie as mo WHERE tr.reserved_movieid = mo.movie_id GROUP BY mo.movie_id ORDER BY count(mo.movie_id) DESC";
+			if( $rankingType == 0 )
+			{
+				$sql = "SELECT mo.movie_id,count(mo.movie_id) as cnt,tr.reserved_time as rday,mo.movie_title as title,mo.thumbnail as thm,mo.movie_detail as det,mo.actor as act,mo.director as dir FROM ticket_reserved as tr,movie as mo WHERE tr.reserved_movieid = mo.movie_id GROUP BY mo.movie_id ORDER BY count(mo.movie_id) DESC";
+			}
+			else if( $rankingType == 1 )
+			{
+				$sql = "SELECT mo.movie_id,count(mo.movie_id) as cnt,tr.reserved_time as rday,mo.movie_title as title,mo.thumbnail as thm,mo.movie_detail as det,mo.actor as act,mo.director as dir FROM ticket_reserved as tr,movie as mo WHERE tr.reserved_movieid = mo.movie_id GROUP BY mo.movie_id ORDER BY count(mo.movie_id) DESC";
+			}
+
 			$result = mysqli_query($connect,$sql);
+
 		?>
 
   </head>
@@ -98,22 +113,25 @@
 			//チケット販売数が多い順にランキング生成
 			while( $data = mysqli_fetch_array( $result ) )
 			{
-				echo "<a href='movie_planlist_detail.php?title=".$data["title"]."&thm=".$data["thm"]."&det=".$data["det"]."&act=".$data["act"]."&dir=".$data["dir"]."'>";
-				echo "<div class='rank-list-wrp'>";
-				echo "<div class='rank-list clearfix'>";
+				if($rankcnt<11)
+				{
+					echo "<a href='movie_planlist_detail.php?title=".$data["title"]."&thm=".$data["thm"]."&det=".$data["det"]."&act=".$data["act"]."&dir=".$data["dir"]."'>";
+					echo "<div class='rank-list-wrp'>";
+					echo "<div class='rank-list clearfix'>";
 
-				if( $rankcnt == 1 ){echo "<div class='rank-no rank1'>";}
-				else if( $rankcnt == 2 ){echo "<div class='rank-no rank2'>";}
-				else if( $rankcnt == 3 ){echo "<div class='rank-no rank3'>";}
-				else{echo "<div class='rank-no'>";}
-				echo $rankcnt."</div>";
-				$rankcnt++;
+					if( $rankcnt == 1 ){echo "<div class='rank-no rank1'>";}
+					else if( $rankcnt == 2 ){echo "<div class='rank-no rank2'>";}
+					else if( $rankcnt == 3 ){echo "<div class='rank-no rank3'>";}
+					else{echo "<div class='rank-no'>";}
+					echo $rankcnt."</div>";
+					$rankcnt++;
 
-				echo "<div class='rank-thm'><img src='images/thumbnail/".$data["thm"]."' alt='サンプルサムネイル'></div>";
-				echo "<div class='rank-title'><h4>".$data["title"]."</h4></div>";
-				echo "</div>";
-				echo "</div>";
-				echo "</a>";
+					echo "<div class='rank-thm'><img src='images/rankingthumbnail/".$data["thm"]."' alt='サンプルサムネイル'></div>";
+					echo "<div class='rank-title'><h4>".$data["title"]."</h4></div>";
+					echo "</div>";
+					echo "</div>";
+					echo "</a>";
+				}
 			}
 		?>
             </div>
