@@ -157,7 +157,8 @@
 								}else{
 									echo "<p>10:00~11:00</p>";
 									echo "<input type='hidden' name='movie_id' value='1'>";
-									echo "<input type='hidden' name='ticket_time' value='10:00~11:00'>";
+									echo "<input type='hidden' name='ticket_start_time' value='2014-12-17 10:00:00'>";
+									echo "<input type='hidden' name='ticket_end_time' value='2014-12-17 11:00:00'>";
 									
 								}
 
