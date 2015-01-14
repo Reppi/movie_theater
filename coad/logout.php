@@ -43,7 +43,9 @@ $_SESSION = array();
       <article>
         <h2>ログアウト完了</h2>
         <p>
+        <form action="index.php">
         <input type="submit" value="トップページへ戻る">
+      </form>
       </p>
       </article>
       <!-- ↑メインのコンテンツを置くとこ↑ -->
