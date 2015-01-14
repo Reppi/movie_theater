@@ -1,27 +1,4 @@
 ﻿<?php
-$movieId = "";
-$ticketStartTime = "";
-$ticketEndTime = "";
-
-if(isset($_POST['movie_id'])){
-  $movieId = $_POST['movie_id'];
-}
-// echo "movieId: ";
-// echo $movieId;
-
-if(isset($_POST['ticket_start_time'])){
-  $ticketStartTime = $_POST['ticket_start_time'];
-}
-// echo "ticketStartTime: ";
-// echo $ticketStartTime;
-
-if(isset($_POST['ticket_end_time'])){
-  $ticketEndTime = $_POST['ticket_end_time'];
-}
-// echo "Time: ";
-// echo $ticketEndTime;
-?>
-<?php
 require_once("functions.php");
 $selectSheet = "";
 $selectSheetArray = array();
@@ -69,12 +46,19 @@ for($i = 0; $i <= 5; $i++){
 	$foodGetArray[$foodStr] = $_POST[$foodStr];
 	}
 }
+
 // Foodのfood_idと各個数
 foreach($foodGetArray as $key => $value){
 	$keyName = str_replace("food_","",$key);
 	$selectFoodGetArray[$keyName] = $value;
 }
 
+
+
+if(isset($_POST['select_food'])){
+	$selectFood = $_POST['select_food'];
+}
+// echo $selectFood;
 
 $ticketArray = array();
 for($i = 0; $i <= 5; $i++){
@@ -97,15 +81,20 @@ foreach($ticketArray as $key => $value){
 
 	foreach($ticketGetArray as $key2 => $value2){
 		if($target == $value2['ticket_id']){
-			// echo $value2['ticket_name'];
-			$ticketSum += (int)$value2['ticket_price'];
+			echo $value2['ticket_name'];
 		}
 	}
 
 	if($value === end($ticketArray)){
-		// echo ",";
+		echo ",";
 	}
 }
+
+
+
+
+
+
 
 
 ?>
@@ -230,7 +219,6 @@ foreach( $selectSheetArray as $value ) {
 								// 	}
 								// }
 								foreach($selectFoodGetArray as $key => $value){
-
 									$target = ((Int)$key-1);
 									// echo "target: ".$target;
 									echo $foodName = $foodGetDataArray[$target]["food_name"];
@@ -270,8 +258,8 @@ foreach( $selectSheetArray as $value ) {
 							<div class="content_name">お名前</div>
 							<div class="element">
 								<div class="text_name">
-									<input type="text" name="user_name_sei">
-									<input type="text" class="text" name="user_name_mei">
+									<input type="text">
+									<input type="text" class="text">
 								</div>
 								<p class="clearfix"></p>
 							</div>
@@ -282,7 +270,7 @@ foreach( $selectSheetArray as $value ) {
 						<div class="information_content">
 							<div class="content_name">電話番号</div>
 							<div class="element">
-									<input type="text" class="text_content" name="user_tell">
+									<input type="text" class="text_content">
 							</div>
 						</div><!-- /information_content -->
 
@@ -291,7 +279,7 @@ foreach( $selectSheetArray as $value ) {
 						<div class="information_content">
 							<div class="content_name">メールアドレス</div>
 							<div class="element">
-									<input type="text" class="text_content" name="user_email">
+									<input type="text" class="text_content">
 							</div>
 						</div><!-- /information_content -->
 
@@ -300,7 +288,7 @@ foreach( $selectSheetArray as $value ) {
 						<div class="information_content">
 							<div class="content_name">住所</div>
 							<div class="element">
-									<input type="text" class="text_content" name="user_address">
+									<input type="text" class="text_content">
 							</div>
 						</div><!-- /information_content -->
 
@@ -315,10 +303,10 @@ foreach( $selectSheetArray as $value ) {
 						<div class="information_content">
 							<div class="content_name">カード番号</div>
 							<div class="element input_col4">
-									<input type="text" name="user_card_no_1">
-									<input type="text" class="card" name="user_card_no_2">
-									<input type="text" class="card" name="user_card_no_3">
-									<input type="text" class="card" name="user_card_no_4">
+									<input type="text">
+									<input type="text" class="card">
+									<input type="text" class="card">
+									<input type="text" class="card">
 							</div>
 						</div><!-- /information_content -->
 						<p class="information_border"></p>
@@ -326,8 +314,8 @@ foreach( $selectSheetArray as $value ) {
 						<div class="information_content">
 							<div class="content_name">有効期限</div>
 							<div class="element text_name">
-									<input type="text" name="user_card_end_month" placeholder="月">
-									<input type="text" class="text" name="user_card_end_year" placeholder="年">
+									<input type="text">
+									<input type="text" class="text">
 							</div>
 						</div><!-- /information_content -->
 						<p class="information_border"></p>
@@ -335,8 +323,8 @@ foreach( $selectSheetArray as $value ) {
 						<div class="information_content">
 							<div class="content_name">お名前</div>
 							<div class="element text_name">
-									<input type="text" name="user_card_name_sei">
-									<input type="text" class="text" name="user_card_name_mei">
+									<input type="text">
+									<input type="text" class="text">
 							</div>
 						</div><!-- /information_content -->
 
@@ -349,30 +337,15 @@ foreach( $selectSheetArray as $value ) {
 				?>
 
 				<?php
-				foreach($selectFoodGetArray as $key => $value){
+				foreach($foodGetDataArray as $key => $value){
 				?>
-					<input type="hidden" name="food_<?php echo $key; ?>" value="<?php echo $value; ?>">
+					<input type="hidden" name="<?php echo $key; ?>" value="<?php echo $value; ?>">
 				<?php
 				}
 				?>
-				<input type="hidden" name="select_sheet" value="<?php
-				foreach( $selectSheetArray as $value ) {
-					$strLen = mb_strlen($value);
-					if ($strLen == 2 ){
-						$strFirst = substr($value,0,1);
-						$strEnd = substr($value,-1,1);
-						$strFirstApper = strtoupper($strFirst);
-						echo $strFirstApper."-".$strEnd;
-						if($value !== end($selectSheetArray)){
-							echo ",";
-						}
-					}
-				}
-				?>">
+
+
 						<p class="information_border"></p>
-						<input type="hidden" name="movie_id" value="<?php echo $movieId ?>">
-						<input type="hidden" name="ticket_start_time" value="<?php echo $ticketStartTime; ?>">
-						<input type="hidden" name="ticket_end_time" value="<?php echo $ticketEndTime; ?>">
 						<p><input id="next" type="submit"></p>
 				</form>
 					</div><!-- /credit -->
