@@ -13,8 +13,9 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 
 
 /* 会員・非会員ボタン */
-#button .button{
-    cursor: pointer;
+#button button{
+    margin-left : 150px;
+    margin-bottom : 20px;
 }
 
 #member_read{
@@ -44,13 +45,8 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     -moz-border-radius: 5px;   /* Firefox用 */  
 }
 
-.right{
-    margin-left:96px !important;
-}
-.button.select_member {
-    /*background: red;*/
-    background: #FF7285;
-    box-shadow: 0 0 5px #fff,0 0 10px #FF7285;
+#right{
+    margin-left:96px;
 }
 
 /* 選択中の座席 */
@@ -102,8 +98,8 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 }
 
 #rest_num{
-    margin-left: 64px;
-    margin-right: 32px;
+    margin-left:64px;
+    margin-right:96px;
 }
 
 /* 合計出力 */
@@ -139,12 +135,6 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     color:#fff;
     font-size:20px;
     text-align:center;
-    outline: none;
-    border: none;
-}
-
-.not_select_submit{
-    background: #cacaca !important;
 }
 
 /* 予約関連 */

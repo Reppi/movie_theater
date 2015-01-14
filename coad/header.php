@@ -1,13 +1,25 @@
-﻿		<!-- ↓グローバルメニュー↓ -->
+﻿
+
+		<!-- ↓グローバルメニュー↓ -->
 		<header id="header">
 
 			<!-- ↓トップリンクナビがあるとこ↓ -->
 			<nav id="toplinkbar">
 
-				<a href="./index.php"><img class="logo" src="images/logo.jpg"></a>
+				<a href="#"><img class="logo" src="images/logo.jpg"></a>
 				<a href="sign_up.php"><img class="member_botton" src="images/member_botton.png"></a>
-				<a href="sign_up.php"><img class="member_botton" src="images/login.png"></a>
-
+				<?php
+					session_start();
+					// ログイン状態のチェック
+					//セッションが入っていなければログインボタンを表示
+					if (!isset($_SESSION["USERID"])){
+						echo "<a href='login.php'><img class='member_botton' src='images/login.png'></a>";
+					}
+					//入っていればログアウトボタンを表示
+					else{
+						echo "<a href='logout.php'><img class='member_botton' src='images/logout.png'></a>";
+					}
+				?>
 				<div id="toplinkbar_inner">
 					<ul>
 						<a href="#"><li id="toplinkbar_menu1">サイトマップ</li></a>

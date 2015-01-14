@@ -1,31 +1,15 @@
 ﻿<?php
-$movieId = "";
-$ticketStartTime = "";
-$ticketEndTime = "";
 
-if(isset($_POST['movie_id'])){
-  $movieId = $_POST['movie_id'];
-}
-// echo "movieId: ";
-// echo $movieId;
-
-if(isset($_POST['ticket_start_time'])){
-  $ticketStartTime = $_POST['ticket_start_time'];
-}
-// echo "ticketStartTime: ";
-// echo $ticketStartTime;
-
-if(isset($_POST['ticket_end_time'])){
-  $ticketEndTime = $_POST['ticket_end_time'];
-}
-// echo "Time: ";
-// echo $ticketEndTime;
 ?>
-
+<!-- HTML5で開発します -->
 <!DOCTYPE html>
-<html lang="ja">
+
+<html>
+
 	<head>
+
 		<meta charset="UTF-8">
+
 		<!-- ↓ここには全ページ共通のcss↓ -->
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/common.css">
@@ -36,193 +20,166 @@ if(isset($_POST['ticket_end_time'])){
 		<!-- ↑ここにはそのページ用のcss↑ -->
 
 		<title>座席選択 | HALシネマ</title>
-		<script src="./js/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
-		<script type="text/javascript">
+<script type="javascript">
+	function selectSheet(){
+		
+	}
+</script>
+	</head>
 
-		  function selectSheet(rowVal, colVal ,thisBtn){
+	<body>
 
-		    var addTxt  = '<div class="select_width"> <p class="select_sheet_box"></p> <p class="select_sheet_num">'+rowVal+'-'+colVal+'</p> </div>';
-		    var val       = rowVal+String(colVal);
-		    var addInput = '';
+	<?php include("header.php"); ?>
 
-		    $("#select_sheet").append(addTxt);
+		<div id="wrapper" class="clearfix">
 
-		    // TODO: 選択されたら .selectedSheetを追加する。
-		    $(thisBtn).addClass("selectedSheet");
+			<!-- ↓メインのコンテンツを置くとこ↓ -->
+			<article>
 
-		    // TODO: もし、選択(selectedSheet)されていたら取り消せる。
+				<div id="contentszone">
+					<h2 class="clearfix">座席選択</h2>
+					<div id="contentscover">
+					<div id="screen">
+					<p id="screen_top"><img src="images/screen.png"></p>
+					
+					<div id="sheet_line"><!-- シートの英語部分 -->
+						<p class="line">a</p>
+						<p class="line">b</p>
+						<p class="line">c</p>
+						<p class="line">d</p>
+						<p class="line">e</p>
+						<p class="line">f</p>
+					</div><!-- /sheet_line -->
 
-		    var addInputHiddenVal = $("#add_input_hidden").html();
-		    if(addInputHiddenVal == ""){
-		      addInput = '<input id="add_input_hidden_this" type="hidden" name="selectSheet" value="'+val+'">';
-		      $("#add_input_hidden").html(addInput);
-		    } else {
-		      var addHiddenVal = $("#add_input_hidden_this").val();
-		      val += (","+addHiddenVal);
-		      addInput = '<input id="add_input_hidden_this" type="hidden" name="selectSheet" value="'+val+'">';
-		      $("#add_input_hidden").html(addInput);
-		    }
-		  }
-		</script>
-  </head>
-  <body>
-  <?php include("header.php"); ?>
+					<div id="sheet_num_left"><!-- シートの数字部分 -->
+						<div><!-- 数字の各列 -->
+							<p onclick="selectSheet(a8)" class="num">8</p>
+							<p onclick="selectSheet(a7)" class="num">7</p>
+							<p onclick="selectSheet(a6)" class="num">6</p>
+							<p onclick="selectSheet(a5)" class="num">5</p>
+							<p onclick="selectSheet(a4)" class="num">4</p>
+						</div>
+						<div><!-- 数字の各列 -->
+							<p onclick="selectSheet(b8)" class="num">8</p>
+							<p onclick="selectSheet(b7)" class="num">7</p>
+							<p onclick="selectSheet(b6)" class="num">6</p>
+							<p onclick="selectSheet(b5)" class="num reservation">5</p><!-- php用のbackground -->
+							<p onclick="selectSheet(b4)" class="num recommended">4</p>
+						</div>
+						<div><!-- 数字の各列 -->
+							<p onclick="selectSheet(c8)" class="num">8</p>
+							<p onclick="selectSheet(c7)" class="num">7</p>
+							<p onclick="selectSheet(c6)" class="num">6</p>
+							<p onclick="selectSheet(c5)" class="num">5</p>
+							<p onclick="selectSheet(c4)" class="num">4</p>
+						</div>
+						<div><!-- 数字の各列 -->
+							<p onclick="selectSheet(d8)" class="num">8</p>
+							<p onclick="selectSheet(d7)" class="num">7</p>
+							<p onclick="selectSheet(d6)" class="num">6</p>
+							<p onclick="selectSheet(d5)" class="num">5</p>
+							<p onclick="selectSheet(d4)" class="num">4</p>
+						</div>
+						<div><!-- 数字の各列 -->
+							<p onclick="selectSheet(e8)" class="num">8</p>
+							<p onclick="selectSheet(e7)" class="num">7</p>
+							<p onclick="selectSheet(e6)" class="num">6</p>
+							<p onclick="selectSheet(e5)" class="num">5</p>
+							<p onclick="selectSheet(e4)" class="num">4</p>
+						</div>
+						<div><!-- 数字の各列 -->
+							<p onclick="selectSheet(f8)" class="num">8</p>
+							<p onclick="selectSheet(f7)" class="num">7</p>
+							<p onclick="selectSheet(f6)" class="num">6</p>
+							<p onclick="selectSheet(f5)" class="num">5</p>
+							<p onclick="selectSheet(f4)" class="num">4</p>
+						</div>
+					</div><!-- /sheet_num_left -->
 
-    <div id="wrapper" class="clearfix">
+					<div id="sheet_num_right"><!-- シートの数字部分 -->
+						<div><!-- 数字の各列 -->
+							<p onclick="selectSheet(a3)" class="num">3</p>
+							<p onclick="selectSheet(a2)" class="num">2</p>
+							<p onclick="selectSheet(a1)" class="num">1</p>
+						</div>
+						<div><!-- 数字の各列 -->
+							<p onclick="selectSheet(b3)" class="num">3</p>
+							<p onclick="selectSheet(b2)" class="num">2</p>
+							<p onclick="selectSheet(b1)" class="num">1</p>
+						</div>
+						<div><!-- 数字の各列 -->
+							<p onclick="selectSheet(c3)" class="num">3</p>
+							<p onclick="selectSheet(c2)" class="num">2</p>
+							<p onclick="selectSheet(c1)" class="num">1</p>
+						</div>
+						<div><!-- 数字の各列 -->
+							<p onclick="selectSheet(d3)" class="num">3</p>
+							<p onclick="selectSheet(d2)" class="num">2</p>
+							<p onclick="selectSheet(d1)" class="num">1</p>
+						</div>
+						<div><!-- 数字の各列 -->
+							<p onclick="selectSheet(e3)" class="num">3</p>
+							<p onclick="selectSheet(e2)" class="num">2</p>
+							<p onclick="selectSheet(e1)" class="num">1</p>
+						</div>
+						<div><!-- 数字の各列 -->
+							<p onclick="selectSheet(f3)" class="num">3</p>
+							<p onclick="selectSheet(f2)" class="num">2</p>
+							<p onclick="selectSheet(f1)" class="num">1</p>
+						</div>
+					</div><!-- /sheet_num_right -->
+					<p class="clear"></p><!-- float解除 -->
 
-      <!-- ↓メインのコンテンツを置くとこ↓ -->
-      <article>
+					<div class="support">
+						<p class="recommended_support"></p>
+						<p class="recommended_sheet">おすすめ座席</p>
+						<p class="reservation_support"></p>
+						<p class="reservation_sheet">予約済み</p>
+					</div><!-- /support -->
+					<p class="clear"></p>
 
-        <div id="contentszone">
-          <h2 class="clearfix">座席選択</h2>
-          <div id="contentscover">
-          <div id="screen">
-          <p id="screen_top"><img src="images/screen.png"></p>
-          
-          <div id="sheet_line"><!-- シートの英語部分 -->
-            <p class="line">a</p>
-            <p class="line">b</p>
-            <p class="line">c</p>
-            <p class="line">d</p>
-            <p class="line">e</p>
-            <p class="line">f</p>
-          </div><!-- /sheet_line -->
+				</div><!-- /screen -->
 
-          <div id="sheet_num_left"><!-- シートの数字部分 -->
-            <div><!-- 数字の各列 -->
-              <p onclick="selectSheet('a',8,this)" class="num">8</p>
-              <p onclick="selectSheet('a',7,this)" class="num">7</p>
-              <p onclick="selectSheet('a',6,this)" class="num">6</p>
-              <p onclick="selectSheet('a',5,this)" class="num">5</p>
-              <p onclick="selectSheet('a',4,this)" class="num">4</p>
-            </div>
-            <div><!-- 数字の各列 -->
-              <p onclick="selectSheet('b',8,this)" class="num">8</p>
-              <p onclick="selectSheet('b',7,this)" class="num">7</p>
-              <p onclick="selectSheet('b',6,this)" class="num">6</p>
-              <p onclick="selectSheet('b',5,this)" class="num reservation">5</p><!-- php用のbackground -->
-              <p onclick="selectSheet('b',4,this)" class="num recommended">4</p>
-            </div>
-            <div><!-- 数字の各列 -->
-              <p onclick="selectSheet('c',8,this)" class="num">8</p>
-              <p onclick="selectSheet('c',7,this)" class="num">7</p>
-              <p onclick="selectSheet('c',6,this)" class="num">6</p>
-              <p onclick="selectSheet('c',5,this)" class="num">5</p>
-              <p onclick="selectSheet('c',4,this)" class="num">4</p>
-            </div>
-            <div><!-- 数字の各列 -->
-              <p onclick="selectSheet('d',8,this)" class="num">8</p>
-              <p onclick="selectSheet('d',7,this)" class="num">7</p>
-              <p onclick="selectSheet('d',6,this)" class="num">6</p>
-              <p onclick="selectSheet('d',5,this)" class="num">5</p>
-              <p onclick="selectSheet('d',4,this)" class="num">4</p>
-            </div>
-            <div><!-- 数字の各列 -->
-              <p onclick="selectSheet('e',8,this)" class="num">8</p>
-              <p onclick="selectSheet('e',7,this)" class="num">7</p>
-              <p onclick="selectSheet('e',6,this)" class="num">6</p>
-              <p onclick="selectSheet('e',5,this)" class="num">5</p>
-              <p onclick="selectSheet('e',4,this)" class="num">4</p>
-            </div>
-            <div><!-- 数字の各列 -->
-              <p onclick="selectSheet('f',8,this)" class="num">8</p>
-              <p onclick="selectSheet('f',7,this)" class="num">7</p>
-              <p onclick="selectSheet('f',6,this)" class="num">6</p>
-              <p onclick="selectSheet('f',5,this)" class="num">5</p>
-              <p onclick="selectSheet('f',4,this)" class="num">4</p>
-            </div>
-          </div><!-- /sheet_num_left -->
+				<div id="slice"><h3>選択中の座席</h3></div>
 
-          <div id="sheet_num_right"><!-- シートの数字部分 -->
-            <div><!-- 数字の各列 -->
-              <p onclick="selectSheet('a',3,this)" class="num">3</p>
-              <p onclick="selectSheet('a',2,this)" class="num">2</p>
-              <p onclick="selectSheet('a',1,this)" class="num">1</p>
-            </div>
-            <div><!-- 数字の各列 -->
-              <p onclick="selectSheet('b',3,this)" class="num">3</p>
-              <p onclick="selectSheet('b',2,this)" class="num">2</p>
-              <p onclick="selectSheet('b',1,this)" class="num">1</p>
-            </div>
-            <div><!-- 数字の各列 -->
-              <p onclick="selectSheet('c',3,this)" class="num">3</p>
-              <p onclick="selectSheet('c',2,this)" class="num">2</p>
-              <p onclick="selectSheet('c',1,this)" class="num">1</p>
-            </div>
-            <div><!-- 数字の各列 -->
-              <p onclick="selectSheet('d',3,this)" class="num">3</p>
-              <p onclick="selectSheet('d',2,this)" class="num">2</p>
-              <p onclick="selectSheet('d',1,this)" class="num">1</p>
-            </div>
-            <div><!-- 数字の各列 -->
-              <p onclick="selectSheet('e',3,this)" class="num">3</p>
-              <p onclick="selectSheet('e',2,this)" class="num">2</p>
-              <p onclick="selectSheet('e',1,this)" class="num">1</p>
-            </div>
-            <div><!-- 数字の各列 -->
-              <p onclick="selectSheet('f',3,this)" class="num">3</p>
-              <p onclick="selectSheet('f',2,this)" class="num">2</p>
-              <p onclick="selectSheet('f',1,this)" class="num">1</p>
-            </div>
-          </div><!-- /sheet_num_right -->
-          <p class="clear"></p><!-- float解除 -->
+				<div id="select_sheet">
+					<div class="select_width">
+						<p class="select_sheet_box"></p>
+						<p class="select_sheet_num">C-3</p>
+					</div>
+					<div class="select_width">
+						<p class="select_sheet_box"></p>
+						<p class="select_sheet_num">C-4</p>
+					</div>
+					<p class="clearfix"></p>
+				</div><!-- /select_sheet -->
 
-          <div class="support">
-            <p class="recommended_support"></p>
-            <p class="recommended_sheet">おすすめ座席</p>
-            <p class="reservation_support"></p>
-            <p class="reservation_sheet">予約済み</p>
-          </div><!-- /support -->
-          <p class="clear"></p>
+				
 
-        </div><!-- /screen -->
+				<p id="ticket">チケット選択</p>
+			</div>
+			</div><!-- /content_zoon -->
 
-        <div id="slice"><h3>選択中の座席</h3></div>
+		<!-- ↓サイドメニュー（バナーのとこ）↓ -->
+		<article>
+			
+				<div id="bannerzone">
+					<div class="search">
+						<form action="#">
+							<input type="text" size="15">
+							<input type="submit" value="検索">
+						</form>
+					</div>
+					<!-- サイドコンテンツ置くとこ 横幅220px 縦幅84px -->バナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナー
+				</div>
 
-        <div id="select_sheet" class="clearfix">
-<!--          <div class="select_width">
-            <p class="select_sheet_box"></p>
-            <p class="select_sheet_num">C-3</p>
-          </div>
-          <div class="select_width">
-            <p class="select_sheet_box"></p>
-            <p class="select_sheet_num">C-4</p>
-          </div> -->
+			</article>
+			<!-- ↑メインのコンテンツを置くとこ↑ -->
 
-        </div><!-- /select_sheet -->
+		</div>
 
-        
-        <form action="./ticket_select.php" method="post">
-          <div id="add_input_hidden"></div>
-          <input type="hidden" name="movie_id" value="<?php echo $movieId ?>">
-          <input type="hidden" name="ticket_start_time" value="<?php echo $ticketStartTime; ?>">
-          <input type="hidden" name="ticket_end_time" value="<?php echo $ticketEndTime; ?>">
-          <input class="ticket" type="submit" value="チケット選択">
-        </form>
-        <!-- <p id="ticket">チケット選択</p> -->
-      </div>
-      </div><!-- /content_zoon -->
+	<?php include("footer.php"); ?>
 
-    <!-- ↓サイドメニュー（バナーのとこ）↓ -->
-    <article>
-      
-        <div id="bannerzone">
-          <div class="search">
-            <form action="#" method="get">
-              <input type="text" size="15">
-              <input type="submit" value="検索">
-            </form>
-          </div>
-          <!-- サイドコンテンツ置くとこ 横幅220px 縦幅84px -->バナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナー
-        </div>
-
-      </article>
-      <!-- ↑メインのコンテンツを置くとこ↑ -->
-
-    </div>
-
-  <?php include("footer.php"); ?>
-
-  </body>
+	</body>
 
 </html>

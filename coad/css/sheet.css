@@ -78,7 +78,7 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     font-size:23px;
     width:42px;
     line-height:48px;
-    background-color:#d8d8d8;
+    background-color:#fff;
     float:left;
     margin-bottom:16px;
     margin-right:8px;
@@ -86,7 +86,7 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     border-radius: 5px;        /* CSS3草案 */  
     -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
     -moz-border-radius: 5px;   /* Firefox用 */  
-    cursor: pointer;
+
 }
 
 /* おすすめ座席・予約済み用background-color */
@@ -96,13 +96,6 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 
 .num.recommended{
     background-color:#e1d764;
-}
-
-.num.selectedSheet{
-/*    color: #ccc;
-    background-color: #999;*/
-    background-color: #fff;
-    box-shadow: 0 0 5px #fff,0 0 10px #E1D764;
 }
 
 /* おススメ・予約席 */
@@ -155,9 +148,8 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 }
 
 #select_sheet{
-    /*width:670px;*/
-    min-height:112px;
-    padding: 16px 16px 32px 16px;
+    width:670px;
+    height:112px;
     background-color:#555555;
     margin:auto;
 }
@@ -184,7 +176,7 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 }
 
 /* チケット選択ボタン */
-.ticket{
+#ticket{
     width:220px;
     line-height:56px;
     background-color:#ff7285;
@@ -197,12 +189,6 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
     -moz-border-radius: 5px;   /* Firefox用 */
     font-size:20px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-}
-.ticket:hover {
-    opacity: .75;
 }
 
 /* float解除 */
