@@ -6,7 +6,7 @@
 			<!-- ↓トップリンクナビがあるとこ↓ -->
 			<nav id="toplinkbar">
 
-				<a href="#"><img class="logo" src="images/logo.jpg"></a>
+				<a href="index.php"><img class="logo" src="images/logo.jpg"></a>
 				<a href="sign_up.php"><img class="member_botton" src="images/member_botton.png"></a>
 				<?php
 					session_start();
@@ -22,7 +22,7 @@
 				?>
 				<div id="toplinkbar_inner">
 					<ul>
-						<a href="#"><li id="toplinkbar_menu1">サイトマップ</li></a>
+						<a href="saitemap.php"><li id="toplinkbar_menu1">サイトマップ</li></a>
 						<a href="common_question.php"><li id="toplinkbar_menu2">よくあるご質問</li></a>
 						<a href="contact.php"><li>お問い合わせ</li></a>
 					</ul>
