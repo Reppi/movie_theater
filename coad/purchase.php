@@ -6,7 +6,6 @@ $dbh = connectDb();
 $ticketGetArray = getTicketData($dbh);
 $foodGetDataArray = getFoodData($dbh);
 
-
 $movieId = "";
 $ticketStartTime = "";
 $ticketEndTime = "";
@@ -24,6 +23,7 @@ $userCardEndYear = "";
 $userCardNameSei = "";
 $userCardNameMei = "";
 $selectSheet = "";
+$selectMember = "";
 // TODO: スクリーンIDを植え継ぐ
 $screenId = "SC1";
 
@@ -68,8 +68,12 @@ if(isset($_POST['user_email'])){
 	$userEmail = $_POST['user_email'];
 }
 
-if(isset($_POST['user_address'])){
-	$userAddress = $_POST['user_address'];
+if(isset($_POST['user_address_prefecture'])){
+	$userAddress = $_POST['user_address_prefecture'];
+}
+
+if(isset($_POST['user_address_municipalities'])){
+	$userAddress = $_POST['user_address_municipalities'];
 }
 
 if(isset($_POST['user_card_no_1'])){
@@ -103,6 +107,13 @@ if(isset($_POST['user_card_name_sei'])){
 if(isset($_POST['user_card_name_mei'])){
 	$userCardNameMei = $_POST['user_card_name_mei'];
 }
+
+if(isset($_POST['select_member'])){
+	$selectMember = $_POST['select_member'];
+}
+
+
+
 $foodGetStrSet = "";
 $foodGetArray = array();
 $selectFoodGetArray = array();
@@ -139,29 +150,22 @@ for($i = 0; $i <= 5; $i++){
 if(isset($_POST['select_sheet'])){
 	$selectSheet = $_POST['select_sheet'];
 }
-// echo "selectSheet: ".$selectSheet;
+
+// TODO: フード情報のデータ形式に変換
+
+// TODO: 会員を押した場合
+	// TODO: 会員ユーザ,passwordが一致し返り値会員IDを取得
+// TODO: 非会員を押した場合
+	// TODO: お客様情報を登録する。
+	// TODO: 返り値のお客様ID(ユーザTableのID)を受け取る
+
+// TODO: カード情報を登録する
+// TODO: 返り値 カードIDを受け取る
 
 
-// echo $movieId."<br>";
-// echo $ticketStartTime."<br>";
-// echo $ticketEndTime."<br>";
-// echo $userNameSei."<br>";
-// echo $userNameMei."<br>";
-// echo $userTell."<br>";
-// echo $userEmail."<br>";
-// echo $userAddress."<br>";
-// echo $userCardNo1."<br>";
-// echo $userCardNo2."<br>";
-// echo $userCardNo3."<br>";
-// echo $userCardNo4."<br>";
-// echo $userCardEndMonth."<br>";
-// echo $userCardEndYear."<br>";
-// echo $userCardNameSei."<br>";
-// echo $userCardNameMei."<br>";
-// echo $selectSheet."<br>";
-// echo $foodGetStrSet."<br>";
-// echo $ticketStrSet."<br>";
+// TODO: フードのデータ・ユーザID・カードIDを含めて InsertTicketReservedを編集。
 
+// TODO: 登録処理は確認前にする。
 
 $chk = InsertTicketReserved($dbh,$ticketStrSet,$movieId,$screenId);
 if($chk){

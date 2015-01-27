@@ -6,7 +6,6 @@ $dbh = connectDb();
 $ticketGetArray = getTicketData($dbh);
 $foodGetDataArray = getFoodData($dbh);
 
-
 $movieId = "";
 $ticketStartTime = "";
 $ticketEndTime = "";
@@ -14,7 +13,8 @@ $userNameSei = "";
 $userNameMei = "";
 $userTell = "";
 $userEmail = "";
-$userAddress = "";
+$userAddressPrefecture = "";
+$userAddressMunicipalities = "";
 $userCardNo1 = "";
 $userCardNo2 = "";
 $userCardNo3 = "";
@@ -24,12 +24,13 @@ $userCardEndYear = "";
 $userCardNameSei = "";
 $userCardNameMei = "";
 $selectSheet = "";
+$selectMember = "";
 
 if(isset($_POST['movie_id'])){
   $movieId = $_POST['movie_id'];
 }
+echo "$movieId";
 $getMovieDataArray = getTargetMovieData($dbh,$movieId);
-
 
 if(isset($_POST['ticket_start_time'])){
   $ticketStartTime = $_POST['ticket_start_time'];
@@ -65,9 +66,14 @@ if(isset($_POST['user_email'])){
 	$userEmail = $_POST['user_email'];
 }
 
-if(isset($_POST['user_address'])){
-	$userAddress = $_POST['user_address'];
+if(isset($_POST['user_address_prefecture'])){
+	$userAddressPrefecture = $_POST['user_address_prefecture'];
 }
+
+if(isset($_POST['user_address_municipalities'])){
+	$userAddressMunicipalities = $_POST['user_address_municipalities'];
+}
+
 
 if(isset($_POST['user_card_no_1'])){
 	$userCardNo1 = $_POST['user_card_no_1'];
@@ -101,6 +107,11 @@ if(isset($_POST['user_card_name_mei'])){
 	$userCardNameMei = $_POST['user_card_name_mei'];
 }
 
+if(isset($_POST['select_member'])){
+	$selectMember = $_POST['select_member'];
+}
+echo $selectMember;
+
 $foodGetArray = array();
 $selectFoodGetArray = array();
 // foodをゲットする
@@ -118,7 +129,6 @@ foreach($foodGetArray as $key => $value){
 	$keyName = str_replace("food_","",$key);
 	$selectFoodGetArray[$keyName] = $value;
 }
-
 
 $ticketArray = array();
 for($i = 0; $i <= 5; $i++){
@@ -323,10 +333,11 @@ foreach($ticketArray as $key => $value){
 						<p class="select_border"></p>
 
 						<div class="select_content">
-							<p class="select_name">住所</p>
-							<p class="space">　</p>
+							<p class="select_name" style="height:120px;">住所</p>
+							<p class="space" style="height:120px;">　</p>
 							<p class="select_sum">
-								<?php echo $userAddress; ?>
+								<?php echo $userAddressPrefecture; ?><br>
+								<?php echo $userAddressMunicipalities; ?>
 							</p>
 							<pclass="clearfix"></p>
 						</div>
@@ -407,7 +418,8 @@ foreach($ticketArray as $key => $value){
 <input type="hidden" name="user_name_mei" value="<?php echo $userNameMei; ?>">
 <input type="hidden" name="user_tell" value="<?php echo $userTell; ?>">
 <input type="hidden" name="user_email" value="<?php echo $userEmail; ?>">
-<input type="hidden" name="user_address" value="<?php echo $userAddress; ?>">
+<input type="hidden" name="user_address_prefecture" value="<?php echo $userAddressPrefecture; ?>">
+<input type="hidden" name="user_address_municipalities" value="<?php echo $userAddressMunicipalities; ?>">
 <input type="hidden" name="user_card_no_1" value="<?php echo $userCardNo1; ?>">
 <input type="hidden" name="user_card_no_2" value="<?php echo $userCardNo2; ?>">
 <input type="hidden" name="user_card_no_3" value="<?php echo $userCardNo3; ?>">

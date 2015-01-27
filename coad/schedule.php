@@ -1,4 +1,5 @@
 ﻿<?php
+	error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 	$y = date("Y");
 	$m = date("n");
 	$d = date("j");
@@ -32,7 +33,7 @@
 	$kubo = "SELECT * FROM schedule WHERE movie_id";
 
 	//DB接続
-	$con = mysql_connect("localhost","root","");
+	$con = mysql_connect("localhost","user","user");
 
 	mysql_query("SET NAMES utf8");
 
@@ -124,15 +125,24 @@
 					<div id="slider">
 
 					<div id="today"><p><?php echo $targetm."月".$targetd."日(".$youbi[$targetw].")"; ?></p></div>
-					
-<!-- 					<div class="title">
+
+					<div class="title">
 						<p>攻殻機動隊ARISE border : 4 Ghost Stands Alone</p>
 					</div>
 
 					<div class="time">
 						<ul>
 							<li class="screen">SCREEN1</li>
-							<li></li>
+							<li>
+							<form action="sheet_select.php" method="post">
+								<input type="submit">
+								<?php
+								echo "<input type='hidden' name='movie_id' value='1'>";
+									echo "<input type='hidden' name='ticket_start_time' value='2014-12-17 10:00:00'>";
+									echo "<input type='hidden' name='ticket_end_time' value='2014-12-17 11:00:00'>";
+								?>
+							</form>
+							</li>
 							<li></li>
 							<li></li>
 							<li></li>
@@ -140,8 +150,8 @@
 							<li></li>
 							<li></li>
 						</ul>
-					</div> --> 
-					
+					</div>
+
 					<?php
 						$c = 0;
 						echo "<form action='sheet_select.php' method='POST' id='go_ticket'>";
@@ -159,7 +169,7 @@
 									echo "<input type='hidden' name='movie_id' value='1'>";
 									echo "<input type='hidden' name='ticket_start_time' value='2014-12-17 10:00:00'>";
 									echo "<input type='hidden' name='ticket_end_time' value='2014-12-17 11:00:00'>";
-									
+
 								}
 
 								//idを取って来て時間をループさせる。
@@ -174,7 +184,7 @@
 
 					?>
 					</div><!-- slider -->
-		
+
 				</div>
 			</article>
 			<!-- ↑メインのコンテンツを置くとこ↑ -->

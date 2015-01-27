@@ -1,4 +1,5 @@
 ﻿<?php
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 $movieId = "";
 $ticketStartTime = "";
 $ticketEndTime = "";
@@ -10,16 +11,18 @@ if(isset($_POST['movie_id'])){
 // echo $movieId;
 
 if(isset($_POST['ticket_start_time'])){
-  $ticketStartTime = $_POST['ticket_start_time'];
+  echo $ticketStartTime = $_POST['ticket_start_time'];
 }
 // echo "ticketStartTime: ";
 // echo $ticketStartTime;
 
 if(isset($_POST['ticket_end_time'])){
-  $ticketEndTime = $_POST['ticket_end_time'];
+  echo $ticketEndTime = $_POST['ticket_end_time'];
 }
 // echo "Time: ";
 // echo $ticketEndTime;
+
+
 ?>
 <?php
 require_once("functions.php");
@@ -37,7 +40,8 @@ $ticketSum = 0;
 $dbh = connectDb();
 $ticketGetArray = getTicketData($dbh);
 $foodGetDataArray = getFoodData($dbh);
-
+$getMoive = getMovieDetailData($dbh,$movieId);
+var_dump($getMoive);
 foreach($ticketGetArray as $key=>$value){
 	// echo $key."<br>";
 	// echo $value['ticket_price']."<br>";
@@ -52,12 +56,12 @@ if(isset($_POST['select_sheet'])){
 $selectSheetArray = explode(",",$selectSheet);
 
 if(isset($_POST['select_member'])){
-	$selectMember = $_POST['select_member'];
+	echo $selectMember = $_POST['select_member'];
 }
+
 // echo $selectMember;
 if($selectMember == 1){
-	// 会員なので情報を受け渡す。
-	// header("Location: ");
+	//メンバー処理
 }
 
 // foodをゲットする
@@ -107,6 +111,19 @@ foreach($ticketArray as $key => $value){
 	}
 }
 
+// MARK: 時間分解
+//2014-12-17 10:00:00
+$ticketStartTimeY = substr($ticketStartTime,0,4);
+$ticketStartTimeM = substr($ticketStartTime,5,2);
+$ticketStartTimeD = substr($ticketStartTime,8,2);
+$ticketStartTimeHour = substr($ticketStartTime,-8,2);
+$ticketStartTimeMin = substr($ticketStartTime-5,2);
+
+$ticketEndTimeY = substr($ticketEndTime,0,4);
+$ticketEndTimeM = substr($ticketEndTime,5,2);
+$ticketEndTimeD = substr($ticketEndTime,8,2);
+$ticketEndTimeHour = substr($ticketEndTime,-8,2);
+$ticketEndTimeMin = substr($ticketEndTime-5,2);
 
 ?>
 <!DOCTYPE html>
@@ -147,8 +164,8 @@ foreach($ticketArray as $key => $value){
 						<div class="information_content">
 							<div class="content_name">上映日</div>
 							<div class="element">
-								2014 年 6月 27日 (土)<br />
-								17:00 〜 19:30
+								<?php echo $ticketStartTimeY;?> 年 <?php echo $ticketStartTimeM; ?>月 <?php echo $ticketStartTimeD; ?>日<br />
+								<?php echo $ticketStartTimeHour.":".$ticketStartTimeMin; ?> 〜 <?php echo $ticketEndTimeHour.":".$ticketEndTimeMin; ?>
 							</div>
 							<p class="clearfix"></p>
 						</div>
@@ -158,7 +175,7 @@ foreach($ticketArray as $key => $value){
 						<div class="information_content">
 							<div class="content_name">作品名</div>
 							<div class="element">
-								アイ・フランケンシュタイン
+								<?php echo $getMoive["movie_title"]; ?>
 							</div>
 							<p class="clearfix">
 						</div>
@@ -263,8 +280,24 @@ foreach( $selectSheetArray as $value ) {
 
 					</div><!-- /information -->
 
-					<h3>お客様情報入力</h3>
+					
 				<form action="./reserved _check.php" method="post">
+				<?php
+					if($selectMember == 1){
+						// 会員を押してる
+						?>
+						<?php
+						// TODO: 現在の状態を判定
+						// MARK:もし、ログインしているならば
+							// TODO: 何も表示しない
+						// MARK:もし、ログインしていないならば
+							// TODO: ユーザ名・パスワード入力させる。
+						?>
+						<?php
+					}else{
+						// 非会員を押した
+						?>
+				<h3>お客様情報入力</h3>
 					<div id="guest">
 						<div class="information_content">
 							<div class="content_name">お名前</div>
@@ -297,16 +330,20 @@ foreach( $selectSheetArray as $value ) {
 
 						<p class="information_border"></p>
 
-						<div class="information_content">
+						<div class="information_content" style="height:80px;">
 							<div class="content_name">住所</div>
 							<div class="element">
-									<input type="text" class="text_content" name="user_address">
+								<input type="text" name="user_address_prefecture"><br><br>
+								<input type="text" class="text_content" name="user_address_municipalities">
 							</div>
 						</div><!-- /information_content -->
 
 						<p class="information_border"></p>
 
 					</div><!-- /guest -->
+						<?php
+					}
+				?>
 
 					<h3>クレジットカード情報</h3>
 
@@ -373,6 +410,7 @@ foreach( $selectSheetArray as $value ) {
 						<input type="hidden" name="movie_id" value="<?php echo $movieId ?>">
 						<input type="hidden" name="ticket_start_time" value="<?php echo $ticketStartTime; ?>">
 						<input type="hidden" name="ticket_end_time" value="<?php echo $ticketEndTime; ?>">
+						<input type='hidden' name='select_member' value='<?php echo $selectMember; ?>'>
 						<p><input id="next" type="submit"></p>
 				</form>
 					</div><!-- /credit -->

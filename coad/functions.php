@@ -2,8 +2,8 @@
 
 // DB Setting
 define('DSN','mysql:host=localhost;dbname=hal_cinema;charset=utf8');
-define('DB_USER','root');
-define('DB_PASSWORD','');
+define('DB_USER','user');
+define('DB_PASSWORD','user');
 
 function connectDb() {
   try {
@@ -57,6 +57,14 @@ function InsertTicketReserved($dbh,$ticketStrSet,$movieId,$screenId){
   $params = array(":ticket_no"=> $ticketStrSet,":movieId"=>$movieId,":screenId"=>$screenId);
   $stmt->execute($params);
   return $stmt ? TRUE : FALSE;
+}
+
+function getMovieDetailData($dbh,$movieId){
+  $sql = "SELECT * FROM `movie` WHERE `movie_id` = :movieId limit 1";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(":movieId"=>$movieId));
+  $r = $stmt -> fetch();
+  return $r ? $r : FALSE;
 }
 
 ?>
