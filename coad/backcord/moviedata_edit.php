@@ -13,10 +13,10 @@
 		<!-- ↑ここには全ページ共通のcss↑ -->
 
 		<!-- ↓ここにはそのページ用のcss↓ -->
-		<link rel="stylesheet" href="css/.css">
+		<link rel="stylesheet" href="css/movie_edit.css">
 		<!-- ↑ここにはそのページ用のcss↑ -->
 
-		<title> | HALシネマ</title>
+		<title>映画情報登録・編集 | HALシネマ</title>
 
 	</head>
 
@@ -26,11 +26,11 @@
 			
 			<div id="main">
 
-				<h1>ページタイトル</h1>
+				<h1>映画情報登録・編集</h1>
 
 				<div id="maininner">
 
-					ここに処理とか書いて
+
 
 				</div>
 
