@@ -1,0 +1,64 @@
+.input_tagname,.input_tag
+{
+	float:left;
+	margin-top:20px;
+}
+
+.input_tagname
+{
+	clear:left;
+	width:100px;
+}
+
+#editmenu li
+{
+	margin-left:0px;
+	list-style-type: none;
+}
+
+#editmenu
+{
+	margin-top:160px;
+	margin-left:310px;
+}
+
+#input_editform
+{
+	margin-top:40px;
+	margin-left:200px;
+}
+
+#input_title
+{
+	width:250px;
+}
+
+.input_year
+{
+	width:30px;
+}
+
+.input_month,.input_day
+{
+	width:20px;
+}
+
+.input_year,.input_month,.input_day
+{
+	margin-left:5px;
+	text-align:right;
+}
+
+#input_time
+{
+	width:25px;
+	text-align:right;
+}
+
+#input_button
+{
+	margin-top:20px;
+	margin-left:100px;
+	float:left;
+	clear:left;
+}

@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="css/moviedata_edit.css">
 		<!-- ↑ここにはそのページ用のcss↑ -->
 
-		<title>映画情報登録・編集 | HALシネマ</title>
+		<title>映画情報編集 | HALシネマ</title>
 
 	</head>
 
@@ -26,13 +26,12 @@
 			
 			<div id="main">
 
-				<h1>映画情報登録・編集</h1>
+				<h1>映画情報編集</h1>
 
 				<div id="maininner">
-					<ul id="editmenu">
-						<li><a href="moviedata_edit_input.php">映画情報登録</a></li>
-						<li><a href="moviedata_edit_editing.php">映画情報編集</a></li>
-					</ul>
+
+
+
 				</div>
 
 			</div>
