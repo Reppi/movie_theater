@@ -18,6 +18,18 @@
 
 		<title>映画情報編集 | HALシネマ</title>
 
+		<?php
+			// DB接続設定
+			$connect = mysqli_connect("localhost","root","");
+			mysqli_select_db($connect,"hal_cinema");
+			mysqli_set_charset($connect,"utf8");
+			// DB接続設定終わり
+
+			//タイトル・サムネイル画像・作品詳細・俳優・監督情報を取得
+			$sql = "SELECT movie_id as id,movie_title as title,thumbnail as thm FROM movie ORDER BY movie_id DESC";
+			$result = mysqli_query($connect,$sql);
+		?>
+
 	</head>
 
 	<body>
@@ -29,9 +41,27 @@
 				<h1>映画情報編集</h1>
 
 				<div id="maininner">
-
-
-
+				<?php
+					error_reporting(E_ALL & ~E_NOTICE);
+					//映画情報を入れたdivを映画の総数だけ生成
+					while( $data = mysqli_fetch_array( $result ) )
+					{
+						if( $data["sday"] <= date(Ynj))
+						{
+							echo "<a href='moviedata_edit_input.php?id=".$data["id"]."'>";
+							echo "<div class='moviedata_edit_box'>";
+							echo "<div class='moviedata_edit_content'>";
+							echo "<div class='moviedata_edit_thumbnail'><img src='images/thumbnail/".$data["thm"]."'></div>";
+							echo "<div class='moviedata_edit_details'>";
+							echo "<h3 class='moviedata_edit_title'>".$data["title"]."</h3>";
+							echo "<p class='moviedata_edit_text'>".$data["det"]."</p>";
+							echo "</div>";
+							echo "</div>";
+							echo "</div>";
+							echo "</a>";
+						}
+					}
+				?>
 				</div>
 
 			</div>
