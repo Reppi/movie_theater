@@ -137,7 +137,7 @@
 							<form action="sheet_select.php" method="post">
 								<input type="submit">
 								<?php
-								echo "<input type='hidden' name='movie_id' value='1'>";
+									echo "<input type='hidden' name='movie_id' value='1'>";
 									echo "<input type='hidden' name='ticket_start_time' value='2014-12-17 10:00:00'>";
 									echo "<input type='hidden' name='ticket_end_time' value='2014-12-17 11:00:00'>";
 								?>
