@@ -7,21 +7,14 @@ $ticketEndTime = "";
 if(isset($_POST['movie_id'])){
   $movieId = $_POST['movie_id'];
 }
-// echo "movieId: ";
-// echo $movieId;
 
 if(isset($_POST['ticket_start_time'])){
   echo $ticketStartTime = $_POST['ticket_start_time'];
 }
-// echo "ticketStartTime: ";
-// echo $ticketStartTime;
 
 if(isset($_POST['ticket_end_time'])){
   echo $ticketEndTime = $_POST['ticket_end_time'];
 }
-// echo "Time: ";
-// echo $ticketEndTime;
-
 
 ?>
 <?php
@@ -60,7 +53,6 @@ if($_POST['select_member'] != ""){
   echo "SELECTMENBER: ".$selectMember;
 }
 
-// echo $selectMember;
 if($selectMember == 1){
 	//メンバー処理
 }
@@ -96,19 +88,14 @@ foreach($ticketArray as $key => $value){
 
 	$target = str_replace("ticket","",$key);
 	$target --;
-	// if ($ticketGetArray['ticket_id'] == $target){
-	// 	$ticketGetArray;
-	// }
 
 	foreach($ticketGetArray as $key2 => $value2){
 		if($target == $value2['ticket_id']){
-			// echo $value2['ticket_name'];
 			$ticketSum += (int)$value2['ticket_price'];
 		}
 	}
 
 	if($value === end($ticketArray)){
-		// echo ",";
 	}
 }
 
@@ -241,12 +228,6 @@ foreach( $selectSheetArray as $value ) {
 							<div class="content_name">フード注文予約</div>
 							<div class="element">
 							<?php
-								// foreach($foodGetDataArray as $key=>$value){
-								// 	echo $value['food_name'];
-								// 	if($value !== end($foodGetDataArray)) {
-								// 		echo " , ";
-								// 	}
-								// }
 								foreach($selectFoodGetArray as $key => $value){
 
 									$target = ((Int)$key-1);

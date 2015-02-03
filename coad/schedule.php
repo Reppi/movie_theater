@@ -44,22 +44,12 @@
 
 	//SQL文
 	$str = "SELECT start_day , end_day FROM movie";
-	// $end = "SELECT end_day FROM movie";
 
 	$targetmovie = "SELECT movie_title , movie_id FROM movie WHERE '$targetday' >= start_day && '$targetday' <= end_day";
 
 	$stime = "SELECT start_time , end_time FROM schedule";
-
-
-
-
 	$rows = mysql_query($targetmovie,$con);
 	$row2 = mysql_query($stime,$con);
-	// $rows2 = mysql_query($end,$con);
-
-
-
-
 ?>
 <!DOCTYPE html>
 

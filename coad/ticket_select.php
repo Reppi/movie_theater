@@ -6,20 +6,15 @@ $ticketEndTime = "";
 if(isset($_POST['movie_id'])){
   $movieId = $_POST['movie_id'];
 }
-// echo "movieId: ";
-// echo $movieId;
+
 
 if(isset($_POST['ticket_start_time'])){
   $ticketStartTime = $_POST['ticket_start_time'];
 }
-// echo "ticketStartTime: ";
-// echo $ticketStartTime;
 
 if(isset($_POST['ticket_end_time'])){
   $ticketEndTime = $_POST['ticket_end_time'];
 }
-// echo "Time: ";
-// echo $ticketEndTime;
 ?>
 
 <?php
@@ -105,7 +100,7 @@ $ticketMaxNum = count($selectSheetArray);
 					$("#sumNum").text(sumCounter);
 					// console.log("SUM: "+sumCounter);
 				});
-				
+
 				$("#counterNum").html(counter);
 				if(counter > TICKET_MAX_NUM) {
 					alert("選択された席より多くチケットを選択しています。");
@@ -150,7 +145,7 @@ $ticketMaxNum = count($selectSheetArray);
 					}
 					$("#btnNonMember").toggleClass("select_member");
 				}
-				
+
 			}
 		</script>
 	</head>
@@ -198,7 +193,7 @@ foreach ($selectSheetArray as $value) {
 
 			<p class="clearfix"></p>
 
-			
+
 			<div id="ticket_select">
 				<h3>チケット選択</h3>
 			</div>
@@ -267,9 +262,9 @@ foreach ($selectSheetArray as $value) {
 				</div>
 
 				<p class="select_border"></p>
-				
+
 			</div>
-			
+
 			<div id="ticket_rest">
 				<p class="float_left" id="rest">残りチケット数</p>
 				<p class="float_left" id="rest_num"><span id="counterNum">0</span> / <span id="ticketMaxNum"><?php echo $ticketMaxNum; ?></span>枚</p>

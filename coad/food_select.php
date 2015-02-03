@@ -6,20 +6,15 @@ $ticketEndTime = "";
 if(isset($_POST['movie_id'])){
   $movieId = $_POST['movie_id'];
 }
-// echo "movieId: ";
-// echo $movieId;
+
 
 if(isset($_POST['ticket_start_time'])){
   $ticketStartTime = $_POST['ticket_start_time'];
 }
-// echo "ticketStartTime: ";
-// echo $ticketStartTime;
 
 if(isset($_POST['ticket_end_time'])){
   $ticketEndTime = $_POST['ticket_end_time'];
 }
-// echo "Time: ";
-// echo $ticketEndTime;
 ?>
 
 <?php
@@ -132,8 +127,8 @@ for($i = 0; $i <= 5; $i++){
 			<div id="contentszone">
 				<h2 class="clearfix">フード予約</h2>
 				<div id="contentscover">
-				
-				
+
+
 				<div id="select">
 				<form action="./booking.php" method="post">
 					<div class="select_content">
@@ -200,9 +195,9 @@ for($i = 0; $i <= 5; $i++){
 					</div>
 
 					<p class="select_border"></p>
-				
+
 				</div><!-- /select -->
-			
+
 				<div id="ticket_rest">
 					<p class="float_left" id="food">|</p>
 					<p class="float_left" id="sum">合計</p>

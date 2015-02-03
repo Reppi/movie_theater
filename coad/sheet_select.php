@@ -6,20 +6,15 @@ $ticketEndTime = "";
 if(isset($_POST['movie_id'])){
   $movieId = $_POST['movie_id'];
 }
-// echo "movieId: ";
-// echo $movieId;
+
 
 if(isset($_POST['ticket_start_time'])){
   $ticketStartTime = $_POST['ticket_start_time'];
 }
-// echo "ticketStartTime: ";
-// echo $ticketStartTime;
 
 if(isset($_POST['ticket_end_time'])){
   $ticketEndTime = $_POST['ticket_end_time'];
 }
-// echo "Time: ";
-// echo $ticketEndTime;
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +73,7 @@ if(isset($_POST['ticket_end_time'])){
           <div id="contentscover">
           <div id="screen">
           <p id="screen_top"><img src="images/screen.png"></p>
-          
+
           <div id="sheet_line"><!-- シートの英語部分 -->
             <p class="line">a</p>
             <p class="line">b</p>
@@ -180,18 +175,10 @@ if(isset($_POST['ticket_end_time'])){
         <div id="slice"><h3>選択中の座席</h3></div>
 
         <div id="select_sheet" class="clearfix">
-<!--          <div class="select_width">
-            <p class="select_sheet_box"></p>
-            <p class="select_sheet_num">C-3</p>
-          </div>
-          <div class="select_width">
-            <p class="select_sheet_box"></p>
-            <p class="select_sheet_num">C-4</p>
-          </div> -->
 
         </div><!-- /select_sheet -->
 
-        
+
         <form action="./ticket_select.php" method="post">
           <div id="add_input_hidden"></div>
           <input type="hidden" name="movie_id" value="<?php echo $movieId ?>">
@@ -205,7 +192,7 @@ if(isset($_POST['ticket_end_time'])){
 
     <!-- ↓サイドメニュー（バナーのとこ）↓ -->
     <article>
-      
+
         <div id="bannerzone">
           <div class="search">
             <form action="#" method="get">

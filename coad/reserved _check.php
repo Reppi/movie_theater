@@ -145,10 +145,6 @@ for($i = 0; $i <= 5; $i++){
 if(isset($_POST['select_sheet'])){
 	$selectSheet = $_POST['select_sheet'];
 }
-// echo "selectSheet: ".$selectSheet;
-
-
-
 
 ?>
 <!-- HTML5で開発します -->
@@ -232,10 +228,6 @@ foreach($ticketArray as $key => $value){
 
 	$target = str_replace("ticket","",$key);
 	$target --;
-	// if ($ticketGetArray['ticket_id'] == $target){
-	// 	$ticketGetArray;
-	// }
-
 	foreach($ticketGetArray as $key2 => $value2){
 		if($target == $value2['ticket_id']){
 			echo $value2['ticket_name'];
@@ -386,25 +378,11 @@ foreach($ticketArray as $key => $value){
 
 						<p class="select_border"></p>
 
-<!-- 						<div class="select_content">
-							<p class="select_name">セキュリティコード</p>
-							<p class="space">　</p>
-							<p class="select_sum">
-							xxxx
-							</p>
-							<pclass="clearfix"></p>
-						</div> -->
-
-<!-- 						<p class="select_border"></p> -->
-
 						</div>
 
 						<p class="clearfix"></p>
 
 						<!-- TODO:戻るボタン  -->
-						<!-- <p class="next" id="cardnext">カード情報入力へ戻る</p> -->
-
-						<!-- <p class="select_border"></p> -->
 
 						</div>
 
