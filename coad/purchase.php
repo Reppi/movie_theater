@@ -161,6 +161,8 @@ if(isset($_POST['select_sheet'])){
 if($selectMember == 1){
   // TODO: 会員を押した場合
     // TODO: 会員ユーザ,passwordが一致し返り値会員IDを取得
+    $memberUserData = getMemberUserData($dbh, $_SESSION['USERID']);
+    $lastUserId = $memberUserData['user_id'];
 }else{
   // TODO: 非会員を押した場合
     // TODO: お客様情報を登録する。
@@ -168,10 +170,11 @@ if($selectMember == 1){
     if(!$InsertUserTicketFlag){
       $err['InsertUserTicket'] = "非会員ユーザ登録エラー";
     }
+    // MARK: ユーザ番号を取得
+    $lastUserId = getLastUserId($dbh);
+    $lastUserId = $lastUserId['user_id'];
 }
-// MARK: ユーザ番号を取得
-$lastUserId = getLastUserId($dbh);
-$lastUserId = $lastUserId['user_id'];
+
 
 // MARK: カード情報を登録する
 $InsertCardTicketFlag = InsertCardTicket($dbh,$setUserCardNo,$userCardEndYear,$userCardEndMonth,$userCardName,$lastUserId);
@@ -255,7 +258,7 @@ if($chk){
 					<div id="naka2">ご注文内容はご登録されたメールにお送り致します。<br />
 					ご確認お願いします。</div>
 
-					<a href="#"><button class="button2" type="submit">トップへ戻る</button></a>
+					<a href="./index.php"><button class="button2" type="submit">トップへ戻る</button></a>
 
 
 

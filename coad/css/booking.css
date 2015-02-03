@@ -13,75 +13,78 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 
 
 .lable{
-    width:700px;
-    margin-top:32px;
+		width:700px;
+		margin-top:32px;
 }
 
 #information{
-    width:700px;
-    margin-bottom:64px;
+		width:700px;
+		margin-bottom:64px;
 }
 
 #guest{
-    width:700px;
-    margin-bottom:64px;
+		width:700px;
+		margin-bottom:64px;
 }
 
 .information_content{
-    width:700px;
-    height:40px;
-    margin:24px 0 8px 0;
+		width:700px;
+		height:40px;
+		margin:24px 0 8px 0;
 }
 
 .content_name{
-    width:240px;
-    float:left;
+		width:240px;
+		float:left;
 }
 
 .element{
-    width:344px;
-    margin-left:84px;
-    float:left;
+		width:344px;
+		margin-left:84px;
+		float:left;
 }
 
 .information_border{
-    border-top:1px solid #cccccc;
-    width:668px;
+		border-top:1px solid #cccccc;
+		width:668px;
 }
 
 .text_name input{
-    float:left;
-    width:158px;
+		float:left;
+		width:44.5%;
+}
+.input_col4 input {
+		width: 19%;
 }
 
 .text{
-    margin-left:20px;
+		margin-left:20px;
 }
 
 .text_content{
-    width:340px;
+		width:340px;
 }
 
 .card{
-    margin-left:10px;
+		margin-left:10px;
 }
 
 .card_name input{
-    width:70px;
+		width:70px;
 }
 
 /* 次へボタン */
 #next{
-    width:224px;
-    line-height:48px;
-    margin-top:40px;
-    margin-bottom:32px;
-    margin-left:448px;
-    border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
-    -moz-border-radius: 5px;   /* Firefox用 */  
-    background-color:#ff7285;
-    color:#fff;
-    font-size:20px;
-    text-align:center;
+		width:224px;
+		line-height:48px;
+		margin-top:40px;
+		margin-bottom:32px;
+		margin-left:448px;
+		border-radius: 5px;        /* CSS3草案 */
+		-webkit-border-radius: 5px;    /* Safari,Google Chrome用 */
+		-moz-border-radius: 5px;   /* Firefox用 */
+		background-color:#ff7285;
+		color:#fff;
+		font-size:20px;
+		text-align:center;
 }

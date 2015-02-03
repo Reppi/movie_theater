@@ -1,8 +1,8 @@
 <?php
 //データベースに接続
 $host_name = "localhost";
-$dbms_user = "root";
-$dbms_pass = "";
+$dbms_user = "user";
+$dbms_pass = "user";
 
 $con = mysqli_connect($host_name,$dbms_user,$dbms_pass);
 mysqli_query($con,"SET NAMES utf8");
@@ -20,7 +20,7 @@ $password = $_POST['password'];
     echo "パスワードが未入力です";
   }
   else{
-     $sql="SELECT * FROM user where user_id='$user_id' AND password='$password'";
+     $sql="SELECT * FROM user where user_custom_id='$user_id' AND password='$password'";
      $result=mysqli_query($con,$sql);
 
      if($row = mysqli_fetch_array($result)){
@@ -31,14 +31,14 @@ $password = $_POST['password'];
         $_SESSION["USERID"] = $_POST["user_id"];
         header("Location: index.php");
         exit;
-    } 
+    }
     else {
       // 認証失敗
       $errorMessage = "ユーザIDあるいはパスワードに誤りがあります。";
-    } 
+    }
 
   }
-                
+
 // データベースの切断
     mysqli_close($con);
-?> 
+?>

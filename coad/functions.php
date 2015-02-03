@@ -202,4 +202,13 @@ function InsertFoodFlag($dbh,$foodValue,$InsertTicketLastId){
   $stmt->execute($params);
   return $stmt ? TRUE : FALSE;
 }
+
+function getMemberUserData($dbh,$userId){
+  $sql = "SELECT * FROM `user` WHERE `user_custom_id` = :userId limit 1";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(":userId"=>$userId));
+  $r = $stmt -> fetch();
+  return $r ? $r : FALSE;
+}
+
 ?>

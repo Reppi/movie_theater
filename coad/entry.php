@@ -34,13 +34,11 @@ require_once("header-meta.php");
 				<div id="contentszone">
 					<h2 class="clearfix">ご予約完了</h2>
 					<div id="contentscover">
-
-
 						<?php
 						//データベースに接続
 							$host_name = "localhost";
-    						$dbms_user = "root";
-						    $dbms_pass = "";
+    						$dbms_user = "user";
+						    $dbms_pass = "user";
 
 						    $con = mysqli_connect($host_name,$dbms_user,$dbms_pass);
 						    mysqli_query($con,"SET NAMES utf8");
@@ -70,7 +68,33 @@ require_once("header-meta.php");
 
 						    else{
 						      //以下のプログラムは新規登録を行うためのプログラムである。
-						      $sql="INSERT INTO user values('$user_id','$password','$name_sei','$name_mei','$furi_sei','$furi_mei','$sex','','$address_prefecture','$address_municipalities','$email','','','');";
+						      $sql="INSERT INTO
+									`user`(
+										`user_custom_id`,
+										`password`,
+										`name_sei`,
+										`name_mei`,
+										`furi_sei`,
+										`furi_mei`,
+										`sex`,
+										`address_prefecture`,
+										`address_municipalities`,
+										`email`,
+										`add_day`,
+										`user_flag`)
+									VALUES(
+										'$user_id',
+										'$password',
+										'$name_sei',
+										'$name_mei',
+										'$furi_sei',
+										'$furi_mei',
+										'$sex',
+										'$address_prefecture',
+										'$address_municipalities',
+										'$email',
+										now(),
+										1);";
 						      $result=mysqli_query($con,$sql);
 						      echo "{$user_id}様の登録が完了しました。";
 						    }
