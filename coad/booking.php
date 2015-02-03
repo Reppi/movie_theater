@@ -1,4 +1,7 @@
-﻿<?php
+<?php
+require_once("header-meta.php");
+?>
+<?php
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 $movieId = "";
 $ticketStartTime = "";

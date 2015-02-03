@@ -1,3 +1,6 @@
+<?php
+require_once("header-meta.php");
+?>
 ﻿<?php
 $movieId = "";
 $ticketStartTime = "";

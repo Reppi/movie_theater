@@ -1,3 +1,6 @@
+<?php
+require_once("header-meta.php");
+?>
 ﻿<!-- HTML5で開発します -->
 <!DOCTYPE html>
 

@@ -1,6 +1,7 @@
 <?php
-session_start();
-
+require_once("header-meta.php");
+?>
+<?php
 if (isset($_SESSION["USERID"])) {
   $errorMessage = "ログアウトしました。";
 }

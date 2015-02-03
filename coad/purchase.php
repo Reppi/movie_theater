@@ -1,5 +1,7 @@
 <?php
-
+require_once("header-meta.php");
+?>
+<?php
 require_once("functions.php");
 
 $dbh = connectDb();

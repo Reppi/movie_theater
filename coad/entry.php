@@ -1,4 +1,6 @@
-<!-- HTML5で開発します -->
+<?php
+require_once("header-meta.php");
+?>
 <!DOCTYPE html>
 
 <html>
@@ -32,10 +34,10 @@
 				<div id="contentszone">
 					<h2 class="clearfix">ご予約完了</h2>
 					<div id="contentscover">
-						
+
 
 						<?php
-						//データベースに接続 
+						//データベースに接続
 							$host_name = "localhost";
     						$dbms_user = "root";
 						    $dbms_pass = "";
@@ -74,7 +76,7 @@
 						    }
 						    	mysqli_close($con);
 
-							?> 
+							?>
 
 
 
@@ -82,9 +84,9 @@
 					</div>
 				</div>
 
-				
 
-		
+
+
 
 
 				<div id="bannerzone">

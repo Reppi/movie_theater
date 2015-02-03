@@ -1,4 +1,3 @@
-﻿
 
 		<!-- ↓グローバルメニュー↓ -->
 		<header id="header">
@@ -9,7 +8,7 @@
 				<a href="index.php"><img class="logo" src="images/logo.jpg"></a>
 				<a href="sign_up.php"><img class="member_botton" src="images/member_botton.png"></a>
 				<?php
-					session_start();
+
 					// ログイン状態のチェック
 					//セッションが入っていなければログインボタンを表示
 					if (!isset($_SESSION["USERID"])){
@@ -52,4 +51,3 @@
 
 		</header>
 		<!-- ↑グローバルメニュー↑ -->
-

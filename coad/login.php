@@ -1,4 +1,6 @@
-<!-- HTML5で開発します -->
+<?php
+require_once("header-meta.php");
+?>
 <!DOCTYPE html>
 <!-- test -->
 <!--「海賊王に俺はなる！」-->

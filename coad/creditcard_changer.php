@@ -1,4 +1,6 @@
-﻿<!-- HTML5で開発します -->
+<?php
+require_once("header-meta.php");
+?>
 <!DOCTYPE html>
 
 <html>
@@ -121,7 +123,7 @@
 							</div>
 
 						<p class="select_border"></p>
-					
+
 					</div>
 				</div>
 				<p class="clearfix"></p>

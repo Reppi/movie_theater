@@ -1,5 +1,7 @@
+<?php
+require_once("header-meta.php");
+?>
 ﻿<?php
-
 require_once("functions.php");
 
 $dbh = connectDb();
@@ -147,7 +149,6 @@ if(isset($_POST['select_sheet'])){
 }
 
 ?>
-<!-- HTML5で開発します -->
 <!DOCTYPE html>
 
 <html>
