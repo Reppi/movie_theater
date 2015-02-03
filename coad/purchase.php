@@ -14,12 +14,16 @@ $userNameMei = "";
 $userTell = "";
 $userEmail = "";
 $userAddress = "";
+$userAddressPrefecture = "";
+$userAddressMunicipalities = "";
+$setUserCardNo = "";
 $userCardNo1 = "";
 $userCardNo2 = "";
 $userCardNo3 = "";
 $userCardNo4 = "";
 $userCardEndMonth = "";
 $userCardEndYear = "";
+$userCardName = "";
 $userCardNameSei = "";
 $userCardNameMei = "";
 $selectSheet = "";
@@ -69,11 +73,11 @@ if(isset($_POST['user_email'])){
 }
 
 if(isset($_POST['user_address_prefecture'])){
-	$userAddress = $_POST['user_address_prefecture'];
+	$userAddressPrefecture = $_POST['user_address_prefecture'];
 }
 
 if(isset($_POST['user_address_municipalities'])){
-	$userAddress = $_POST['user_address_municipalities'];
+	$userAddressMunicipalities = $_POST['user_address_municipalities'];
 }
 
 if(isset($_POST['user_card_no_1'])){
@@ -112,6 +116,8 @@ if(isset($_POST['select_member'])){
 	$selectMember = $_POST['select_member'];
 }
 
+$setUserCardNo = $userCardNo1."-".$userCardNo2."-".$userCardNo3."-".$userCardNo4;
+$userCardName = $userCardNameSei.$userCardNameMei;
 
 
 $foodGetStrSet = "";
@@ -150,26 +156,52 @@ for($i = 0; $i <= 5; $i++){
 if(isset($_POST['select_sheet'])){
 	$selectSheet = $_POST['select_sheet'];
 }
+if($selectMember == 1){
+  // TODO: 会員を押した場合
+    // TODO: 会員ユーザ,passwordが一致し返り値会員IDを取得
+}else{
+  // TODO: 非会員を押した場合
+    // TODO: お客様情報を登録する。
+    $InsertUserTicketFlag = InsertUserTicket($dbh,$userNameSei,$userNameMei,$userAddressPrefecture,$userAddressMunicipalities,$userEmail,$selectMember);
+    if(!$InsertUserTicketFlag){
+      $err['InsertUserTicket'] = "非会員ユーザ登録エラー";
+    }
+}
+// MARK: ユーザ番号を取得
+$lastUserId = getLastUserId($dbh);
+$lastUserId = $lastUserId['user_id'];
 
-// TODO: フード情報のデータ形式に変換
+// MARK: カード情報を登録する
+$InsertCardTicketFlag = InsertCardTicket($dbh,$setUserCardNo,$userCardEndYear,$userCardEndMonth,$userCardName,$lastUserId);
+if($InsertCardTicketFlag){
+  echo "カード情報登録終了";
+}
+// MARK: 返り値 カードIDを受け取る
+$lastCardId = InsertCardTicketLastId($dbh);
+$lastCardId = $lastCardId['card_id'];
 
-// TODO: 会員を押した場合
-	// TODO: 会員ユーザ,passwordが一致し返り値会員IDを取得
-// TODO: 非会員を押した場合
-	// TODO: お客様情報を登録する。
-	// TODO: 返り値のお客様ID(ユーザTableのID)を受け取る
-
-// TODO: カード情報を登録する
-// TODO: 返り値 カードIDを受け取る
-
-
-// TODO: フードのデータ・ユーザID・カードIDを含めて InsertTicketReservedを編集。
-
-// TODO: 登録処理は確認前にする。
-
-$chk = InsertTicketReserved($dbh,$ticketStrSet,$movieId,$screenId);
+$chk = InsertTicketReserved($dbh,$ticketStrSet,$movieId,$screenId,$lastUserId,$lastCardId);
 if($chk){
 	// echo "成功";
+  var_dump($chk);
+  // TODO: フードのデータ・ユーザID・カードIDを含めて InsertTicketReservedを編集。
+  $InsertTicketLastId = InsertTicketLastId($dbh);
+  $InsertTicketLastId = $InsertTicketLastId['reserved_id'];
+
+  // MARK: foodの配列
+  // $foodGetArray
+
+  foreach($foodGetArray as $foodValue){
+    // TODO: フード情報のデータ形式に変換
+    $InsertFoodFlag = InsertFoodFlag($dbh,$foodValue,$InsertTicketLastId);
+    var_dump($InsertFoodFlag);
+  }
+
+
+
+
+  $foodData = $_POST['food_1'];
+  echo $foodData;
 }else{
 	// echo "失敗";
 }
@@ -233,7 +265,7 @@ if($chk){
 				<div id="main">
 				</div>
 
-		
+
 
 
 				<div id="bannerzone">

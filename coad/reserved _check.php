@@ -108,9 +108,10 @@ if(isset($_POST['user_card_name_mei'])){
 }
 
 if(isset($_POST['select_member'])){
-	$selectMember = $_POST['select_member'];
+	echo $selectMember = $_POST['select_member'];
+  $selectMember = (int)$selectMember;
 }
-echo $selectMember;
+
 
 $foodGetArray = array();
 $selectFoodGetArray = array();
@@ -296,7 +297,7 @@ foreach($ticketArray as $key => $value){
 						<!-- TODO:戻るボタン  -->
 						<!-- <p class="next" id="ticketnext">チケット予約へ戻る</p> -->
 
-
+          <?php if($selectMember != 1):?>
 					<h3>お客様情報</h3>
 
 					<div id="select">
@@ -348,7 +349,7 @@ foreach($ticketArray as $key => $value){
 					<p class="clearfix"></p>
 					<!-- TODO:戻るボタン  -->
 					<!-- <p class="next" id="usernext">お客様情報入力へ戻る</p> -->
-
+          <?php endif; ?>
 
 					<h3>お客様情報</h3>
 
@@ -399,7 +400,7 @@ foreach($ticketArray as $key => $value){
 						</div>
 
 						<p class="clearfix"></p>
-						
+
 						<!-- TODO:戻るボタン  -->
 						<!-- <p class="next" id="cardnext">カード情報入力へ戻る</p> -->
 
@@ -414,12 +415,14 @@ foreach($ticketArray as $key => $value){
 <input type="hidden" name="movie_id" value="<?php echo $movieId; ?>">
 <input type="hidden" name="ticket_start_time" value="<?php echo $ticketStartTime; ?>">
 <input type="hidden" name="ticket_end_time" value="<?php echo $ticketEndTime; ?>">
+<?php if($selectMember != 1):?>
 <input type="hidden" name="user_name_sei" value="<?php echo $userNameSei; ?>">
 <input type="hidden" name="user_name_mei" value="<?php echo $userNameMei; ?>">
 <input type="hidden" name="user_tell" value="<?php echo $userTell; ?>">
 <input type="hidden" name="user_email" value="<?php echo $userEmail; ?>">
 <input type="hidden" name="user_address_prefecture" value="<?php echo $userAddressPrefecture; ?>">
 <input type="hidden" name="user_address_municipalities" value="<?php echo $userAddressMunicipalities; ?>">
+<?php endif; ?>
 <input type="hidden" name="user_card_no_1" value="<?php echo $userCardNo1; ?>">
 <input type="hidden" name="user_card_no_2" value="<?php echo $userCardNo2; ?>">
 <input type="hidden" name="user_card_no_3" value="<?php echo $userCardNo3; ?>">
@@ -429,6 +432,7 @@ foreach($ticketArray as $key => $value){
 <input type="hidden" name="user_card_name_sei" value="<?php echo $userCardNameSei; ?>">
 <input type="hidden" name="user_card_name_mei" value="<?php echo $userCardNameMei; ?>">
 <input type="hidden" name="select_sheet" value="<?php echo $selectSheet; ?>">
+<input type='hidden' name='select_member' value='<?php echo $selectMember; ?>'>
 <?php
 foreach($selectFoodGetArray as $key => $value){
 ?>

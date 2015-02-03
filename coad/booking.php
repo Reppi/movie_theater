@@ -55,8 +55,9 @@ if(isset($_POST['select_sheet'])){
 // echo $selectSheet."   ";
 $selectSheetArray = explode(",",$selectSheet);
 
-if(isset($_POST['select_member'])){
-	echo $selectMember = $_POST['select_member'];
+if($_POST['select_member'] != ""){
+	$selectMember = $_POST['select_member'];
+  echo "SELECTMENBER: ".$selectMember;
 }
 
 // echo $selectMember;
@@ -280,7 +281,7 @@ foreach( $selectSheetArray as $value ) {
 
 					</div><!-- /information -->
 
-					
+
 				<form action="./reserved _check.php" method="post">
 				<?php
 					if($selectMember == 1){
@@ -368,7 +369,7 @@ foreach( $selectSheetArray as $value ) {
 							</div>
 						</div><!-- /information_content -->
 						<p class="information_border"></p>
-						
+
 						<div class="information_content">
 							<div class="content_name">お名前</div>
 							<div class="element text_name">
