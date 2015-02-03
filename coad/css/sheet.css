@@ -1,5 +1,4 @@
 @charset"uft-8";
-
 /* ◇CSSリセット◇ */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, abbr, address, cite, code, del, dfn, em, img,
@@ -71,7 +70,7 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin-left:56px;
     float:left;
 }
-    
+
 
 
 .num{
@@ -83,9 +82,9 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin-bottom:16px;
     margin-right:8px;
     text-align:center;
-    border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
-    -moz-border-radius: 5px;   /* Firefox用 */  
+    border-radius: 5px;        /* CSS3草案 */
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */
+    -moz-border-radius: 5px;   /* Firefox用 */
     cursor: pointer;
 }
 
@@ -118,9 +117,9 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin-left:32px;
     background-color:#e1d764;
     float:left;
-    border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
-    -moz-border-radius: 5px;   /* Firefox用 */  
+    border-radius: 5px;        /* CSS3草案 */
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */
+    -moz-border-radius: 5px;   /* Firefox用 */
 }
 
 .reservation_support{
@@ -129,9 +128,9 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin-left:72px;
     background-color:#f26e6e;
     float:left;
-    border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
-    -moz-border-radius: 5px;   /* Firefox用 */  
+    border-radius: 5px;        /* CSS3草案 */
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */
+    -moz-border-radius: 5px;   /* Firefox用 */
 }
 
 .recommended_sheet{
@@ -171,9 +170,9 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     width:42px;
     height:48px;
     background-color:#fff;
-    border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
-    -moz-border-radius: 5px;   /* Firefox用 */  
+    border-radius: 5px;        /* CSS3草案 */
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */
+    -moz-border-radius: 5px;   /* Firefox用 */
 }
 
 .select_sheet_num{
@@ -193,8 +192,8 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin-top:32px;
     margin-left:448px;
     margin-bottom:32px;
-    border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    border-radius: 5px;        /* CSS3草案 */
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */
     -moz-border-radius: 5px;   /* Firefox用 */
     font-size:20px;
     outline: none;
