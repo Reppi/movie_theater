@@ -85,14 +85,30 @@
 	background-color :#fff;
 }
 
+#screen{
+	line-height:70px;
+}
+
 .time ul li{
 	float:left;
-	width:116.75px;
+	width:117.65px;
 	height:75px;
 	border:1px solid #bfbfbf;
 	text-align:center;
-	line-height: 75px;
+	line-height: 20px;
 
+}
+
+.time ul li p{
+	margin-top:10px;
+}
+
+#st{
+	font-size:20px;
+	font-weight:bold;
+}
+#et{
+	font-size:14px;
 }
 
 .screen{

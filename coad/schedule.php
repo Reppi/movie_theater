@@ -26,18 +26,15 @@
 
 
 	$targetday = $targety."-".$targetm."-".$targetd;
-	$kuboday = $targetday." 00:00:00";
-	$endkuboday = $targetday." 23:59:59";
 
-	$kubo = "SELECT * FROM schedule WHERE movie_id";
 
 	//DB接続
-	$con = mysql_connect("localhost","root","");
+	$con = mysql_connect("localhost","user","user");
 
 	mysql_query("SET NAMES utf8");
 
 	//DB選択
-	$dbs = mysql_select_db("HAL_cinema");
+	$dbs = mysql_select_db("hal_cinema");
 
 
 
@@ -47,7 +44,9 @@
 
 	$targetmovie = "SELECT movie_title , movie_id FROM movie WHERE '$targetday' >= start_day && '$targetday' <= end_day";
 
-	$stime = "SELECT start_time , end_time FROM schedule";
+	// $stime = "SELECT start_time , end_time FROM schedule";
+
+	$stime = "SELECT schedule.start_time , schedule.end_time , movie.movie_title FROM schedule left outer join movie on schedule.movie_id = movie.movie_id";
 
 
 
@@ -88,7 +87,6 @@
 	</head>
 
 	<body>
-
 	<?php include("header.php"); ?>
 
 		<div id="wrapper" class="clearfix">
@@ -101,7 +99,6 @@
 						<?php
 							for($i=0;$i<7;$i++){
 								echo "<div class='week' id='".$i."'>";
-
 								if($w==6){
 								echo "<p class='blue'>".$m."/".$d."</p>";
 								}else if($w==0){
@@ -112,7 +109,6 @@
 								echo "</div>";
 								$d++;
 								$w++;
-
 								if($w==7){
 									$w=0;
 								}
@@ -145,7 +141,7 @@
 					<?php
 						$c = 0;
 						echo "<form action='sheet_select.php' method='POST' id='go_ticket'>";
-						while($row=mysql_fetch_array($rows)){
+						while($row=mysql_fetch_array($row2)){
 							echo "<div class='title'><p>".$row["movie_title"]."</p></div>";
 							echo "<div class='time'>";
 							echo "<ul>";
@@ -153,9 +149,11 @@
 								echo "<li>";
 								if($i==0){
 									$c = $c + 1;
-									echo "screen".$c;
+									echo "<span id='screen'>screen".$c."</span>";
 								}else{
-									echo "<p>10:00~11:00</p>";
+									$st = date('H:i' , strtotime($row["start_time"]));
+									$et = date('H:i' , strtotime($row["end_time"]));
+									echo "<p><span id='st'>".$st."</span>~<span id='et'>".$et."</span></p>";
 									echo "<input type='hidden' name='movie_id' value='1'>";
 									echo "<input type='hidden' name='ticket_time' value='10:00~11:00'>";
 									
