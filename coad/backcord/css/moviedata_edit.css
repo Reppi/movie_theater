@@ -1,3 +1,9 @@
+h2
+{
+	margin-left:260px;
+	margin-top:20px;
+}
+
 .input_tagname,.input_tag
 {
 	float:left;
@@ -123,4 +129,9 @@
 	margin-top:48px;
 	margin-left:548px;
 	margin-bottom:48px;
+}
+
+#uploader_h2
+{
+	margin-left:210px;
 }

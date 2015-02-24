@@ -1,5 +1,15 @@
 *{margin:0;}
 
+.fontred
+{
+	color:#A00;
+}
+
+.fontblue
+{
+	color:#00A;
+}
+
 h1
 {
 	text-align:center;

@@ -16,7 +16,22 @@
 		<link rel="stylesheet" href="css/moviedata_edit.css">
 		<!-- ↑ここにはそのページ用のcss↑ -->
 
-		<title>映画情報登録・編集 | HALシネマ</title>
+		<?php
+			error_reporting(E_ALL & ~E_NOTICE);
+			$message	= "アップロードする画像を選択してください。";
+
+			//画像アップロード処理
+			if(is_uploaded_file($_FILES["thumbnail"]["tmp_name"]))
+			{
+				if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], "thumbnail/".$_FILES["thumbnail"]["name"]))
+				{
+					chmod("thumbnail/".$_FILES["thumbnail"]["name"], 0644);
+				}
+				$message = "アップロードされました";
+			}
+		?>
+
+		<title>映画画像アップローダー | HALシネマ</title>
 
 	</head>
 
@@ -26,14 +41,16 @@
 			
 			<div id="main">
 
-				<h1>映画情報登録・編集</h1>
+				<h1>映画画像アップローダー</h1>
 
 				<div id="maininner">
-					<ul id="editmenu">
-						<li><a href="moviedata_edit_input.php">映画情報登録</a></li>
-						<li><a href="moviedata_edit_editing.php">映画情報編集</a></li>
-						<li><a href="moviedata_edit_uploader.php">映画画像アップローダー</a></li>
-					</ul>
+
+					<?php echo "<h2 id='uploader_h2'>".$message."</h2>"; ?>
+					
+					<form action="moviedata_edit_uploader.php" id="input_editform" method="post" enctype="multipart/form-data">
+						<input type="file" name="thumbnail">
+						<input type="submit" value="アップロード">
+					</form>
 				</div>
 
 			</div>
