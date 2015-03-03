@@ -50,7 +50,7 @@
 						echo "<a href='moviedata_edit_editing_input.php?id=".$data["id"]."'>";
 						echo "<div class='moviedata_edit_box'>";
 						echo "<div class='moviedata_edit_content'>";
-						echo "<div class='moviedata_edit_thumbnail'><img src='images/thumbnail/".$data["thm"]."'></div>";
+						echo "<div class='moviedata_edit_thumbnail'><img src='../images/thumbnail/".$data["thm"]."'></div>";
 						echo "<div class='moviedata_edit_details'>";
 						echo "<h3 class='moviedata_edit_title'>".$data["title"]."</h3>";
 						echo "<p class='moviedata_edit_text'>".$data["det"]."</p>";
