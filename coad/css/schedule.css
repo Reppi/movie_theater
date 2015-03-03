@@ -23,6 +23,13 @@
     justify-content:space-around;
 }
 
+.blue{
+	color:#5994CC;
+}
+.red{
+	color:#FF6078;
+}
+
 .week{
 	font-family:'ヒラギノ角ゴ ProN','sans-serif';
 	color:white;
@@ -84,17 +91,45 @@
 	background-color :#fff;
 }
 
+#screen{
+	line-height:70px;
+}
+
 .time ul li{
 	float:left;
-	width:116.75px;
+	width:117.65px;
 	height:75px;
 	border:1px solid #bfbfbf;
 	text-align:center;
+	line-height: 20px;
 
+}
+
+.time ul li p{
+	margin-top:10px;
+}
+
+#st{
+	font-size:20px;
+	font-weight:bold;
+}
+#et{
+	font-size:14px;
+}
+
+#not{
+	background:#f7f7f7;
 }
 
 .screen{
 	line-height:70px;
 }
 
+.gogo{
+	cursor:pointer;
+}
+
+.week{
+	cursor:pointer;
+}
 
