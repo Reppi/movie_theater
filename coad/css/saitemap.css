@@ -1,0 +1,22 @@
+﻿h5{
+	color:#ff7285;
+	font-size:15px;
+	width:280px;
+	border-bottom:dotted 1px #000;
+}
+
+#contentszone p{
+	margin-top:20px;
+	margin-bottom:20px;
+	font-size:10px;
+	color:#000;
+}
+
+#contentszone p a:hover{
+	opacity:0.5;
+}
+
+.top{
+	margin-top:30px;
+}
+
