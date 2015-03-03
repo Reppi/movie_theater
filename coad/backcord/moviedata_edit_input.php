@@ -21,11 +21,7 @@
 		<?php
 
 			// DB接続設定
-<<<<<<< .merge_file_zbxAeo
 			$connect = mysqli_connect("localhost","user","user");
-=======
-			$connect = mysqli_connect("localhost","root","");
->>>>>>> .merge_file_Vlm5z2
 			mysqli_select_db($connect,"hal_cinema");
 			mysqli_set_charset($connect,"utf8");
 			// DB接続設定終わり
@@ -98,11 +94,7 @@
 	<body>
 
 		<div id="wrapper">
-<<<<<<< .merge_file_zbxAeo
 
-=======
-			
->>>>>>> .merge_file_Vlm5z2
 			<div id="main">
 
 				<h1>映画情報登録</h1>
@@ -178,36 +170,20 @@
 				<h1>メニュー</h1>
 
 				<div id="menuinner">
-<<<<<<< .merge_file_zbxAeo
 
-=======
-					
->>>>>>> .merge_file_Vlm5z2
 					<ul>
 						<li><a href="menu.php">トップページ</a></li>
 						<li><a href="moviedata_edit.php">映画情報登録・編集</a></li>
 						<li><a href="schedule_edit.php">上映スケジュール登録・編集</a></li>
 						<li><a href="output_pdf.php">月別予約状況PDF出力</a></li>
 					</ul>
-<<<<<<< .merge_file_zbxAeo
 
 				</div>
 
 			</div>
 
-=======
-					
-				</div>
-
-			</div>
-			
->>>>>>> .merge_file_Vlm5z2
 		</div>
 
 	</body>
 
-<<<<<<< .merge_file_zbxAeo
 </html>
-=======
-</html>
->>>>>>> .merge_file_Vlm5z2
