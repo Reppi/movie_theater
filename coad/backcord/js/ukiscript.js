@@ -1,0 +1,1 @@
+/* copyright project_name */(function(){}).call(this);
