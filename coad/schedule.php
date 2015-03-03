@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	$y = date("Y");
 	$m = date("n");
 	$d = date("j");
@@ -8,6 +8,9 @@
 	$targetm = date("n");
 	$targetd = date("j");
 	$targetw = date("w");
+	$send_day = date("d");
+	$send_month = date("m");
+
 
 
 
@@ -17,6 +20,7 @@
 	if(isset($_POST["id"])){
 		$dayplus = $_POST["id"];
 		$targetd = $targetd + $dayplus;
+		$send_day = $send_day + $dayplus;
 		$targetw = $targetw + $dayplus;
 
 		if($targetw>=7){
@@ -24,9 +28,9 @@
 		}
 	}
 
-
+	$send_day = sprintf('%02d',$send_day);
 	$targetday = $targety."-".$targetm."-".$targetd;
-
+	$send_targetday = $targety."-".$send_month."-".$send_day;
 
 	//DB接続
 	$con = mysql_connect("localhost","user","user");
@@ -42,17 +46,42 @@
 	$str = "SELECT start_day , end_day FROM movie";
 	// $end = "SELECT end_day FROM movie";
 
-	$targetmovie = "SELECT movie_title , movie_id FROM movie WHERE '$targetday' >= start_day && '$targetday' <= end_day";
+	$targetmovie = "SELECT movie_title , movie_id , start_day , end_day FROM movie WHERE '$targetday' >= start_day && '$targetday' <= end_day";
 
 	// $stime = "SELECT start_time , end_time FROM schedule";
+	$rows = mysql_query($targetmovie,$con);	 
 
-	$stime = "SELECT schedule.start_time , schedule.end_time , movie.movie_title FROM schedule left outer join movie on schedule.movie_id = movie.movie_id";
+	// $movie_id3 = array();
+	// $count = 0;
+
+	// while($fukutomi = mysql_fetch_array($rows)){
+	// 	$movie_id3[$count] = $fukutomi['movie_id'];
+	// 	$count++; 
+	// }
+
+	
+	// $stime = array();
+	// $row = array();
+	// $cont = 0;
+
+	// foreach ($movie_id3 as $mid) {	
+	// 	$stime[$cont] = "SELECT start_time , end_time FROM schedule WHERE movie_id = 1";
+	// 	$row[$cont] = mysql_query($stime[$cont],$con);
+	// 	$cont++;
+	// }
+
+
+
+	// for($i=0;$i<count($row);$i++){
+	// 	$row7=mysql_fetch_array($row[$i]);
+	// 	echo $row7["start_time"];
+	// 	echo $row7["end_time"];
+	// }
 
 
 
 
-	$rows = mysql_query($targetmovie,$con);
-	$row2 = mysql_query($stime,$con);
+
 	// $rows2 = mysql_query($end,$con);
 
 
@@ -100,11 +129,11 @@
 							for($i=0;$i<7;$i++){
 								echo "<div class='week' id='".$i."'>";
 								if($w==6){
-								echo "<p class='blue'>".$m."/".$d."</p>";
+								echo "<p class='blue'>".$m."/".$d."(".$youbi[$w].")</p>";
 								}else if($w==0){
-								echo "<p class='red'>".$m."/".$d."</p>";
+								echo "<p class='red'>".$m."/".$d."(".$youbi[$w].")</p>";
 								}else{
-								echo "<p>".$m."/".$d."</p>";
+								echo "<p>".$m."/".$d."(".$youbi[$w].")</p>";
 								}
 								echo "</div>";
 								$d++;
@@ -139,35 +168,70 @@
 					</div> --> 
 					
 					<?php
-						$c = 0;
-						echo "<form action='sheet_select.php' method='POST' id='go_ticket'>";
-						while($row=mysql_fetch_array($row2)){
-							echo "<div class='title'><p>".$row["movie_title"]."</p></div>";
-							echo "<div class='time'>";
-							echo "<ul>";
-							for($i=0;$i<8;$i++){
-								echo "<li>";
-								if($i==0){
-									$c = $c + 1;
-									echo "<span id='screen'>screen".$c."</span>";
-								}else{
-									$st = date('H:i' , strtotime($row["start_time"]));
-									$et = date('H:i' , strtotime($row["end_time"]));
-									echo "<p><span id='st'>".$st."</span>~<span id='et'>".$et."</span></p>";
-									echo "<input type='hidden' name='movie_id' value='1'>";
-									echo "<input type='hidden' name='ticket_time' value='10:00~11:00'>";
-									
-								}
+						// while($row=mysql_fetch_array($row2)){
+						// 	echo "<div class='title'><p>".$row["movie_title"]."</p></div>";
+						// 	echo "<div class='time'>";
+						// 	echo "<ul>";
+						// 	for($i=0;$i<8;$i++){
+						// 		echo "<li>";
+						// 		if($i==0){
+						// 			$c = $c + 1;
+						// 			echo "<span id='screen'>screen".$c."</span>";
+						// 		}else{
+						// 			$st = date('H:i' , strtotime($row["start_time"]));
+						// 			$et = date('H:i' , strtotime($row["end_time"]));
+						// 			echo "<p><span id='st'>".$st."</span>~<span id='et'>".$et."</span></p>";
+						// 			echo "<input type='hidden' name='movie_id' value='1'>";
+						// 			echo "<input type='hidden' name='ticket_start_time' value='2015-03-02 16:00:00'>";
+						// 			echo "<input type='hidden' name='ticket_end_time' value='2015-03-02 17:00:00'>";
+						// 		}
+						// 		//idを取って来て時間をループさせる。
+						// 		// while();
+						// 		echo "</li>";
+						// 	}
+						// 	echo "</ul>";
+						// 	echo "</div>";
+						// }
+							$c = 1;
+							while($row8=mysql_fetch_array($rows)){
+								$new_stime = "SELECT start_time , end_time FROM schedule WHERE movie_id =".$row8['movie_id'].""; 
+								$stime_row = mysql_query($new_stime,$con);
+								$count=0;
+								echo "<div class='title'><p>".$row8["movie_title"]."</p></div>";
+								echo "<div class='time'>";
+								echo "<ul>";
+								echo "<li><span id='screen'>screen".$c."</span></li>";
+								while($count<7){
+									if($row=mysql_fetch_array($stime_row)){
+										$st = date('H:i' , strtotime($row["start_time"]));
+										$et = date('H:i' , strtotime($row["end_time"]));
+										echo "<li class='gogo'>";
+										echo "\n";
+										echo "<form action='sheet_select.php' method='GET' class='go_ticket'>";
+										echo "\n";
+										echo "<p><span id='st'>".$st."</span>~<span id='et'>".$et."</span></p>";
+										echo "\n";
+										echo "<input type='hidden' name='movie_id' value='".$row8['movie_id']."'>";
+										echo "\n";
+										echo "<input type='hidden' name='ticket_start_time' value='".$send_targetday." ".$row['start_time']."'>";
+										echo "\n";
+										echo "<input type='hidden' name='ticket_end_time' value='".$send_targetday." ".$row['end_time']."'>";
+										echo "\n";
+										echo "</form>";
+										echo "\n";
+										echo "</li>";
 
-								//idを取って来て時間をループさせる。
-								// while();
-								echo "</li>";
+										$count++;
+									}else{
+										echo "<li id='not'></li>";
+										$count++;
+									}
 								}
-							echo "</ul>";
-							echo "</div>";
-						}
+								echo "</ul>";
+								$c++;
+							}
 
-						echo "</form>";
+						
 
 					?>
 					</div><!-- slider -->
