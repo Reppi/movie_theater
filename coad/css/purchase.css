@@ -10,7 +10,7 @@
 
 
 #left-column{
-		
+
 		width : 700px;
 		float : left;
 }
@@ -110,7 +110,7 @@ button.button2{
 
 		width: 100%;
 		height: 56px;
-		background-color: #DDDDDD; 
+		background-color: #DDDDDD;
 	/*	margin-left: 40px;*/
 		margin-top: 25px;
 }
@@ -608,10 +608,9 @@ button.button2{
 
 
 
-		 padding-bottom: 10px;
-		 padding-left: 15px
+		padding-bottom: 10px;
+		padding-left: 15px
 
 
 
 }
-

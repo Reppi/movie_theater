@@ -1,4 +1,6 @@
-<!-- HTML5で開発します -->
+<?php
+require_once("header-meta.php");
+?>
 <!DOCTYPE html>
 
 <html>
@@ -23,10 +25,10 @@
 		$thumbail 	= $_GET['thm'];
 		$detail		= $_GET['det'];
 		$day		= $_GET['day'];
-		$event_day	= spliti ("-", $day, 3);
+		$event_day	= @spliti ("-", $day, 3);
 
 		// DB接続設定
-		$connect = mysqli_connect("localhost","root","");
+		$connect = mysqli_connect("localhost","user","user");
 		mysqli_select_db($connect,"hal_cinema");
 		mysqli_set_charset($connect,"utf8");
 		// DB接続設定終わり
@@ -37,11 +39,11 @@
 		$data = mysqli_fetch_array( $result, MYSQLI_ASSOC );
 
 	?>
-SELECT 受注表.受注番号,顧客表.顧客名,
+<!-- SELECT 受注表.受注番号,顧客表.顧客名,
          商品表.商品名,受注表.受注個数,受注表.納品日
          FROM 受注表,顧客表,商品表
          WHERE 受注表.顧客コード = 顧客表.顧客コード
-               AND 受注表.商品コード = 商品表.商品コード ;
+               AND 受注表.商品コード = 商品表.商品コード ; -->
   </head>
 
   <body>
@@ -79,7 +81,7 @@ SELECT 受注表.受注番号,顧客表.顧客名,
         </div>
 
         <div id="bannerzone">
-          <!-- サイドコンテンツ置くとこ 横幅236px -->バナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナー
+          <?php include("bannerzone.php"); ?>
         </div>
 
       </article>

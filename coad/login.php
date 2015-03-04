@@ -49,7 +49,7 @@ require_once("header-meta.php");
         </div>
 
         <div id="bannerzone">
-          <!-- サイドコンテンツ置くとこ 横幅236px -->バナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナー
+          <?php include("bannerzone.php"); ?>
         </div>
 
       </article>

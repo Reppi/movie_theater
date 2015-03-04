@@ -4,7 +4,7 @@ $(function(){
 
 	$(".week").click(function(){
 		var dayplus = $(this).attr("id");
-			$("#inmask").val(dayplus);	
+			$("#inmask").val(dayplus);
 			$('#mask').submit();
 	});
 
@@ -13,6 +13,3 @@ $(function(){
 	});
 
 });
-
-
-

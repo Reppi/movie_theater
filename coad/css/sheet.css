@@ -1,5 +1,4 @@
 @charset"uft-8";
-
 /* ◇CSSリセット◇ */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, abbr, address, cite, code, del, dfn, em, img,
@@ -71,22 +70,22 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin-left:56px;
     float:left;
 }
-    
+
 
 
 .num{
     font-size:23px;
     width:42px;
     line-height:48px;
-    background-color:#fff;
+    background-color:#d8d8d8;
     float:left;
     margin-bottom:16px;
     margin-right:8px;
     text-align:center;
-    border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
-    -moz-border-radius: 5px;   /* Firefox用 */  
-
+    border-radius: 5px;        /* CSS3草案 */
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */
+    -moz-border-radius: 5px;   /* Firefox用 */
+    cursor: pointer;
 }
 
 /* おすすめ座席・予約済み用background-color */
@@ -96,6 +95,13 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 
 .num.recommended{
     background-color:#e1d764;
+}
+
+.num.selectedSheet{
+/*    color: #ccc;
+    background-color: #999;*/
+    background-color: #fff;
+    box-shadow: 0 0 5px #fff,0 0 10px #E1D764;
 }
 
 /* おススメ・予約席 */
@@ -111,9 +117,9 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin-left:32px;
     background-color:#e1d764;
     float:left;
-    border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
-    -moz-border-radius: 5px;   /* Firefox用 */  
+    border-radius: 5px;        /* CSS3草案 */
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */
+    -moz-border-radius: 5px;   /* Firefox用 */
 }
 
 .reservation_support{
@@ -122,9 +128,9 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin-left:72px;
     background-color:#f26e6e;
     float:left;
-    border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
-    -moz-border-radius: 5px;   /* Firefox用 */  
+    border-radius: 5px;        /* CSS3草案 */
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */
+    -moz-border-radius: 5px;   /* Firefox用 */
 }
 
 .recommended_sheet{
@@ -148,8 +154,9 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 }
 
 #select_sheet{
-    width:670px;
-    height:112px;
+    /*width:670px;*/
+    min-height:112px;
+    padding: 16px 16px 32px 16px;
     background-color:#555555;
     margin:auto;
 }
@@ -163,9 +170,9 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     width:42px;
     height:48px;
     background-color:#fff;
-    border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
-    -moz-border-radius: 5px;   /* Firefox用 */  
+    border-radius: 5px;        /* CSS3草案 */
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */
+    -moz-border-radius: 5px;   /* Firefox用 */
 }
 
 .select_sheet_num{
@@ -176,7 +183,7 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 }
 
 /* チケット選択ボタン */
-#ticket{
+.ticket{
     width:220px;
     line-height:56px;
     background-color:#ff7285;
@@ -185,10 +192,16 @@ footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin-top:32px;
     margin-left:448px;
     margin-bottom:32px;
-    border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    border-radius: 5px;        /* CSS3草案 */
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */
     -moz-border-radius: 5px;   /* Firefox用 */
     font-size:20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.ticket:hover {
+    opacity: .75;
 }
 
 /* float解除 */

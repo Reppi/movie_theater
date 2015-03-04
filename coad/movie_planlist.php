@@ -1,4 +1,6 @@
-﻿<!-- HTML5で開発します -->
+<?php
+require_once("header-meta.php");
+?>
 <!DOCTYPE html>
 
 <html>
@@ -20,13 +22,13 @@
 
 		<?php
 			// DB接続設定
-			$connect = mysqli_connect("localhost","root","");
+			$connect = mysqli_connect("localhost","user","user");
 			mysqli_select_db($connect,"hal_cinema");
 			mysqli_set_charset($connect,"utf8");
 			// DB接続設定終わり
 
 			//タイトル・サムネイル画像・作品詳細・俳優・監督情報を取得
-			$sql = "SELECT movie_title as title,thumbnail as thm,movie_detail as det,actor as act,director as dir,start_day as sday FROM movie ORDER BY movie_id DESC";
+			$sql = "SELECT movie_title as title,thumbnail as thm,movie_detail as det,actor as act,director as dir,start_day as sday, end_day as eday FROM movie ORDER BY movie_id DESC";
 			$result = mysqli_query($connect,$sql);
 		?>
 	</head>
@@ -48,7 +50,7 @@
 							//映画情報を入れたdivを映画の総数だけ生成
 							while( $data = mysqli_fetch_array( $result ) )
 							{
-								if( $data["sday"] > date(Ynj))
+								if( $data["sday"] <= date("Y-m-d H:i:s") || date("Y-m-d H:i:s") >= $data["eday"] )
 								{
 									echo "<a href='movie_planlist_detail.php?title=".$data["title"]."&thm=".$data["thm"]."&det=".$data["det"]."&act=".$data["act"]."&dir=".$data["dir"]."'><div class='movielist_box'>";
 									echo "<div class='movielist_content'>";
@@ -69,7 +71,7 @@
 				</div>
 
 				<div id="bannerzone">
-					<!-- サイドコンテンツ置くとこ 横幅236px -->バナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナー
+					<?php include("bannerzone.php"); ?>
 				</div>
 
 			</article>

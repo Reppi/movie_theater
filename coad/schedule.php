@@ -1,4 +1,7 @@
 <?php
+require_once("header-meta.php");
+?>
+<?php
 	$y = date("Y");
 	$m = date("n");
 	$d = date("j");
@@ -28,12 +31,13 @@
 		}
 	}
 
+
 	$send_day = sprintf('%02d',$send_day);
 	$targetday = $targety."-".$targetm."-".$targetd;
 	$send_targetday = $targety."-".$send_month."-".$send_day;
 
 	//DB接続
-	$con = mysql_connect("localhost","user","user");
+	$con = @mysql_connect("localhost","user","user");
 
 	mysql_query("SET NAMES utf8");
 
@@ -49,22 +53,22 @@
 	$targetmovie = "SELECT movie_title , movie_id , start_day , end_day FROM movie WHERE '$targetday' >= start_day && '$targetday' <= end_day";
 
 	// $stime = "SELECT start_time , end_time FROM schedule";
-	$rows = mysql_query($targetmovie,$con);	 
+	$rows = mysql_query($targetmovie,$con);
 
 	// $movie_id3 = array();
 	// $count = 0;
 
 	// while($fukutomi = mysql_fetch_array($rows)){
 	// 	$movie_id3[$count] = $fukutomi['movie_id'];
-	// 	$count++; 
+	// 	$count++;
 	// }
 
-	
+
 	// $stime = array();
 	// $row = array();
 	// $cont = 0;
 
-	// foreach ($movie_id3 as $mid) {	
+	// foreach ($movie_id3 as $mid) {
 	// 	$stime[$cont] = "SELECT start_time , end_time FROM schedule WHERE movie_id = 1";
 	// 	$row[$cont] = mysql_query($stime[$cont],$con);
 	// 	$cont++;
@@ -149,7 +153,7 @@
 					<div id="slider">
 
 					<div id="today"><p><?php echo $targetm."月".$targetd."日(".$youbi[$targetw].")"; ?></p></div>
-					
+
 <!-- 					<div class="title">
 						<p>攻殻機動隊ARISE border : 4 Ghost Stands Alone</p>
 					</div>
@@ -165,8 +169,8 @@
 							<li></li>
 							<li></li>
 						</ul>
-					</div> --> 
-					
+					</div> -->
+
 					<?php
 						// while($row=mysql_fetch_array($row2)){
 						// 	echo "<div class='title'><p>".$row["movie_title"]."</p></div>";
@@ -194,7 +198,7 @@
 						// }
 							$c = 1;
 							while($row8=mysql_fetch_array($rows)){
-								$new_stime = "SELECT start_time , end_time FROM schedule WHERE movie_id =".$row8['movie_id'].""; 
+								$new_stime = "SELECT start_time , end_time FROM schedule WHERE movie_id =".$row8['movie_id']."";
 								$stime_row = mysql_query($new_stime,$con);
 								$count=0;
 								echo "<div class='title'><p>".$row8["movie_title"]."</p></div>";
@@ -207,7 +211,7 @@
 										$et = date('H:i' , strtotime($row["end_time"]));
 										echo "<li class='gogo'>";
 										echo "\n";
-										echo "<form action='sheet_select.php' method='GET' class='go_ticket'>";
+										echo "<form action='sheet_select.php' method='POST' class='go_ticket'>";
 										echo "\n";
 										echo "<p><span id='st'>".$st."</span>~<span id='et'>".$et."</span></p>";
 										echo "\n";
@@ -231,11 +235,11 @@
 								$c++;
 							}
 
-						
+
 
 					?>
 					</div><!-- slider -->
-		
+
 				</div>
 			</article>
 			<!-- ↑メインのコンテンツを置くとこ↑ -->

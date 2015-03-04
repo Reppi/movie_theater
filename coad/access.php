@@ -1,4 +1,6 @@
-﻿<!-- HTML5で開発します -->
+<?php
+require_once("header-meta.php");
+?>
 <!DOCTYPE html>
 
 <html>
@@ -36,14 +38,14 @@
 						elementType:"geometry",
 						stylers:
 						[
-							{ hue: "#FFFF00" }, 
-							{ saturation: 50 }, 
-							{ lightness: 30 }, 
-							{ gamma: 3.0 }, 
+							{ hue: "#FFFF00" },
+							{ saturation: 50 },
+							{ lightness: 30 },
+							{ gamma: 3.0 },
 						]
 					}
-				];	
-				var mapOptions = 
+				];
+				var mapOptions =
 				{
 					//初期中心地
 					center:cinema,
@@ -121,7 +123,7 @@
 				</div>
 
 				<div id="bannerzone">
-					<!-- サイドコンテンツ置くとこ 横幅236px -->バナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナー
+					<?php include("bannerzone.php"); ?>
 				</div>
 
 			</article>

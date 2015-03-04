@@ -1,4 +1,6 @@
-﻿<!-- HTML5で開発します -->
+<?php
+require_once("header-meta.php");
+?>
 <!DOCTYPE html>
 
 <html>
@@ -20,7 +22,7 @@
 
 		<?php
 			// DB接続設定
-			$connect = mysqli_connect("localhost","root","");
+			$connect = mysqli_connect("localhost","user","user");
 			mysqli_select_db($connect,"hal_cinema");
 			mysqli_set_charset($connect,"utf8");
 			// DB接続設定終わり
@@ -49,7 +51,7 @@
 							//映画情報を入れたdivを映画の総数だけ生成
 							while( $data = mysqli_fetch_array( $result ) )
 							{
-								if( $data["day"] >= date(Ynj) )
+								if( $data["day"] >= date("Y-m-d H:i:s") )
 								{
 									echo "<a href='event_detail.php?title=".$data["title"]."&thm=".$data["thm"]."&det=".$data["det"]."&day=".$data["day"]."'><div class='eventlist_box'>";
 									echo "<div class='eventlist_content'>";
@@ -69,7 +71,7 @@
 				</div>
 
 				<div id="bannerzone">
-					<!-- サイドコンテンツ置くとこ 横幅236px -->バナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナー
+					<?php include("bannerzone.php"); ?>
 				</div>
 
 			</article>

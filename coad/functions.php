@@ -72,8 +72,8 @@ function InsertTicketReserved($dbh,$ticketStrSet,$movieId,$screenId,$lastUserId,
     ":cardId"=>$lastCardId
   );
   $stmt->execute($params);
-  var_dump($params);
-  var_dump($stmt);
+  // var_dump($params);
+  // var_dump($stmt);
   return $stmt ? TRUE : FALSE;
 
 }

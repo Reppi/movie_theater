@@ -1,4 +1,6 @@
-<!-- HTML5で開発します -->
+<?php
+require_once("header-meta.php");
+?>
 <!DOCTYPE html>
 
 <html>
@@ -22,9 +24,9 @@
 
 			//週間ランキングなら0 月間なら1
 			$rankingType = 0;
-			
+
 			// DB接続設定
-			$connect = mysqli_connect("localhost","root","");
+			$connect = mysqli_connect("localhost","user","user");
 			mysqli_select_db($connect,"hal_cinema");
 			mysqli_set_charset($connect,"utf8");
 			// DB接続設定終わり
@@ -78,7 +80,7 @@
             </div>
 
 		<?php
-			
+
 			error_reporting(E_ALL & ~E_NOTICE);
 			$rankcnt = 1;
 			//チケット販売数が多い順にランキング生成
@@ -108,7 +110,7 @@
             </div>
           </div>
         <div id="bannerzone">
-          <!-- サイドコンテンツ置くとこ 横幅236px -->バナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナーバナー
+          <?php include("bannerzone.php"); ?>
         </div>
 
       </article>
